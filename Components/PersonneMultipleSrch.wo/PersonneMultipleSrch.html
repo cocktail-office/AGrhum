@@ -1,0 +1,60 @@
+<webobject name = "Container">
+  <webobject name = "IsNotInSelectionMode">
+    <div class="box">
+    <div class="boxTitre">Ajout de membres : </div>
+     <div style="padding:20px;">
+     <webobject name = "StrExistante" /> <br/><br/>
+     <webobject name = "Recherche" /> <br/>
+     </div>
+     </div>
+    <webobject name = "ShowSelectedPersonnes">
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">Liste des personnes s&eacute;lectionn&eacute;es</div>
+        <webobject name = "Toolbar"> <webobject name = "DelPersonne" /> </webobject>
+        <webobject name = "PersonnesTBV" />
+        <webobject name = "Content" />
+      </div>
+    </webobject>
+  </webobject>
+  <webobject name = "ModeRecherche">
+    <webobject name = "NotCreation">
+	    <webobject name = "PersonneSrch" />
+	    <webobject name = "Revenir"></webobject>
+	    <webobject name = "ShowSelect"> <webobject name = "Selectionner" /> </webobject>
+    </webobject>
+    <webobject name = "Creation">
+        <webobject name = "PersonneAdmin"></webobject>
+        <webobject name = "Annuler"></webobject>
+        <webobject name = "CreerEtSelectionner"></webobject>
+    </webobject>
+  </webobject>
+  <webobject name = "ModeStructure">
+    <webobject name = "ModeStructureContainer">
+    <table>
+        <tr>
+            <td style="vertical-align:top;width:40%">
+                <div style="height:450px;width:auto;overflow:scroll;">
+                    <webobject name = "GroupesTree" />
+                </div>
+            </td>
+            <td style="vertical-align:top;width:60%">
+                <div class="box">
+                <div class = "boxTitre">Membres du groupe</div>
+                    <webobject name = "HasMembres">
+	                    <webobject name = "ViewMembres"></webobject>
+	                    <webobject name = "Revenir"></webobject>
+                        <webobject name = "SelectionnerStrMembres"></webobject>
+                    </webobject>
+                    <webobject name = "Else">
+                        <div style="height:400px;width:400px">
+                            Aucun membre dans ce groupe
+                        </div>
+                        <webobject name = "Revenir"></webobject>
+                    </webobject>
+                </div>
+            </td>
+        </tr>
+    </table>
+    </webobject>
+  </webobject>
+</webobject>

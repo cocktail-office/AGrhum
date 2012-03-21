@@ -1,0 +1,109 @@
+PersonneGroupesFormContainer : AjaxUpdateContainer {
+    id = mainContainerId;
+}
+
+unBlocErreur : BlocErreur {
+    erreurMsg = erreurSaisieMessage;
+}
+
+GenericFieldObserver : AjaxObserveField {
+    fullsubmit = true;
+    action = doNothing;
+}
+
+PopUpRepartAssociations : WOPopUpButton {
+  list = lesRepartAssociations;
+  selection = selectedRepartAssociation;
+  item = unRepartAssociation;
+  displayString = unRepartAssociationDisplayString;
+  size = 10;
+  
+  //disabled = isEditing;
+}
+
+MyToolbar1: CktlAjaxToolbar {
+    
+}
+
+FPersonneNom : WOString {
+    value = getPersonneNom;
+}
+
+PopupRepartAssociationsObserver : AjaxObserveField {
+    action  = doNothing;
+    fullSubmit = false;
+    elementName = "span";
+    updateContainerID = mainContainerId;
+}
+
+
+FCommentaires : WOText {
+    value = selectedRepartAssociation.rasCommentaire;
+}
+FAssociation : CktlAjaxAssociationSelect {
+    id = associationSelectID;
+    utilisateur = utilisateurPersId;
+    selection = selectedAssociation;
+    value = selectedRepartAssociation.toAssociation.assLibelle;
+    editingContext = edc;
+    label = "Association";
+    treeViewTitle = "Associations"; 
+    treeViewClassName = "greenlighting";
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    //userFiltersDictionary = userFiltersDictionary; 
+    userFiltersFormID = ^formID;
+    treeRootObject = associationContacts;
+    showRoot = true;
+    treeQualifier = contactQualifier;
+    textFieldSize = 30;
+    confirmBeforeSelection = true;
+    updateContainerID = mainContainerId;
+    displayDeleteButton = false;
+    emptyValue = "Nouveau role";
+}
+
+
+FDebut : CktlAjaxDatePicker {
+    dateValue = selectedRepartAssociation.rasDOuverture;
+//  dateformat = "%d/%m/%Y"; 
+    size = 12;
+    
+}
+
+FFin : CktlAjaxDatePicker {
+	dateValue = selectedRepartAssociation.rasDFermeture;
+	//dateformat = "%d/%m/%Y"; 
+	size = 12;
+}
+
+AddRepartAssociation : CktlAjaxButton {
+    action = onRepartAssociationCreer;  
+    type = "new";
+    updateContainerID = ^updateContainerId;    
+    title = addRepartAssociationTitle;
+    showBusyImage = true;
+}
+
+DeleteRepartAssociation : CktlAjaxButton {
+    action = onRepartAssociationSupprimer;  
+    type = "delete";
+    updateContainerID = ^updateContainerId;    
+    title = "Supprimer ce rôle";
+    showBusyImage = true;
+}
+
+IsNotShowRoles : WOConditional {
+    condition = isShowRoles;
+    negate = true;
+}
+
+
+IsShowRoles : WOConditional {
+    condition = isShowRoles;
+}
+
+IsShowRolesPopup : WOConditional {
+    condition = isShowRolesPopup;
+}
+

@@ -1,0 +1,22 @@
+Wrapper : Wrapper {
+    section = sectionHeberge;
+}
+
+AssistantHebergeContainer : AjaxUpdateContainer {
+    id = "AssistantHebergeContainer";
+}
+
+AssistantHeberge : AssistantPersonne {
+    modules = modules;
+    indexModuleActif = session.indexModuleActifGestionPersonne; 
+    etapes = etapes;
+    updateContainerId = "AssistantHebergeContainer";
+    utilisateurPersId = session.applicationUser.getPersId;
+    personne = selectedPersonne;
+    editingContext = editingContext;
+    modeIndividu = true;
+    defaultTypeTel = "PRF";
+    vlansAutorises = vlansAutorises;
+    showEtatCivil = true;
+    
+}

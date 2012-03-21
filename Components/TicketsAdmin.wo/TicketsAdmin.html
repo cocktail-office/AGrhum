@@ -1,0 +1,36 @@
+<webobject name = "Form">
+  <webobject name = "Container">
+    <div class = "box">
+      <div class = "boxTitre">Liste des tickets</div>
+      <table width = "100%">
+        <tbody>
+          <tr>
+            <td class = "label">Login : </td>
+            <td>
+              <webobject name = "Filtre" />
+              <webobject name = "Filtrer" />
+              <webobject name = "Reset" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan = "2">
+              <webobject name = "ToolBar"> <webobject name = "CreerTicket" /> <webobject name = "SupprimerTicket" /> </webobject>
+              <webobject name = "HasTickets">
+                <webobject name = "Resultats" />
+              </webobject>
+              <webobject name = "HasNoTickets">
+	            <div style = "margin:5px;min-height:200px;padding-top:20px;text-align: center;">Aucun ticket WIFI trouvé ou enregistré pour l'instant.</div>
+	          </webobject>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <webobject name = "IsTicketSelect">
+        <webobject name = "EditTicket" />
+    </webobject>
+    <webobject name = "IsTicketCreation">
+        <webobject name = "EditTicketCreation" />
+    </webobject>
+  </webobject>
+</webobject>

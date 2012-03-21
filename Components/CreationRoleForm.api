@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="CreationRoleForm" wocomponentcontent="false">    <binding name="newRole"/>
+        <validation message="'newRole' must be bound to a settable value">
+            <unsettable name="newRole"/>
+        </validation>
+        <binding name="onCreationSuccess"/>
+        <binding name="parent"/>
+        <validation message="'parent' is a required binding.">
+            <unbound name="parent"/>
+        </validation>
+        
+    
+        
+    <validation message="'newRole' is a required binding.">
+            <unbound name="newRole"/>
+        </validation>
+    <binding name="typeAssociation"/>
+        <validation message="'typeAssociation' is a required binding.">
+            <unbound name="typeAssociation"/>
+        </validation>
+    <binding name="newAssociationReseau"/>
+        <validation message="'newBinding' is a required binding.">
+            <unbound name="newAssociationReseau"/>
+        </validation>
+    <binding name="updateContainerID"/>
+        <validation message="'updateContainerID' is a required binding.">
+            <unbound name="updateContainerID"/>
+        </validation>
+    </wo>
+</wodefinitions>

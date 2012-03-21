@@ -1,0 +1,11 @@
+StructureCA : StructureCaUI {
+	editingContext = editingContext;
+	structure = personne;
+	isReadOnly = false;
+	isEditing = isPersonneCAEditing;
+	utilisateurPersId = utilisateurPersId;	
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}

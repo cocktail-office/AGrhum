@@ -1,0 +1,210 @@
+Wrapper : Wrapper {
+    section = sectionRolesFonctions;
+}
+
+GestionTypeAsso : TypeAssociationAdminView {
+	editingContext = edc;
+	selectedTypeAssociation = selectedTypeAssociation;
+	updateContainerID = roleContainerId;	
+}
+
+Form : WOForm {
+	id = "associationForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+HasRole : WOConditional {
+	condition = isSelectedRole;
+}
+
+hasNoRole : WOConditional {
+	condition = isSelectedRole;
+	negate = true;
+}
+
+EditRole : EditRole {
+	edc = editingContext;
+	onAnnuler = annuler;
+	onValider = terminer;
+	role = roleOuFonction;
+	wantReset = resetEditRole;
+	//updateContainerID = roleContainerId;
+	updateContainerID = "editRoleContainerID";
+	formID = "TestDetailForm";
+	associationPere = fonctionParente;
+}
+
+
+NomRole : WOString {
+	value = roleOuFonction.assLibelle;
+}
+
+RolesTree : CktlAjaxAssociationTreeView {
+    id = "associationTree";
+    editingContext = editingContext;
+    label = "Fonction parente";
+    treeViewTitle = "Sélectionnez la fonction parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    // les deux liens ci-dessous permettent d'avoir l'affichage voulu.
+    //treeRootObject = associationRacine;
+    //showRoot = true;
+    showRoot = false;
+    selection = roleOuFonction;
+    // Pas besoin de treeQualifier ni de userFiltersDictionnary ici
+    userFiltersFormID = "associationForm";
+    userFiltersDictionary = filters;
+    utilisateurPersId = session.applicationUser.persId;
+    cssSelectedAssociation = "selected";
+    didSelectAssociation = onSelectRole;
+   // onSuccessSelect = onSelectRole;
+    // Attention de bien prendre onSelectUpdateContainerID et non une copie du lien équivalent pour les trees des groupes.
+    onSelectUpdateContainerID = roleContainerId;
+    reset = resetLeftTreeView;
+    filtreTexte = true;
+    treeParentObject = fonctionParente;
+    expandToLevel = 1;
+    
+    //treeQualifier = treeQualifier;
+}
+
+
+AddRole : CktlAjaxButton {
+    type = "new";
+    action = openAjoutRole;
+    dialogIDForOpen = "AjoutRoleModalW";
+    enabled = peutAjouterRole;
+    title = "Ajouter un rôle ou une fonction";
+} 
+
+MoveRole : CktlAjaxButton {
+    type = "next";
+    action = openMoveRole;
+//    dialogIDForOpen = "MoveRoleModalW";
+    dialogIDForOpen = associationTreeViewDialogID;
+    enabled = peutModifierRoleSelectionne;
+    title = "Déplacer le rôle (changer de parent)";
+} 
+
+OpenDelRole : CktlAjaxButton {
+    type = "delete";
+    //action = openDelRole;
+    action = deleteRole;
+    //dialogIDForOpen = "DelRoleModalW";
+    enabled = peutSupprimerRoleSelectionne;
+    title = deleteSelectedRoleTitle;
+    //onClickBefore = "confirm('Voulez-vous supprimer la fonction sélectionnée ?')";
+    onClickBefore = beforeClickOnDelete;
+    
+    updateContainerID = roleContainerId;
+} 
+
+AjoutRoleModal : CktlAjaxWindow {
+	id = "AjoutRoleModalW";
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onClose;
+    closeUpdateContainerID = roleContainerId;
+}
+
+
+
+MoveRoleModal : CktlAjaxWindow {
+    //id = "MoveRoleModalW";
+    id = associationTreeViewDialogID;
+    showOpener = false;
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onClose;
+    //onClose = onCloseAssociationTreeViewMoveRoleModal;
+    closeUpdateContainerID = roleContainerId;
+}
+
+RolesTreeForMove : CktlAjaxAssociationTreeView{
+    id = "roleTreeForMove";
+    selection = selectedAssociationForMove;
+    editingContext = editingContext;
+    label = "Fonction parente";
+    treeViewTitle = "Sélectionnez la fonction parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+	treeViewClassName = "greenlighting";
+    utilisateurPersId = session.applicationUser.persId;
+    onSelectUpdateContainerID = roleContainerId;
+    //updateContainerID = roleContainerId;
+    cssSelectedAssociation = "selected";
+    onSuccessSelect = onSelectRoleForMove;
+    //didSelectAssociation = onSelectRoleForMove;
+    treeRootObject = associationRacine;
+    showRoot = true;
+    reset = resetMoveTreeView;
+    filtreTexte = true;
+    //filtreTexte = false;
+    treeParentObject = fonctionParente;
+    confirmBeforeSelection = true;
+    expandToLevel = 1;
+    
+    //didSelectAssociation = closeWindow;
+    userFiltersFormID = "associationForm";
+    userFiltersDictionary = filters;
+}
+
+ContainerGestionTypeAsso : AjaxUpdateContainer {
+	id = "ContainerGestionTypeAssoID";
+}
+
+ContainerRole : AjaxUpdateContainer {
+	id = roleContainerId;
+}
+
+isRole : WOConditional {
+	condition = isRole;
+}
+
+isNotRole: WOConditional {
+	condition = isRole;
+	negate = true;
+}
+
+FormMoveRole : ERXWOForm {
+    embedded = true;
+}
+
+CreationRoleForm : CreationRoleForm {
+	parent = fonctionParente;
+	onCreationSuccess = closeAndSelectNewRole;
+	newRole = newCreatedAssociation;
+	newAssociationReseau = newAssociationReseau;
+	typeAssociation = typeAssociation;
+	updateContainerID = roleContainerId;
+}
+
+ToolbarTree : CktlAjaxToolbar {
+	
+}
+
+RolesTreeMove : MoveRoleForm {
+	id = associationSelectID;
+	utilisateurPersId = session.applicationUser.persId;
+	selection = selectedAssociationForMove;
+	editingContext = editingContext;
+	confirmBeforeSelection = true;
+	treeViewTitle = "Nouvelle Fonction Parente";
+	treeViewWidth = 600; 
+	treeViewHeight = 250;
+	userFiltersDictionary = filters;
+	userFiltersFormID = "associationForm";
+	
+	updateContainerID = roleContainerId;
+	
+	selectionRole = roleOuFonction;
+	newParent = fonctionParente;
+}

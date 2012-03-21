@@ -1,0 +1,18 @@
+Wrapper : Wrapper {
+	section = sectionIndividu;
+}
+
+AssistantPersonneContainer : AjaxUpdateContainer {
+    id = "AssistantPersonneContainer";
+}
+
+AssistantPersonne : AssistantPersonne {
+	modules = modules;
+	indexModuleActif = session.indexModuleActifGestionPersonne; 
+	etapes = etapes;
+	updateContainerId = "AssistantPersonneContainer";
+	utilisateurPersId = session.applicationUser.getPersId;
+	personne = selectedPersonne;
+	editingContext = editingContext;
+	modeIndividu = true;
+}

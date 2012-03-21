@@ -1,0 +1,56 @@
+Container : AjaxUpdateContainer {
+	id = "CreationParamContainer";
+}
+
+ParamForm : ERXWOForm {
+//ParamForm : WOForm {
+	embedded = true;
+	multipleSubmit = true;
+}
+
+ClefParam : WOTextField {
+	value = newParametre.paramKey;
+	style = "height:14px; width:300px; font-size:12px;";
+}
+
+AjaxObserverField : CktlAjaxObserveField {
+	updateContainerID = "CreationParamContainer";
+}
+
+SaisieTypeLibelle : WOPopUpButton {
+	item = currentType;
+	list = types;
+	selection = selectedType;
+	displayString = currentType.typeLibelle;
+}
+
+SaisieTypeCode : WOString {
+	value = selectedType.typeIdInterne;
+}
+
+SaisieTypeDescription : WOString {
+	value = selectedType.typeDescription;
+}
+
+AnnulationCreation : CktlAjaxSubmitButton {
+	type = "cancel";
+	action = annuler;
+	text = "Annuler";
+	title = "Annulation de la création d'un paramètre";
+	updateContainerID = "CreationParamContainer";
+	showBusyImage = true;
+}
+
+ValidationParametre : CktlAjaxSubmitButton {
+	type = "validate";
+	action = ajouterParametre;
+	text = "Enregistrer";
+	updateContainerID = "CreationParamContainer";
+	title = "Enregistrer le nouveau paramètre en base";
+	showBusyImage = true;
+}
+
+
+
+
+

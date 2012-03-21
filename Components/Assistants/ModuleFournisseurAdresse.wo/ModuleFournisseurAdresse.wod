@@ -1,0 +1,20 @@
+Form : WOForm {
+    id = "PersonAdminForm";
+    multipleSubmit = true;
+}
+
+PersonneAdresse : PersonneAdressesUI {
+    editingContext = editingContext;
+    personne = personne;
+    selectedRepartPersonneAdresse = selectedRepartPersonneAdresse;
+    isReadOnly = false;
+    isEditing = isAdresseEditing;
+    utilisateurPersId = utilisateurPersId;
+    onAdresseDidChange = ^onAdresseDidChange;
+    defaultTypeAdr = defaultTypeAddresseFacturation;
+    // qualifierForTypeAdresse = qualifierAdrPro;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}

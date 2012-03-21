@@ -1,0 +1,21 @@
+Wrapper : Wrapper {
+    section = sectionFournisseur;
+}
+
+AssistantFournisseursContainer : AjaxUpdateContainer {
+    id = "AssistantFournisseurContainer";
+}
+
+AssistantFournisseur : AssistantFournisseur {
+    modules = modules;
+    indexModuleActif = session.indexModuleActifGestionPersonne; 
+    etapes = etapes;
+    updateContainerId = "AssistantFournisseurContainer";
+    utilisateurPersId = session.applicationUser.getPersId;
+    editingContext = editingContext;
+    modeIndividu = modeIndividu;
+    fournisseur = selectedFournisseur;
+    personne = selectedPersonne;
+    terminer = terminer;
+    selectedCompte = selectedCompteForFournis;
+}

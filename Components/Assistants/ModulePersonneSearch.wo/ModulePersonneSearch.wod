@@ -1,0 +1,28 @@
+PersonneSrch : PersonneSrch {
+	updateContainerID = ^updateContainerId;
+	callbackOnCreerPersonne = "onCreerPersonne";
+	editingContext = ^editingContext;
+	displayGroup = displayGroup;
+	isReadOnly = false;
+	showDetail = false;
+	showDetailInModalBox = true;
+	updateContainerIDOnSelectionnerPersonneInTableview = ^updateContainerIDOnSelectionnerPersonneInTableview;
+	selectedPersonne = personne;
+	utilisateurPersId = ^utilisateurPersId;
+	wantReset = ^wantRefresh;
+	persType = ^persType;
+	persTypeInterneExterne = ^persTypeInterneExterne;
+	showIndividus = showIndividus;
+	showStructures = showStructure;
+	showPersonnesInternes = true;
+	showPersonnesExternes = true;
+	showRadioInterneExterne = false;
+	showEmailInIndividuForm = false;
+	showCodeFournisInStructureForm = false;
+}
+
+Form : ERXWOForm {
+    multipleSubmit = true;
+    embeded = true;
+}
+

@@ -1,0 +1,55 @@
+<webobject name = "Wrapper">
+
+<webobject name = "ContainerGestionTypeAsso">
+<div class = "box" style="height:100px;">
+<div class = "boxTitre">Gestion du type d'association</div>
+ 
+ 	<webobject name = "GestionTypeAsso"/>
+
+</div> 
+</webobject>
+<webobject name = "ContainerRole">
+  <webobject name = "isRole">
+  <div class = "box">
+	<div class = "boxTitre">Gestion du r&ocirc;le ou de la fonction</div>
+    <div style = "width:300px;float:left;">
+    
+      <webobject name = "ToolbarTree">
+        <webobject name = "AddRole" />
+        <webobject name = "OpenDelRole" />
+        
+        <webobject name = "MoveRole"/>
+        
+      <webobject name = "Form"> <webobject name = "RolesTree" /> </webobject>
+      </webobject>
+      <webobject name = "AjoutRoleModal">
+	     <webobject name = "CreationRoleForm"></webobject>
+      </webobject>
+      <webobject name = "MoveRoleModal">
+      	<webobject name = "RolesTreeMove"></webobject>
+      </webobject>
+    </div>
+
+    <div style = "margin-left:301px;background-color:#E4F1FF;">
+    
+        <div class="boxTitre" style="text-align:center;">
+          <webobject name = "HasRole">&Eacute;dition du r&ocirc;le / de la fonction : <webobject name = "NomRole" /></webobject>&nbsp;
+        </div>
+        <webobject name = "HasRole"><webobject name = "EditRole" /></webobject>
+        <webobject name = "hasNoRole">
+        	<div style = "font-weight:bold;">Aucune fonction n'est s&eacute;lectionn&eacute;e. </div><br/><br/>
+        </webobject>
+      
+      <br style = "clear:both;" />
+      
+      
+    </div>
+  </div>  
+  </webobject>
+  <webobject name = "isNotRole">
+  	<div class = "box" style="height:100px;">
+  		<div style = "font-weight:bold;">Le type de fonction choisi n'est actuellement pas impl&eacute;ment&eacute;. </div><br/><br/>
+  	</div>
+  </webobject>
+  </webobject>
+</webobject>

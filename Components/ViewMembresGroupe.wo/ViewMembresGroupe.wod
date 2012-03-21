@@ -1,0 +1,56 @@
+Filtre : WOTextField {
+    value = filtreMembres;
+}
+
+Filtrer : CktlAjaxSubmitButton {
+    action = filtrerMembres;
+    type = "find";
+    updateContainerID = membresContId;
+    title = "Filtrer les membres";
+}
+
+ResetFiltre : CktlAjaxButton {
+    action = resetFiltre;
+    type = "reset";
+    title = "Réafficher tout";
+    updateContainerID = membresContId;
+}
+
+ToolBar : CktlAjaxToolbar {
+}
+
+ToolBarContainer : AjaxUpdateContainer {
+	id = toolbarContId;
+}
+
+HasMembres : WOConditional {
+    condition = hasMembres;
+}
+
+Else : WOConditional {
+    condition = hasMembres;
+    negate = true;
+}
+
+RepartsTBV : CktlAjaxTableView {
+    id = membresTbvId;
+    dg = membresDisplayGroup;
+    colonnes = colonnes;
+    item = currentRepartStructure;
+    selectionMultipleEnabled = true;
+    selectionEnabled = true;
+    height = tbvHeight;
+    width = tbvWidth;
+    updateContainerID = ^updateContainerID;
+    callbackOnSelectionner = refreshToolbar;
+    forceUniqueSelection = true;
+}
+
+Content : WOComponentContent {
+	
+}
+
+Container : AjaxUpdateContainer {
+	id = membresContId;
+}
+

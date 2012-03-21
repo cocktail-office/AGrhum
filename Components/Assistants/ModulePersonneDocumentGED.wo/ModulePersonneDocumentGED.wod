@@ -1,0 +1,3 @@
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}

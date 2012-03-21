@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="AssistantPersonne" wocomponentcontent="false">    <binding name="updateContainerId"/>
+        <binding name="persType"/>
+        <binding name="persTypeInterneExterne"/>
+    <binding name="modeIndividu"/>
+    <binding name="utilisateurPersId"/>
+    <binding name="editingContext"/>
+    <binding name="modules"/>
+    <binding name="etapes"/>
+    <binding name="vlansAutorises"/>
+    </wo>
+</wodefinitions>

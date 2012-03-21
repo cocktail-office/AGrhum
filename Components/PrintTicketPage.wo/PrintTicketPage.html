@@ -1,0 +1,40 @@
+<webobject name = "ModalWrapper">
+<div style="background-color:white;">
+Compte crée pour l'accès au WIFI à <webobject name = "Etab"></webobject>
+<h2>Détails de l'inscription</h2>
+<hr/>
+<table>
+    <tbody>
+      <tr>
+        <th>Ticket (login) :</th>
+        <td>
+            <webobject name = "Login"></webobject>
+        </td>
+      </tr>
+      <tr>
+        <th>
+            Mot de passe :
+        </th>
+        <td><webobject name = "Mdp"></webobject></td>
+      </tr>
+      <tr>
+        <th>Date de l'inscription : </th>
+        <td><webobject name = "DateInscr"></webobject></td>
+      </tr>
+      <tr>
+        <th>Date de fin de validité : </th>
+        <td>
+            <webobject name = "DateValid"></webobject>
+        </td>
+       </tr>
+    </tbody>
+  </table>
+  <hr/>
+  <webobject name = "TODO">
+    Le site WIFI de l'établissement est à l'adresse :
+  </webobject>
+  <webobject name = "Js">
+    window.onload = function() { window.print(); };
+  </webobject>
+  </div>
+</webobject>

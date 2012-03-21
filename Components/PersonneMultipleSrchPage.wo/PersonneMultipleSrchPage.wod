@@ -1,0 +1,66 @@
+Wrapper : WrapperModal {
+}
+
+PersonneMultipleContainer : AjaxUpdateContainer {
+	id = personneMultipleUpdateContainerId;
+}
+
+Form : ERXWOForm {
+    embedded = true;
+}
+
+IsSearchMode : WOConditional {
+	condition = isSearchMode;
+}
+
+IsRoleSelectionMode : WOConditional {
+	condition = isSearchMode;
+	negate = true;
+}
+
+MultiplePersSrch : PersonneMultipleSrch {
+    utilisateurPersId = session.applicationUser.persId;
+    selectionDisplayGroup = selectedPersonnesDisplayGroup;
+    wantReset = resetAjoutMembresDialog;
+    editingContext = editingContext;
+}
+
+MultiplePersRole : PersonneMultipleRole {
+    utilisateurPersId = session.applicationUser.persId;
+    structureGroupe = structure;
+    selectedRepartAssociationsList = selectedRepartAssociationsList;
+    //selectionDisplayGroup = selectedPersonnesDisplayGroup;
+    wantReset = resetAjoutRolesDialog;
+    //editingContext = editingContext;
+}
+
+ChoisirRoles : CktlAjaxButton {
+    action = choisirRoles;
+    text = "Choisir les rôles";
+    type = "next";
+    title = "Choisir le(s) rôle(s) à affecter à ces personnes";
+    updateContainerID = personneMultipleUpdateContainerId;
+}
+
+RetourSelection : CktlAjaxButton {
+    action = retournerSelectionMode;
+    text = "Annuler rôles et retourner à la sélection";
+    type = "previous";
+    title = "Annuler les rôles choisis et retourner à la sélection des personnes";
+    updateContainerID = personneMultipleUpdateContainerId;
+}
+
+AjouterPersonnes : CktlAjaxButton {
+    action = ajouterPersonnes;
+    text = ajouterPersonnesLabel;
+    type = "validate";
+    title = "Ajouter ces personnes aux membres du groupe";
+    updateContainerID = personneMultipleUpdateContainerId;
+}
+
+Annuler : CktlAjaxButton {
+    action = annulerAjout;
+    text = "Annuler";
+    type = "cancel";
+}
+

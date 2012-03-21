@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="ModuleContactGroupe.java" wocomponentcontent="false">
+
+        <binding name="personne"/>
+        <validation message="'personne' is a required binding.">
+            <unbound name="personne"/>
+        </validation>
+    <binding name="updateContainerId"/>
+        <validation message="'updateContainerID' is a required binding.">
+            <unbound name="updateContainerId"/>
+        </validation>
+    <binding name="utilisateurPersId"/>
+        <validation message="'utilisateurPersId' is a required binding.">
+            <unbound name="utilisateurPersId"/>
+        </validation>
+    </wo>
+</wodefinitions>

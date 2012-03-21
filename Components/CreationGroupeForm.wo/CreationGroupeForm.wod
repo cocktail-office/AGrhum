@@ -1,0 +1,31 @@
+
+NomNewGroupe : WOTextField {
+    value = nomNewGroupe;
+}
+
+TypesGroupe : CktlAjaxTableView {
+    id = "TypesGrpTBV";
+    colonnes = colonnes;
+    dg = typeGroupeDisplayGroup;
+    item = currentTypeGroupe;
+    selectionMultipleEnabled = true;
+    selectionEnabled = true; 
+    afficherBarreDeNavigation = false; 
+    afficherBarreDeStatut = false;
+    height = "200px;";
+    triMultiColonneEnabled = false;
+    shouldDisplayHeader = false;
+}
+
+AjouterGroupe : CktlAjaxSubmitButton {
+	action = ajouterGroupe;
+	text = "Créer le groupe";
+	title = "Créer et enregistrer le groupe dans le référentiel";
+	type = "new";
+	updateContainerID = "CreationGroupeContainer";
+	showBusyImage = true;
+}
+
+Container : AjaxUpdateContainer {
+	id = "CreationGroupeContainer";
+}

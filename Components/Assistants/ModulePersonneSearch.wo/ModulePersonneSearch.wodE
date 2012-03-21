@@ -1,0 +1,15 @@
+PersonneSrch : PersonneSrch {
+	updateContainerID = ^updateContainerId;
+	callbackOnCreerPersonne = onCreerPersonne;
+	editingContext = ^editingContext;
+	displayGroup = displayGroup;
+	isReadOnly = false;
+	showDetail = false;
+	showDetailInModalBox = true;
+	updateContainerIdOnSelectionnerPersonneInTableview = ^updateContainerIdOnSelectionnerPersonneInTableview;
+	selectedPersonne = personne;
+	utilisateurPersId = ^utilisateurPersId;
+	wantReset = wantReset;
+	persType = ^persType;
+	persTypeInterneExterne = ^persTypeInterneExterne;
+}

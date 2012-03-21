@@ -1,0 +1,75 @@
+Wrapper : Wrapper {
+    section = sectionParametres;
+}
+
+Container : AjaxUpdateContainer {
+	id = parametersContainerId;
+}
+
+ToolBarSelection : CktlAjaxToolbar {
+	
+}
+
+AddParameter : CktlAjaxButton {
+	type = "new";
+    action = openAjoutParametre;
+    dialogIDForOpen = "AjoutParamModalW";
+    enabled = peutAjouterParametre;
+    title = "Ajouter un paramètre";
+}
+
+DeleteParameter : CktlAjaxButton {
+	type = "delete";
+    action = deleteParametre;
+    enabled = peutSupprimerParamSelectionne;
+    title = deleteSelectedParamTitle;
+    onClickBefore = "confirm('Voulez-vous supprimer le paramètre sélectionné ?')";
+    updateContainerID = parametersContainerId;
+}
+
+ParametersMASelection : ASelectComponent {
+	allObjects = allParametersMA;
+	simpleColonnes = colonnes;
+    id = "ParametersMATree";
+    selection = selectedParameter;
+    nbObjectsParPage = 50;
+    utilisateurPersId = session.applicationUser.persId;
+    callBackOnSelectionner = selectionnerParametres;
+    wantReset = resetLeftTreeView;
+    filtreKey = paramKeyConstante;
+}
+
+HasParametersMA : WOConditional {
+	condition = selectedParameter;
+}
+
+NomParametersMA : WOString {
+	value = selectedParameter.paramKey;
+}
+
+EditParam : EditParametres {
+	editingContext = editingContext;
+	parametre = selectedParameter;
+	wantReset = resetParamEditor;
+	updateContainerID = parametersContainerId;
+	formID = "ParametresDetailForm";
+	utilisateurPersId = session.applicationUser.persId;
+}
+
+AjoutParamModal : CktlAjaxWindow {
+	id = "AjoutParamModalW";
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 600;
+    minHeight = 400;
+    onClose = onClose;
+    closeUpdateContainerID = parametersContainerId;
+}
+
+CreationParamForm : CreationParamForm {
+	onCreationSuccess = closeAndSelectNewParam;
+	newParametre = newCreatedParameter;
+	updateContainer = parametersContainerId;
+}

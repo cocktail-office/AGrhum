@@ -1,0 +1,168 @@
+PersonneSrch : PersonneSrch {
+    updateContainerID = "SelectedPersContainer";
+    editingContext = ^editingContext;
+    displayGroup = displayGroup;
+    isReadOnly = false;
+    showDetail = false;
+    showDetailInModalBox = false;
+    updateContainerIDOnSelectionnerPersonneInTableview = "SelectedPersContainer";
+    utilisateurPersId = ^utilisateurPersId;
+    showIndividus = true;
+    showStructures = true;
+    showPersonnesInternes = true;
+    showPersonnesExternes = true;
+    showRadioInterneExterne = false;
+    persType = personneSrchType;
+    selectedPersonne = selectedPersonne;
+    selectionMultipleEnabled = true;
+    callbackOnCreerPersonne = switchToModeCreation;
+    wantReset = wantResetPersonneSrch;
+}
+
+Container : AjaxUpdateContainer {
+	id = "SelectedPersContainer";
+}
+
+Revenir : CktlAjaxButton {
+	action = showAccueil;
+    updateContainerID = "SelectedPersContainer";
+    type = "previous";
+    text = "Revenir";
+}
+
+Selectionner : CktlAjaxButton {
+	action = selectPersonnesRecherche;
+	updateContainerID = "SelectedPersContainer";
+	type = "new";
+	text = "Sélectionner";
+}
+
+SelectionnerStrMembres : CktlAjaxButton {
+    action = selectPersonnesStructure;
+    updateContainerID = "SelectedPersContainer";
+    type = "new";
+    text = "Sélectionner";
+}
+
+ShowSelect : WOConditional {
+	condition = hasResults;
+}
+
+PersonnesTBV : PersonneTableView {
+    dg = ^selectionDisplayGroup;
+    colonnesKeys = "numero,nomPrenomAffichage";
+    utilisateurPersId = ^utilisateurPersId;
+    height = "200";
+}
+
+ShowSelectedPersonnes : WOConditional {
+	condition = hasPersonneSelected;
+}
+
+Toolbar : CktlAjaxToolbar {
+	
+}
+
+DelPersonne : CktlAjaxButton {
+	action = delSelectedPersonne;
+	type = "delete";
+	updateContainerID = "SelectedPersContainer";
+	title = "Enlever la personne de la liste des personnes sélectionnées";
+}
+
+Content : WOComponentContent {
+	
+}
+
+ModeRecherche : WOConditional {
+	condition = modeRecherche;
+}
+
+ModeStructure : WOConditional {
+	condition = modeStructure;
+}
+
+StrExistante : CktlAjaxButton {
+	action = showStructures;
+	text = "Ajouter un ou plusieurs membres à sélectionner dans les structures / groupes du référentiel";
+	type = "new";
+	updateContainerID = "SelectedPersContainer";
+}
+
+Recherche : CktlAjaxButton {
+    action = showRecherche;
+    text = "Ajouter directement un membre : individu ou structure / personne morale à partir de son nom";
+    type = "new";
+    updateContainerID = "SelectedPersContainer";
+}
+
+IsNotInSelectionMode : WOConditional {
+	condition = isInSelectionMode;
+	negate = true;
+}
+
+ModeStructureContainer : AjaxUpdateContainer {
+	id = "MdeStrContainer";
+}
+
+GroupesTree : CktlAjaxGroupeTreeView{
+    id = "MultSrchGroupeTree";
+    selection = selectedStructure;
+    editingContext = ^editingContext;
+    label = "Structure parente";
+    treeViewTitle = "Sélectionnez la structure parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    userFiltersFormID = "groupeForm";
+    userFiltersDictionary = filters;
+    utilisateurPersId = session.applicationUser.persId;
+    containerGroupeSelectionneId = "MdeStrContainer";
+    cssSelectedGroupe = "selected";
+    filtreTexte = true;
+    onSuccessSelect = updateMembres;
+    reset = wantReset;
+}
+
+ViewMembres : ViewMembresGroupe {
+	displayGroup = membresDisplayGroup;
+	tbvWidth = "400";
+	tbvHeight = "400";
+}
+
+HasMembres : WOConditional {
+	condition = hasMembres;
+}
+
+Else : WOConditional {
+    condition = hasMembres;
+    negate = true;
+}
+
+NotCreation : WOConditional {
+	condition = modeCreation;
+	negate = true;
+}
+
+Creation : WOConditional {
+	condition = modeCreation;
+}
+
+PersonneAdmin : PersonneAdminView {
+	editingContext = ^editingContext;
+	personne = selectedPersonne;
+    utilisateurPersId = session.applicationUser.persId;
+}
+
+Annuler : CktlAjaxButton {
+	action = annulerCreation;
+	updateContainerID = "SelectedPersContainer";
+	text = "Annuler";
+	type = "cancel";
+}
+
+CreerEtSelectionner : CktlAjaxButton {
+    action = creerPersonne;
+    updateContainerID = "SelectedPersContainer";
+    type = "new";
+    text = "Créer et sélectionner";
+}

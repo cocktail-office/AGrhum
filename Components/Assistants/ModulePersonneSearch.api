@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="ModulePersonneSearch" wocomponentcontent="false">    <binding name="modeIndividu"/>
+        <validation message="'modeIndividu' is a required binding.">
+            <unbound name="modeIndividu"/>
+        </validation>
+    <binding name="personne"/>
+        <validation message="'personne' is a required binding.">
+            <unbound name="personne"/>
+        </validation>
+        <validation message="'personne' must be bound to a settable value">
+            <unsettable name="personne"/>
+        </validation>
+    <binding name="wantRefresh"/>
+        <validation message="'wantRefresh' must be bound to a settable value">
+            <unsettable name="wantRefresh"/>
+        </validation>
+    <binding name="persType"/>
+    <binding name="persTypeInterneExterne"/>
+    <binding name="utilisateurPersId"/>
+    <binding name="updateContainerIDOnSelectionnerPersonneInTableview"/>
+    <binding name="editingContext"/>
+        <validation message="'editingContext' is a required binding.">
+            <unbound name="editingContext"/>
+        </validation>
+    <binding name="updateContainerId"/>
+    </wo>
+</wodefinitions>

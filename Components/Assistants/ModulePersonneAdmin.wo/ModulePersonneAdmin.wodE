@@ -1,0 +1,11 @@
+PersonneAdmin : PersonneAdminUI {
+	editingContext = editingContext;
+	isEditing = true;
+	personne = personne;
+	allowEditCivilite = true;
+	allowShowNoInsee = false;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}

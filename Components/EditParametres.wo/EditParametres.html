@@ -1,0 +1,126 @@
+<webobject name = "IfParametersMA">
+<webobject name = "editParamContainer">
+  <webobject name = "DetailForm">
+    <div class = "box" style = "margin-bottom:1em;text-align:left;">
+      <div style = "padding:10px;">
+        <!-- <h3 style = "color:#339933;">Param&egrave;tres s&eacute;lectionn&eacute;s<webobject name = "IndicateurBusy1" /></h3> -->
+        <webobject name = "ParametresInPlace">
+        
+        <webobject name = "ParamView">
+        <table cellpadding = "2" cellspacing = "0" width = "100%">
+          <tr valign = "top">
+            <td width = "25%"> Cl&eacute; :</td>
+            <td width = "75%"><webobject name = "ClefParam" /></td>
+          </tr>
+          <tr valign = "top">
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+              <td> Valeur :</td>
+              <td><webobject name = "ParamValeur" /></td>
+          </tr>
+          <tr valign = "top">
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+              <td> D&eacute;tails :</td>
+              <td><webobject name = "ParamCommentaires" /></td>
+          </tr>
+          <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+            <tr valign = "top">
+              <td> Libell&eacute; du type :</td>
+              <td><webobject name = "ParamTypeLibelle" /></td>
+            </tr>
+            <tr valign = "top">
+              <td> Description du type :</td>
+              <td><webobject name = "ParamTypeDescription" /></td>
+            </tr>
+          <tr>
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+            <td />
+            <td align = "left">
+              
+              <webobject name = "ModificationParametres" />
+            </td>
+          </tr>
+        </table>
+        </webobject>
+        
+        <webobject name = "ParamEdition">
+        <table cellpadding = "2" cellspacing = "0" width = "100%">
+        
+          <tr valign = "top">
+            <td width = "25%"> Cl&eacute; :</td>
+            <td width = "75%"><webobject name = "ClefParam" /></td>
+          </tr>
+          <tr valign = "top">
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+              <td> Valeur :</td>
+              <td><webobject name = "SaisieValeur" /></td>
+              <td>
+                <webobject name = "showPersId"> <webobject name = "BTRecherchePersId" /> </webobject>
+                <webobject name = "dontShowPersId" />
+                <webobject name = "showCStructure"> <webobject name = "BTRechercheCStructure" /> </webobject>
+                <webobject name = "dontShowCStructure" />
+              </td>
+          </tr>
+          <tr valign = "top">
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+              <td> D&eacute;tails :</td>
+              <td><webobject name = "SaisieCommentaires" /></td>
+          </tr>
+          <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+            <tr valign = "top">
+              <td> Libell&eacute; du type :</td>
+              <td>
+                <webobject name = "AjaxObserverField"><webobject name = "SaisieTypeLibelle" /></webobject>
+              </td>
+            </tr>
+            <tr valign = "top">
+              <td> Code du type :</td>
+              <td><webobject name = "SaisieTypeCode" /></td>
+            </tr>
+            <tr valign = "top">
+              <td> Description du type :</td>
+              <td><webobject name = "SaisieTypeDescription" /></td>
+            </tr>
+          <tr>
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+            <td />
+            <td align = "left">
+            
+              <webobject name = "AnnulationSaisie" />
+              <webobject name = "EditionParametres" />
+            </td>
+          </tr>
+          
+        </table>
+        </webobject>
+        
+        </webobject>
+        
+        
+      </div>
+    </div>
+ </webobject> 
+</webobject>
+</webobject>
+<webobject name = "CStructure">
+  <webobject name = "FormModalStructure">
+    <webobject name = "CStructureSrch" />
+    <webobject name = "BoutonSelectionContainer">
+    <webobject name = "ShowBoutonSelection">
+    <webobject name = "BoutonSelectionSubmit"></webobject>
+    </webobject>
+    </webobject>
+    <webobject name = "DontShowBoutonSelection"></webobject>
+  </webobject>
+</webobject>
+<webobject name = "PersId"> 
+<webobject name = "FormModalIndividu">
+    <webobject name = "PersIdSrch" />
+    <webobject name = "BoutonSelectionContainer">
+    <webobject name = "ShowBoutonSelection">
+    <webobject name = "BoutonSelectionSubmit"></webobject>
+    </webobject>
+    </webobject>
+    <webobject name = "DontShowBoutonSelection"></webobject>
+  </webobject>
+</webobject>
+<webobject name = "ElseParametersMA"> <webobject name = "NoParametersMAMessage" /> </webobject>

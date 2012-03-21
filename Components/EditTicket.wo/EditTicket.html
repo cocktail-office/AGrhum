@@ -1,0 +1,96 @@
+<webobject name = "Container">
+  <div class = "box">
+    <webobject name = "IsEdition">
+      <div class = "boxTitre">
+        <webobject name = "IsCreation">Cr&eacute;ation d'un ticket</webobject>
+        <webobject name = "IsNotCreation">Edition d'un ticket</webobject>
+      </div>
+      <table>
+        <tbody>
+          <tr>
+            <th>Login : </th>
+            <td>
+              <webobject name = "IsCreation"><webobject name = "LoginCreation" /></webobject>
+              <webobject name = "IsNotCreation"><webobject name = "VLogin" /></webobject>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <webobject name = "IsCreation">Mot de passe : </webobject>
+              <webobject name = "IsNotCreation">Nouveau mot de passe : </webobject>
+            </th>
+            <td><webobject name = "Mdp" /></td>
+          </tr>
+          <tr>
+            <th>Confirmer mot de passe : </th>
+            <td><webobject name = "MdpBis" /></td>
+          </tr>
+          <tr>
+            <th>Date de d&eacute;but de validit&eacute; : </th>
+            <td>
+            	<webobject name = "IsCreation"><webobject name = "DatePickerDebCreation" /></webobject>
+                <webobject name = "IsNotCreation"><webobject name = "DatePickerDeb" /></webobject>
+            </td>
+          </tr>
+          <tr>
+            <th>Date de fin de validit&eacute; : </th>
+            <td>
+              <webobject name = "DateValidFinContainer">
+              	<webobject name = "IsCreation"><webobject name = "DatePickerFinCreation" /></webobject>
+                <webobject name = "IsNotCreation"><webobject name = "DatePickerFin" /></webobject>
+                
+                <webobject name = "ChoixDureeFinJ" />
+                <webobject name = "ChoixDureeDemain" />
+                <webobject name = "ChoixDureeFinSem" />
+              </webobject>
+            </td>
+          </tr>
+          <tr>
+            <th>&nbsp;</th>
+            <td style = "text-align:right;">
+                <webobject name = "ChoixDuree1Mois" />
+                <webobject name = "ChoixDuree6Mois" />
+                <webobject name = "ChoixDureeFinAnneeU" />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <webobject name = "Annuler" />
+      <webobject name = "Valider" />
+    </webobject>
+    <webobject name = "IsVisu">
+      <div class = "boxTitre"> D&eacute;tail d'un ticket <webobject name = "Edit" /> </div>
+      <webobject name = "ExpObs">
+        <table>
+          <tbody>
+            <tr>
+              <th>Login : </th>
+              <td><webobject name = "VLogin" /></td>
+            </tr>
+            <tr>
+              <th>Mot de passe : </th>
+              <td>***** </td>
+            </tr>
+            <tr>
+              <th>Date de d&eacute;but de validit&eacute; : </th>
+              <td> <webobject name = "DateValidDeb" /> </td>
+            </tr>
+            <tr>
+              <th>Date de fin de validit&eacute; : </th>
+              <td> <webobject name = "DateValidFin" /> </td>
+            </tr>
+            <tr>
+              <td />
+              <td>
+                <br />
+                <webobject name = "ImprimerTicket" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </webobject>
+    </webobject>
+    <webobject name = "TicketPrintWindow"> </webobject>
+  </div>
+</webobject>

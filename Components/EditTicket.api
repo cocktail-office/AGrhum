@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="EditTicket.java" wocomponentcontent="false">
+
+        <binding name="ticket"/>
+        <validation message="'ticket' is a required binding.">
+            <unbound name="ticket"/>
+        </validation>
+    <binding name="formID"/>
+        <validation message="'formID' is a required binding.">
+            <unbound name="formID"/>
+        </validation>
+    <binding name="editingContext"/>
+    <binding name="updateContainerID"/>
+        <validation message="'updateContainerID' is a required binding.">
+            <unbound name="updateContainerID"/>
+        </validation>
+    <binding name="didCancel"/>
+    <binding defaults="Boolean" name="isCreation"/>
+    <binding name="willRefresh"/>
+    <binding name="didCreate"/>
+    </wo>
+</wodefinitions>

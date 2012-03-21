@@ -1,0 +1,15 @@
+Titre : WOString {
+    value = titre;
+}
+
+Body : WOBody {
+    onload = onloadJS;
+}
+
+Contenu : WOComponentContent {
+    
+}
+
+Notifs : CktlAjaxUiMessageContainer {
+    id = "UIMessageContainer";
+}

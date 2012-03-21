@@ -1,0 +1,81 @@
+ContainerAssociationSelectionne : AjaxUpdateContainer {
+	id = containerAssociationSelectionneId;
+}
+
+MoveForm : ERXWOForm {
+	id = "MoveForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+AssociationSelectionne : WOString {
+	value = selectionRole.assLibelle;
+}
+
+TreeView : CktlAjaxAssociationTreeView {
+	confirmBeforeSelection = ^confirmBeforeSelection;
+	editingContext = editingContext;
+	selection = selectedNewParent;
+	treeCollapsedImage = ^treeCollapsedImage;
+	treeCollapsedImageFramework = ^treeCollapsedImageFramework;
+	treeExpandedImage = ^treeExpandedImage;
+	treeExpandedImageFramework = ^treeExpandedImageFramework;
+	treeLeafImage = ^treeLeafImage;
+	treeLeafImageFramework = ^treeLeafImageFramework;
+	treeQualifier = ^treeQualifier;
+	treeRootObject = ^treeRootObject;
+	treeViewClassName = ^treeViewClassName;
+	treeViewHeight = ^treeViewHeight;
+	treeViewTitle = ^treeViewTitle;
+	treeViewWidth = ^treeViewWidth;
+	updateContainerID = ^updateContainerID;
+	userFiltersDictionary = ^userFiltersDictionary;
+	userFiltersFormID = ^userFiltersFormID;
+	onSelectUpdateContainerID = containerAssociationSelectionneId;
+	//didSelectAssociation = closeWindow;
+	showRoot = ^showRoot;
+	expandToLevel = 1;
+	reset = true;
+}
+
+hasNewParentSelected : WOConditional {
+	condition = hasSelectedNewParent;
+}
+
+selectedNewParent : WOString {
+	value = selectedNewParent.assLibelle;
+}
+
+ValiderParent : CktlAjaxSubmitButton {
+	text = "Valider nouveau parent";
+    type = "validate";
+    action = onSelectRoleForMove;
+    title = "Enregistrer le nouveau rôle parent dans le référentiel";
+    updateContainerID = containerAssociationSelectionneId;
+    showBusyImage = true;
+}
+
+AnnulerParent : CktlAjaxSubmitButton {
+	onClickBefore = "confirm('Voulez-vous annuler le choix de la nouvelle fonction parente ?')";
+    type = "cancel";
+    action = annuler;
+    text = "Annuler";
+    title = "Annulation du changement de fonction parente";
+    updateContainerID = containerAssociationSelectionneId;
+	showBusyImage = true;
+}
+
+hasNoMewParentSelected : WOConditional {
+	condition = hasSelectedNewParent;
+	negate = true;
+}
+
+Quitter : CktlAjaxSubmitButton {
+	onClickBefore = "confirm('Voulez-vous quitter et ne pas changer de fonction parente ?')";
+    type = "cancel";
+    action = quitter;
+    text = "Quitter";
+    title = "Annulation du déplacement";
+    updateContainerID = containerAssociationSelectionneId;
+	showBusyImage = true;
+}

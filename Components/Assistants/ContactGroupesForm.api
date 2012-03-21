@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="ContactGroupesForm.java" wocomponentcontent="false">
+            <binding name="repartStructure"/>
+            <validation message="'repartStructure' is a required binding.">
+                <unbound name="repartStructure"/>
+            </validation>
+            <binding name="utilisateurPersId"/>
+            <binding defaults="Boolean" name="isNew"/>
+            <binding name="formID"/>
+        
+    <binding name="updateContainerId"/>
+    <validation message="'updateContainerId' is a required binding.">
+            <unbound name="updateContainerId"/>
+        </validation>
+    </wo>
+</wodefinitions>

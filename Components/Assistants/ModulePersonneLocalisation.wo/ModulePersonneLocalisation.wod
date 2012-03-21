@@ -1,0 +1,27 @@
+IsStructure : WOConditional {
+	condition = personne.isStructure;
+}
+
+IsIndividu : WOConditional {
+	condition = personne.isIndividu;
+}
+
+GestSallesStr : GestSallesStructure {
+	structure = personne;
+	editingContext = editingContext;
+}
+
+GestSallesInd : GestSallesIndividu {
+	editingContext = editingContext;
+	individu = personne;
+	wantReset = wantReset;
+	isEditing = peutEditerPersonneLocalisation;
+}
+
+HasGSpotTables : WOConditional {
+	condition = hasGspotTables;
+}
+
+Else : ERXElse {
+	
+}

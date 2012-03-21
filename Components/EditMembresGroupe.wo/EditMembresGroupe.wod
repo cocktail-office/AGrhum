@@ -1,0 +1,123 @@
+AjouterMembres : CktlAjaxButton {
+    //action = openAjouterMembres;
+    dialogIDForOpen = groupesDialogId;
+    text = "Ajouter des membres";
+    title = "Ajouter plusieurs membres à ce groupe";
+    type = "new";
+    enabled = peutModifierGroupeSelectionne;
+}
+
+Form : ERXWOForm {
+    embedded = true;
+}
+
+
+Form2 : ERXWOForm {
+    embedded = true;
+}
+
+MultiplePers : PersonneMultipleSrch {
+    utilisateurPersId = session.applicationUser.persId;
+    selectionDisplayGroup = selectedPersonnesDisplayGroup;
+    wantReset = resetAjoutMembresDialog;
+    editingContext = editingContext;
+}
+
+DelMembres : CktlAjaxButton {
+    action = deleteMembres;
+    type = "delete";
+    title = "Enlever les membres sélectionnés du groupe";
+    text = "Enlever du groupe";
+    updateContainerID = membresContId;
+    enabled = peutModifierMembreSelectionne;
+}
+
+MoveMembres : CktlAjaxButton {
+    action = openDialogForMove;
+    type = "next";
+    title = "Déplacer les membres sélectionnés vers un autre groupe";
+    text = "Déplacer";
+    updateContainerID = membresContId;
+    dialogIDForOpen = selectPersDialogId;
+    enabled = peutModifierMembreSelectionne;
+}
+
+CopyMembres : CktlAjaxButton {
+    action = openDialogForCopy;
+    text = "Ajouter à un autre groupe";
+    title = "Ajouter les membres sélectionnés à un autre groupe";
+    type = "next";
+    dialogIDForOpen = selectPersDialogId;
+    updateContainerID = membresContId;
+    enabled = peutModifierMembreSelectionne;
+}
+
+DialogMembres : CktlAjaxWindow {
+    id = groupesDialogId;
+    action = openAjouterMembres;
+    width = 670;
+    height = 500;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+    onClose = refreshMembres;
+    closeUpdateContainerID = membresContId;
+}
+
+MembresContainer : AjaxUpdateContainer {
+	id = membresContId;
+}
+
+HasMembres : WOConditional {
+	condition = hasMembres;
+}
+
+Details : AjaxUpdateContainer {
+	id = membresDetailId;
+}
+
+UnMembre : WOConditional {
+	condition = unSeulMembreSelectionne;
+}
+
+MembreDetail : PersonneAdminView {
+	editingContext = editingContext;
+	personne = personneSelectionnee;
+	utilisateurPersId = session.applicationUser.persId;
+	formID = ^formID;
+	
+}
+
+LabelSelection : WOString {
+	value = selectionLabel;
+}
+
+DialogSelectPers : CktlAjaxWindow {
+    id = selectPersDialogId;
+    width = 670;
+    height = 400;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+}
+
+DialogDetailPers : CktlAjaxWindow {
+    id = "DiagDetailPers";
+    width = 670;
+    height = 400;
+    slideDownDuration = 0;
+    slideUpDuration = 0;
+}
+
+SelectGroupe : CktlAjaxGroupeTreeView {
+	id = selectGrpId;
+    utilisateurPersId = session.applicationUser.persId;
+    selection = structureDestination;
+    confirmBeforeSelection = true;
+    editingContext = editingContextForSelectGroup;
+    onSuccessSelect = moveOrCopyMembres;
+    containerGroupeSelectionneId = membresContId;
+}
+
+ViewMembres : ViewMembresGroupe {
+	displayGroup = membresDisplayGroup;
+	updateContainerID = membresDetailId;
+}

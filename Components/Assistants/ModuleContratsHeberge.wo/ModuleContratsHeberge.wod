@@ -1,0 +1,17 @@
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Contrats : ContratsHebergeUI {
+	editingContext = editingContext;
+	individu = personne;
+	utilisateurPersId = session.applicationUser.persId;
+	didSave = showMessage;
+	displayGroup = dgContrats;
+	updateContainerIDonAjout = ^updateContainerId;
+	updateContainerIDonDelete = ^updateContainerId;
+}
+
+Container : AjaxUpdateContainer {
+	id = containerId;
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="PersonneRechercheGlobaleResultTBV.java" wocomponentcontent="true">
+
+        <binding name="colonnesKeys"/>
+    <binding name="dg"/>
+        <validation message="'dg' is a required binding.">
+            <unbound name="dg"/>
+        </validation>
+    <binding name="height"/>
+    <binding name="selectionMultipleEnabled"/>
+    <binding name="showDetailInModalBox"/>
+    <binding name="updateContainerID"/>
+    <binding name="width"/>
+    </wo>
+</wodefinitions>

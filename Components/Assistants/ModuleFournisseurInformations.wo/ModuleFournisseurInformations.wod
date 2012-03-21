@@ -1,0 +1,50 @@
+Container : AjaxUpdateContainer {
+	id = "ContainerAdmin";
+}
+
+FournisseurInfoAdmin : FournisseurInfosAdmin {
+	fournisseur = ^fournisseur;
+}
+
+PersonneAdminUI1 : PersonneAdminUI {
+    //editingContext = edc;
+    editingContext = editingContext;
+    isEditing = true;
+    isReadOnly = false;
+    personne = ^personne;
+    disableAutoCompleteFields = true;
+    utilisateurPersId = utilisateurPersId;
+//    showEtatCivil = true;
+//    showNoInsee = showNIR;
+//    showNoInsee = true;
+//	allowEditNoInsee = true;
+	showEtatCivil = showEtatCivil;
+	showNoInsee = showNoInsee;
+	allowEditNoInsee = allowEditNoInsee;
+	allowEditEtatCivil = allowEditEtatCivil;
+}
+
+Form : WOForm {
+	multipleSubmit = true;
+}
+
+UNRibUI : RibUI {
+    editingContext = editingContext;
+    fournis = ^fournisseur;
+    isEditing = isRibEditing;
+    isReadOnly = false;
+    isCompactView = false;
+    utilisateurPersId = utilisateurPersId;
+}
+
+SNom : PersonneNomUI {
+    personne = personne;
+    isReadOnly = false;
+    isEditing = nomEditing;
+    showCivilite = true;
+    utilisateurPersId = utilisateurPersId;
+    editingContext = editingContext;
+    useMinWidth = true;
+}
+
+

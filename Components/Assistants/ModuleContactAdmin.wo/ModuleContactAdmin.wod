@@ -1,0 +1,37 @@
+PersonneAdmin : PersonneAdminUI {
+    editingContext = editingContext;
+    isEditing = true;
+    isReadOnly = false;
+    personne = personne;
+    allowEditCivilite = true;
+    allowShowNoInsee = true;
+    showEtatCivil = ^showEtatCivil;
+    allowEditNoInsee = true;
+    utilisateurPersId = utilisateurPersId;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Form : WOForm {
+    multipleSubmit = true;
+}
+
+PersonneAdresse : PersonneAdressesUI {
+    editingContext = editingContext;
+    personne = personne;
+    selectedRepartPersonneAdresse = selectedRepartPersonneAdresse;
+    isReadOnly = false;
+    isEditing = isAdresseEditing;
+    utilisateurPersId = utilisateurPersId;
+    defaultTypeAdr = "PRO";
+}
+
+PersonneTelephone : PersonneTelephoneUI {
+    editingContext = editingContext;
+    personne = personne;
+    isReadOnly = false;
+    utilisateurPersId = utilisateurPersId;
+    defaultTypeTel = "PRF";
+}

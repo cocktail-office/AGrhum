@@ -1,0 +1,208 @@
+Wrapper : Wrapper {
+	section = "Gestion des groupes";
+}
+
+Form : WOForm {
+	id = "groupeForm";
+	multipleSubmit = true;
+}
+
+HasGroupe : WOConditional {
+	condition = structure;
+}
+
+EditGroupe : EditGroupe {
+	edc = edc;
+	onAnnuler = annuler;
+	onValider = terminer;
+	structure = structure;
+	wantReset = resetTabs;
+	updateContainerID = groupeContainerId;
+	formID = "TestDetailForm";
+}
+
+
+NomGroupe : WOString {
+	value = structure.nomCompletAffichage;
+}
+
+DetailForm : ERXWOForm {
+	id = "TestDetailForm";
+	embedded = true;
+	multipleSubmit = true;
+	action = doNuthin;
+	onSubmit = "return false;";
+}
+
+GroupesTree : CktlAjaxGroupeTreeView{
+    id = "groupeTree";
+    selection = structure;
+    editingContext = edc;
+    label = "Structure parente";
+    treeViewTitle = "Sélectionnez la structure parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    userFiltersFormID = "groupeForm";
+    utilisateurPersId = session.applicationUser.persId;
+    userFiltersDictionary = filters;
+    containerGroupeSelectionneId = groupeContainerId;
+    cssSelectedGroupe = "selected";
+    onSuccessSelect = onSelectGroupe;
+    reset = resetLeftTreeView;
+    filtreTexte = true;
+    expandToLevel = 1;
+}
+
+AddGroupe : CktlAjaxButton {
+    type = "new";
+    action = openAjoutGroupe;
+    dialogIDForOpen = "AjoutGroupeModalW";
+    enabled = peutModifierGroupeSelectionne;
+    title = "Ajouter un groupe";
+} 
+
+MoveGroupe : CktlAjaxButton {
+	//onClickBefore = "confirm('Souhaitez-vous vraiment déplacer vers un autre groupe ?')";
+    type = "next";
+    action = openMoveGroupe;
+    dialogIDForOpen = "MoveGroupeModalW";
+    enabled = peutModifierGroupeSelectionne;
+    title = "Déplacer le groupe (changer de parent)";
+} 
+
+OpenDelGroupe : CktlAjaxButton {
+    type = "delete";
+    action = openDelGroupe;
+    dialogIDForOpen = "DelGroupeModalW";
+    enabled = peutSupprimerGroupeSelectionne;
+    title = deleteSelectedGroupTitle;
+    onClickBefore = "confirm('Voulez-vous supprimer le groupe sélectionné ?')";
+    updateContainerID = groupeContainerId;
+} 
+
+DelAnnuler : CktlAjaxButton {
+    type = "cancel";
+    action = annulerDelete;
+    title = "Annuler la suppression du groupe";
+    updateContainerID = groupeContainerId;
+    text = "Annuler";
+}
+
+DelGroupe : CktlAjaxButton {
+    type = "validate";
+    action = deleteGroupe;
+    enabled = peutSupprimerGroupeSelectionne;
+    title = deleteSelectedGroupTitle;
+    updateContainerID = groupeContainerId;
+    text = "Confirmer";
+}
+
+AjoutGroupeModal : CktlAjaxWindow {
+	id = "AjoutGroupeModalW";
+    //title = "Select Company";
+    showOpener = false; 
+    //label = "Ajouter"; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onClose;
+    closeUpdateContainerID = groupeContainerId;
+}
+
+DelGroupeModal : CktlAjaxWindow {
+    id = "DelGroupeModalW";
+    //title = "Select Company";
+    showOpener = false; 
+    //label = "Ajouter"; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onClose;
+    closeUpdateContainerID = groupeContainerId;
+}
+
+GroupesTreeForDel : CktlAjaxGroupeTreeView{
+    id = "groupeTreeForDel";
+    //selection = selectedStructureForMove;
+    editingContext = edc;
+    label = "Structure à archiver";
+    treeViewTitle = "Attention vous allez archiver toute cette arborescence.";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    userFiltersFormID = "groupeForm";
+    utilisateurPersId = session.applicationUser.persId;
+    containerGroupeSelectionneId = groupeContainerId;
+    cssSelectedGroupe = "selected";
+    reset = resetDelTreeView;
+    treeRootObject = structure;
+    treeViewAllExpanded = true;
+    treeViewShowRoot = true;
+}
+
+MoveGroupeModal : CktlAjaxWindow {
+    id = "MoveGroupeModalW";
+    //title = "Select Company";
+    showOpener = false; 
+    //label = "Ajouter"; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onClose;
+    closeUpdateContainerID = groupeContainerId;
+}
+
+GroupesTreeForMove : CktlAjaxGroupeTreeView{
+    id = "groupeTreeForMove";
+    selection = selectedStructureForMove;
+    editingContext = edc;
+    label = "Structure parente";
+    treeViewTitle = "Sélectionnez la structure parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    userFiltersFormID = "groupeForm";
+    utilisateurPersId = session.applicationUser.persId;
+    userFiltersDictionary = filters;
+    containerGroupeSelectionneId = groupeContainerId;
+    cssSelectedGroupe = "selected";
+    onSuccessSelect = onSelectGroupeForMove;
+    reset = resetMoveTreeView;
+    filtreTexte = true;
+    confirmBeforeSelection = true;
+}
+
+Container : AjaxUpdateContainer {
+	id = groupeContainerId;
+}
+
+FormNewGroupe : ERXWOForm {
+	embedded = true;
+}
+
+FormDelGroupe : ERXWOForm {
+    embedded = true;
+}
+
+FormMoveGroupe : ERXWOForm {
+    embedded = true;
+}
+
+CreationGroupeForm : CreationGroupeForm {
+	parent = structure;
+	onCreationSuccess = closeAndSelectNewGroupe;
+	wantReset = resetNewGroupe;
+	newGroup = newCreatedStructure;
+}
+
+ToolbarTree : CktlAjaxToolbar {
+	
+}
+
+DelToolbarTree : CktlAjaxToolbar {
+
+}

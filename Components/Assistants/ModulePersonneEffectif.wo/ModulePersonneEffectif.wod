@@ -1,0 +1,16 @@
+StructureEffectif : StructureEffectifUI {
+	editingContext = editingContext;
+	structure = personne;
+	isReadOnly = false;
+	isEditing = isPersonneEffectifEditing;
+	utilisateurPersId = utilisateurPersId;	
+}
+
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Form : WOForm {
+	multipleSubmit = true;
+}

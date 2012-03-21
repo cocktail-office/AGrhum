@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="EditDroitsIndividu" wocomponentcontent="false">    <binding name="individu"/>
+        <validation message="'individu' is a required binding.">
+            <unbound name="individu"/>
+        </validation>
+    <binding name="editingContext"/>
+    
+    </wo>
+</wodefinitions>

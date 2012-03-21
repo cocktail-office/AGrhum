@@ -1,0 +1,18 @@
+PersonneGroupe : PersonneGroupesUI {
+	editingContext = editingContext;
+	personne = personne;
+	isReadOnly = false;
+	isEditing = isGroupeEditing;
+	utilisateurPersId = utilisateurPersId;
+	formID = "FormPersonneGroupe";
+	wantRefresh = wantRefreshGroupes;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Form : WOForm {
+    multipleSubmit = true;
+    id = "FormPersonneGroupe";
+}

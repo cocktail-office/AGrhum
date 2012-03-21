@@ -1,0 +1,49 @@
+	<webobject name = "ContainerPersonneGestionEtapes">
+	  <table>
+	    <tbody>
+	      <tr>
+            <th style = "border-bottom:1px solid;text-align:center;">
+            	Etapes :
+            </th>
+          </tr>
+	      <tr>
+	        <td valign = "middle">
+	          <webobject name = "Etapes">
+	            <webobject name = "DivEtape">
+	            	<!-- le WOConditional IsEtapeActive a été supprimé car il ne portait sur rien -->
+	            	<webobject name = "isCreationMode"><webobject name = "Etape" /></webobject>
+                    <webobject name = "isEditMode"><webobject name = "SelectEtapeHyperLink"><webobject name = "Etape" /></webobject></webobject>
+	            	
+	            </webobject>
+	          </webobject>
+	        </td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</webobject>
+  
+  <webobject name = "ContainerPersonneGestionContent">
+	  <webobject name = "Form">
+	  	<webobject name = "ContainerModuleAssistantPersonne">
+	  		<div><webobject name = "Module" /></div>
+	  	</webobject>
+	        <webobject name = "ContainerPersonneGestionMenu">
+	        <center>
+	          <table width = "100%">
+	            <tbody>
+	              <tr height = "100%">
+	              	<webobject name = "IsInModalWin">
+		                <td width = "25%" align = "left"><webobject name = "AnnulerModal"/></td>
+	                </webobject>
+	                <webobject name = "IsNotInModalWin">
+	                	<td width = "25%" align = "left"><webobject name = "Annuler"/></td>
+	                </webobject>
+		                <td width = "50%" align = "center"><webobject name = "Precedent"/><webobject name = "Suivant"/></td>
+		                <td width = "25%" align = "right"><webobject name = "Terminer"/></td>
+	              </tr>
+	            </tbody>
+	          </table>
+	          </center>
+	        </webobject>
+	    </webobject>
+	</webobject>

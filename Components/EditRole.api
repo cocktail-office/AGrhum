@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="EditRole" wocomponentcontent="false">    <binding name="edc"/>
+        <binding name="formID"/>
+        
+        
+        <binding name="role"/>
+        <validation message="'role' is a required binding.">
+            <unbound name="role"/>
+        </validation>
+        <validation message="'role' must be bound to a settable value">
+            <unsettable name="role"/>
+        </validation>
+        <binding name="wantReset"/>
+    <binding name="associationPere"/>
+    </wo>
+</wodefinitions>

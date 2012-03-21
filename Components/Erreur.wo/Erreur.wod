@@ -1,0 +1,11 @@
+RetourAccueil : CktlButton {
+	action = retourAccueil;
+	text = "Fermer";
+	type = "cancel";
+	// onClick = "parent.Windows.closeAll();";
+	target = "_top";
+}
+ExceptionInfos : WOText {
+	value = session.generalErrorMessage;
+	style = "width:99%;height:150px;";
+}

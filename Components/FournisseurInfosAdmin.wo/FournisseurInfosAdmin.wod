@@ -1,0 +1,49 @@
+SFouCode : WOString {
+  value = fouCode;
+  
+}
+FieldObserverGeneric : AjaxObserveField {
+    fullSubmit = true;
+}
+
+FieldObserverEtranger : AjaxObserveField {
+    fullSubmit = true;
+    onComplete = "function (oC){ContainerAdminUpdate();}";
+    //updateContainerID = containerInfosAdminId;
+}
+
+
+
+
+CBFouEtranger : WOCheckBox {
+    id="CBFouEtranger";
+    name="CBFouEtranger";
+    checked = isEtranger;
+    disabled = cannotEditFournisseur; 
+}
+
+
+
+RadioFouFournisseur : WORadioButton {       
+    id = "RadioFouFournisseur";
+    name = "FouType";
+    checked = fouTypeFournisseurSelected;   
+    disabled = cannotEditFournisseur;   
+    //onclick= "";
+}
+
+RadioFouClient : WORadioButton {        
+    id = "RadioFouClient";
+    name = "FouType";
+    checked = fouTypeClientSelected;    
+    disabled = cannotEditFournisseur;   
+    //onclick = "";
+}
+
+RadioFouTiers : WORadioButton {     
+    id = "RadioFouTiers";
+    name = "FouType";
+    checked = fouTypeTiersSelected; 
+    disabled = cannotEditFournisseur;   
+    //onclick = "";
+}

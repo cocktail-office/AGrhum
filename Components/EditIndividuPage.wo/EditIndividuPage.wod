@@ -1,0 +1,58 @@
+Wrapper : Wrapper {
+	section = "Gestion d'un individu";
+}
+
+IndividuContainer : AjaxUpdateContainer {
+	id = individuContainerId;
+}
+
+DetailForm : ERXWOForm {
+	id = "StructureDetailForm";
+	embedded = true;
+	multipleSubmit = true;
+	//action = doNothing;
+	//onSubmit = "return false;";
+}
+
+HasIndividu : WOConditional {
+	condition = individu;
+}
+
+NomIndividu : WOString {
+	value = individu.nomCompletAffichage;
+}
+
+EditIndividu : PersonneAdminView {
+	editingContext = edc;
+	personne = individu;
+	utilisateurPersId = session.applicationUser.persId;
+	formID = "StructureDetailForm";
+}
+
+BasToolbar : CktlAjaxToolbar {
+	cssStyle = "text-align:right;";
+}
+
+Annuler : CktlAjaxActionButton {
+    onClickBefore = "confirm('Les données déjà saisies seront définitivement perdues ?')";
+    action = annuler;
+    title = "Tout annuler";
+    text = "Annuler";
+    type = "cancel";
+    updateContainerID = individuContainerId;
+    enabled = isIndividuSelected;
+}
+//CktlAjaxsubActionButton
+Valider : CktlAjaxSubmitButton {
+    action = valider;
+    text = "Enregistrer";
+    enabled = isIndividuSelected;
+    type = "validate";
+    title = "Valider et enregistrer";
+    updateContainerID = individuContainerId;
+}
+
+//Valider : WOSubmitButton {
+//	action = valider;
+//	value = "Enregistrer";
+//}

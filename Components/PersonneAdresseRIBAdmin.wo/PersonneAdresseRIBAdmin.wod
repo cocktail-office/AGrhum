@@ -1,0 +1,23 @@
+PersonneAdresse : PersonneAdressesUI {
+	editingContext = ^editingContext;
+	personne = personne;
+	selectedRepartPersonneAdresse = selectedRepartPersonneAdresse;
+	isReadOnly = false;
+	isEditing = isAdresseEditing;
+	utilisateurPersId = ^utilisateurPersId;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+UNRibUI : RibUI {
+    editingContext = ^editingContext;
+    isEditing = isRibEditing;
+    isReadOnly = false;
+    isCompactView = false;
+    utilisateurPersId = ^utilisateurPersId;
+    fournis = fournisseur;
+    createFounisIfNecessary = true;
+    personneForFournisCreation = personne;
+}

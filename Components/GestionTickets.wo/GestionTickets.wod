@@ -1,0 +1,8 @@
+Wrapper : Wrapper {
+    section = "Gestion des tickets Wifi";
+}
+
+TicketsAdmin : TicketsAdmin {
+	editingContext = editingContextTickets;
+}
+

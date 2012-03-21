@@ -1,0 +1,56 @@
+
+CodeRole : WOTextField {
+	value = codeFonction;
+	style = "height:14px; width:150px; font-size:12px;";
+}
+
+LibelleRole : WOTextField {
+	value = libelleFonction;
+	style = "height:14px; width:150px; font-size:12px;";
+}
+
+RoleLocal : WOString {
+	value = roleLocal;
+	style = "height:14px; width:150px; font-size:12px;";
+}
+
+commentaireAssoReseau : WOTextField {
+	value = commentaireAssoReseau;
+	style = "height:14px; width:150px; font-size:12px;";
+}
+
+RangAssoReseau : WOTextField {
+	value = rangAssoReseau;
+	style = "height:14px; width:150px; font-size:12px;";
+}
+
+
+
+Annuler : CktlAjaxSubmitButton {
+    onClickBefore = "confirm('Les données déjà saisies seront définitivement perdues ?')";
+    type = "cancel";
+    action = annuler;
+    text = "Annuler";
+    title = "Annulation de la création d'une fonction";
+    updateContainerID = "CreationRoleContainer";
+	showBusyImage = true;
+}
+
+AjouterRole : CktlAjaxSubmitButton {
+    text = "Créer le rôle ou la fonction";
+    type = "validate";
+    action = ajouterRole;
+    title = "Créer et enregistrer le rôle ou la fonction dans le référentiel";
+    updateContainerID = "CreationRoleContainer";
+    showBusyImage = true;
+}
+
+
+RoleForm : ERXWOForm {
+	embedded = true;
+	multipleSubmit = true;
+}
+
+Container : AjaxUpdateContainer {
+	id = "CreationRoleContainer";
+}

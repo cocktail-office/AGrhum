@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="AssistantFournisseur.java" wocomponentcontent="false">
+        <binding name="persType"/>
+        
+    
+    <binding name="utilisateurPersId"/>
+    <binding name="editingContext"/>
+    <binding name="modules"/>
+    <binding name="etapes"/>
+        <binding name="fournisseur"/>
+        <validation message="'fournisseur' is a required binding.">
+            <unbound name="fournisseur"/>
+        </validation>
+    <binding name="personne"/>
+        <validation message="'personne' is a required binding.">
+            <unbound name="personne"/>
+        </validation>
+    <binding defaults="Actions" name="terminer"/>
+        <validation message="'terminer' is a required binding.">
+            <unbound name="terminer"/>
+        </validation>
+    <binding name="selectedCompte"/>
+        <validation message="'selectedCompte' is a required binding.">
+            <unbound name="selectedCompte"/>
+        </validation>
+        <validation message="'selectedCompte' must be bound to a settable value">
+            <unsettable name="selectedCompte"/>
+        </validation>
+    <binding name="modeIndividu"/>
+    <binding name="updateContainerId"/>
+    </wo>
+</wodefinitions>

@@ -1,0 +1,28 @@
+FStructureRattachement : CktlAjaxGroupeSelect {
+	id = structureRattachementId;
+	utilisateur = ^utilisateurPersId;
+	selection = laStructure.toStructurePere;
+	value = laStructure.toStructurePere.llStructure;
+	editingContext = edc;
+	label = "Structure parente";
+	treeViewTitle = "Sélectionnez la structure parente";	
+	treeViewClassName = session.getWindowsClassName;
+	treeViewWidth = 600; 
+	treeViewHeight = 250;
+	
+	//userFiltersDictionary = userFiltersDictionary; 
+	userFiltersFormID = "FormPersonneParent";
+	//treeRootObject = rootStructure;
+	//treeQualifier = groupeQualifier;
+	
+	textFieldSize = 50;
+	treeExclusions = structureParentesExclus;
+	utilisateurPersId = utilisateurPersId;
+
+}
+
+Form : WOForm {
+    multipleSubmit = true;
+    id = "FormPersonneParent";
+}
+

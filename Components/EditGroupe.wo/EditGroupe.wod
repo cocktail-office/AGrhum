@@ -1,0 +1,230 @@
+Valider : CktlAjaxActionButton {
+    action = valider;
+    text = "Enregistrer";
+    enabled = isStructureSelected;
+    type = "validate";
+    title = "Valider et enregistrer";
+    updateContainerID = ^updateContainerID;
+}
+
+Annuler : CktlAjaxActionButton {
+    onClickBefore = "confirm('Les données déjà saisies seront définitivement perdues ?')";
+    action = annuler;
+    title = "Tout annuler";
+    text = "Annuler";
+    type = "cancel";
+    updateContainerID = ^updateContainerID;
+    enabled = isStructureSelected;
+}
+
+IsStructureSelected : WOConditional {
+    condition = structure;
+}
+
+IsGroupeDansArchive : WOConditional {
+	condition = structure.isArchivee;
+}
+
+ElseGroupeDansArchive : WOConditional {
+	condition = structure.isArchivee;
+	negate = true;
+}
+
+StructureRattachementLabel : WOString {
+	value = structure.toStructurePere.llStructure;
+}
+
+CanEditGroupeParent : WOConditional {
+	condition = canEditGroupeParent;
+} 
+
+CannotEditGroupeParent : WOConditional {
+	condition = canEditGroupeParent;
+	negate = true;
+} 
+
+FStructureRattachement : CktlAjaxGroupeSelect {
+    id = structureRattachementId;
+    utilisateur = session.applicationUser.persId;
+    selection = structure.toStructurePere;
+    value = structure.toStructurePere.llStructure;
+    editingContext = editingContext;
+    label = "Structure parente";
+    treeViewTitle = "Sélectionnez la structure parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    textFieldSize = 50;
+    utilisateurPersId = session.applicationUser.persId;
+    //updateContainerID = updateContainerID;
+}
+
+Groupe : GroupeAdminUI {
+    editingContext = editingContext;
+    isReadOnly = false;
+    groupe = structure;
+    utilisateurPersId = session.applicationUser.persId;
+    isEditing = true;
+    shouldShowTypeStructure = true;
+    shouldShowTypesGroupes = true;
+    shouldShowAliasGroupes = true;
+    shouldShowAccesGroupes = true;
+}
+
+GroupeAdresses : PersonneAdressesUI {
+    editingContext = editingContext;
+    isReadOnly = false;
+    isEditing = adresseTabEditing;
+    personne = structure;
+    utilisateurPersId = session.applicationUser.persId;
+    defaultTypeAdr = "PRO";
+}
+
+Telephones : PersonneTelephoneUI {
+    editingContext = editingContext;
+    isEditing = telephoneTabEditing;
+    isReadOnly = false;
+    personne = structure;
+    isCompactView = true;
+    utilisateurPersId = session.applicationUser.persId;
+    defaultTypeTel = "PRF";
+}
+
+UNRibUI : RibUI {
+    editingContext = editingContext;
+    fournis = structure.toFournis;
+    isEditing = isRibEditing;
+    isReadOnly = false;
+    isCompactView = false;
+    utilisateurPersId = session.applicationUser.persId;
+}
+
+Membres : EditMembresGroupe {
+	editingContext = editingContext;
+	structure = structure;
+	formID = ^formID;
+}
+
+Tabs : AjaxTabbedPanel {
+    id = tabsId;
+}
+
+DetailTab : AjaxTabbedPanelTab {
+    name = "Détail";
+    isSelected = detailTabSelected;
+    id = tabDetailId;
+}
+
+CoordonnesTab : AjaxTabbedPanelTab {
+    name = "Coordonnées";
+    isSelected = coordonnesTabSelected;
+    id = tabCoordonneesId;
+}
+
+MembresTab : AjaxTabbedPanelTab {
+    name = "Membres";
+    isSelected = membresTabSelected;
+    id = membreTelId;
+}
+
+GroupesLiesTab : AjaxTabbedPanelTab {
+	name = "Groupes";
+	isSelected = groupesTabSelected;
+	id = tabGroupesId;
+}
+
+GroupesLies : PersonneGroupesUI {
+    editingContext = editingContext;
+    isReadOnly = false;
+    personne = structure;
+    utilisateurPersId = session.applicationUser.persId;
+    wantRefresh = wantRefreshGroupeUI;
+    isEditing = groupesTabEditing;
+    formID = ^formID;
+}
+
+IfGroupe : WOConditional {
+	condition = structure;
+}
+
+ElseGroupe : WOConditional {
+	condition = structure;
+	negate = true;
+}
+
+NoGroupeMessage : WOString {
+	value = "Aucun groupe sélectionné";
+}
+
+Libelle : PersonneNomUI {
+	editingContext = editingContext;
+	isEditing = nomEditing;
+	isReadOnly = false;
+	personne = structure;
+	utilisateurPersId = session.applicationUser.persId;
+	useMinWidth = true;
+}
+
+dateCreation : WOString {
+	value = retourneDateCreation;
+	dateformat = getTimestampFormatter;
+	valueWhenEmpty = "NULL";
+}
+
+createur : WOString {
+	value = retourneCreateur;
+	valueWhenEmpty = "NULL";
+}
+
+dateModification : WOString {
+	value = retourneDateModification;
+	dateformat = getTimestampFormatter;
+	valueWhenEmpty = "NULL";
+}
+
+agent : WOString {
+	value = retourneModificateur;
+	valueWhenEmpty = "NULL";
+}
+
+IsFournis : WOConditional {
+	condition = isStructureFournisseur;
+}
+
+FournisseurInfoAdmin : FournisseurInfosAdmin {
+	fournisseur = structure.toFournis;
+}
+
+PersonneAdminUI1 : PersonneAdminUI {
+    editingContext = editingContext;
+    isEditing = canEditGroupe;
+    isReadOnly = false;
+    personne = structure;
+    utilisateurPersId = session.applicationUser.persId;
+    showNoInsee = true;
+    allowEditNoInsee = true;
+    disableAutoCompleteFields = true;
+}
+
+FournisseurValidationAdmin : FournisseurValidationAdmin {
+	fournisseur = structure.toFournis;
+}
+
+ComptesTab : AjaxTabbedPanelTab {
+    id = tabComptesId;
+    name = "Comptes";
+}
+
+UnCompteUI : CompteUI {
+    editingContext = editingContext;
+    personne = structure;
+    selectedCompte = selectedCompte;
+    utilisateurPersId = session.applicationUser.persId;
+    isReadOnly = false;
+    isCompactView = false;
+    isMultipleAllowed = true;
+    vlansAutorisesPourCreation = vlansAutorises;
+}
+
+BasToolbar : CktlAjaxToolbar {
+	cssStyle = "text-align:right;";
+}

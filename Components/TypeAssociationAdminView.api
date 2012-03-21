@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="TypeAssociationAdminView" wocomponentcontent="false">    <binding name="updateContainerID"/>
+        <binding name="selectedTypeAssociation"/>
+        <validation message="'newBinding' is a required binding.">
+            <unbound name="selectedTypeAssociation"/>
+        </validation>
+    
+    <validation message="'updateContainerID' is a required binding.">
+            <unbound name="updateContainerID"/>
+        </validation>
+    <binding name="editingContext"/>
+        <validation message="'editingContext' is a required binding.">
+            <unbound name="editingContext"/>
+        </validation>
+    </wo>
+</wodefinitions>

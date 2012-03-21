@@ -1,0 +1,7 @@
+Wrapper : Wrapper {
+	
+}
+
+ProfilAdmin : ProfilAdminUI {
+    utilisateurPersId = session.applicationUser.persId; // VALID
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="ModuleFournisseurRecherche.java" wocomponentcontent="false">
+
+        
+        
+    
+        
+        
+    <binding name="fournisseur"/>
+        <validation message="'fournisseur' is a required binding.">
+            <unbound name="fournisseur"/>
+        </validation>
+        <validation message="'fournisseur' must be bound to a settable value">
+            <unsettable name="fournisseur"/>
+        </validation>
+    <binding name="personne"/>
+        <validation message="'personne' is a required binding.">
+            <unbound name="personne"/>
+        </validation>
+        <validation message="'personne' must be bound to a settable value">
+            <unsettable name="personne"/>
+        </validation>
+    <binding name="updateContainerID"/>
+    <binding name="modeIndividu"/>
+        <validation message="'modeIndividu' is a required binding.">
+            <unbound name="modeIndividu"/>
+        </validation>
+    </wo>
+</wodefinitions>

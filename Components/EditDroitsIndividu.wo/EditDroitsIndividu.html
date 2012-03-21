@@ -1,0 +1,56 @@
+<webobject name = "Container">
+  <webobject name = "HasDroits">
+    <webobject name = "ObsField">
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">G&eacute;n&eacute;ral</div>
+        <table>
+          <tbody>
+            <tr>
+              <td><webobject name = "SuperUser" /> Super utilisateur</td>
+              <td><webobject name = "InfosPersos" /> Informations personnelles</td>
+              <td><webobject name = "Photos" /> Photos</td>
+            </tr>
+            <tr>
+              <td><webobject name = "Ajout" /> Ajout</td>
+              <td><webobject name = "Suppression" /> Suppression</td>
+              <td><webobject name = "Valide" /> Validation</td>
+            </tr>
+            <tr>
+              <td><webobject name = "Forums" /> Forums</td>
+              <td><webobject name = "Civilite" /> Civilit&eacute;</td>
+              <td />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">Gestion des comptes</div>
+        <table>
+          <tbody>
+            <tr>
+              <td><webobject name = "CompteVisu" /> Comptes (Visualisation)</td>
+            </tr>
+            <tr>
+              <td><webobject name = "CompteModif" /> Comptes (Modification)</td>
+            </tr>
+            <tr>
+              <td><webobject name = "CompteTemp" /> Comptes temporaires</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <webobject name = "Supprimer" />
+    </webobject>
+  </webobject>
+  <webobject name = "Else">
+    <webobject name = "HasCompte">
+      Cet individu ne possède aucun droits. Il possède un compte de type Administration ou Recherche,
+      vous pouvez donc autoriser cet individu et renseigner ces droits :
+      <webobject name = "CreerDroits" />
+    </webobject>
+    <webobject name = "HasNoCompte">
+      Cet individu ne poss&egrave;de aucun droits et n'a pas de compte de type Administration ou Recherche.<br />
+      Vous devez d'abord cr&eacute;er un compte de type Administration ou Recherche pour pouvoir ensuite lui attribuer des droits. 
+    </webobject>
+  </webobject>
+</webobject>

@@ -1,0 +1,87 @@
+Container : AjaxUpdateContainer {
+	id = contId;
+}
+
+CreerDroits : CktlAjaxButton {
+	action = creerDroits;
+	updateContainerID = contId;
+	type = "new";
+	text = "Créer des droits";
+}
+
+HasDroits : WOConditional {
+	condition = hasDroits;
+}
+
+Else : WOConditional {
+	condition = hasDroits;
+	negate = true;
+}
+
+SuperUser : WOCheckBox {
+    checked = superUser;
+}
+
+InfosPersos : WOCheckBox {
+	checked = infosPersos;
+}
+
+Ajout : WOCheckBox {
+	checked = ajout;
+}
+
+Suppression : WOCheckBox {
+	checked = suppression;
+}
+
+Valide : WOCheckBox {
+	checked = valide;
+}
+
+Forums : WOCheckBox {
+    checked = forum;
+}
+
+Civilite : WOCheckBox {
+	checked = civilite;
+}
+
+Photos : WOCheckBox {
+    checked = photos;
+    name = "photos";
+}
+
+HasCompte : WOConditional {
+	condition = hasCompteAdminOuRecherche;
+}
+
+HasNoCompte : WOConditional {
+	condition = hasCompteAdminOuRecherche;
+	negate = true;
+}
+
+ObsField : AjaxObserveField {
+	updateContainerID = contId;
+	fullSubmit = true;
+}
+
+CompteVisu : WOCheckBox {
+	checked = compteVisu;
+}
+
+CompteModif : WOCheckBox {
+    checked = compteModif;
+}
+
+
+CompteTemp : WOCheckBox {
+    checked = compteTemp;
+}
+
+Supprimer : CktlAjaxButton {
+	text = "Supprimer tous les droits";
+	type = "delete";
+	action = supprimerDroits;
+	updateContainerID = contId;
+}
+

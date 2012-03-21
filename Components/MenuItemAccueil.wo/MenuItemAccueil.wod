@@ -1,0 +1,20 @@
+IsNotHidden : WOConditional {
+	condition = isHidden;
+	negate = true;
+}
+
+Li : WOGenericContainer {
+	elementName = "li";
+	class = cssClass;
+}
+
+Action : WOHyperlink {
+    action = action;
+    onclick = "$('busyLocal').show();";
+    disabled = disabled;
+    title = ^title;
+}
+
+Content : WOComponentContent {
+	
+}

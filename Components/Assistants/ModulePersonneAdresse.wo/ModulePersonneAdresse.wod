@@ -1,0 +1,11 @@
+Form : WOForm {
+	id = "PersonAdressRibAdminForm";
+	multipleSubmit = true;
+}
+
+PersonneAdresseRIBAdmin : PersonneAdresseRIBAdmin {
+	editingContext = editingContext;
+	personne = personne;
+	utilisateurPersId = utilisateurPersId;
+	//updateContainerId = ^updateContainerId;
+}

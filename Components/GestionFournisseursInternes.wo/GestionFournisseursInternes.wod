@@ -1,0 +1,68 @@
+Wrapper : Wrapper {
+    section = sectionFournisseurInterne;
+}
+
+Container : AjaxUpdateContainer {
+	id = fournisInternesContainerId;
+}
+
+
+Form : WOForm {
+	id = "structuresOBForm";
+}
+
+StructuresOBSelection : ASelectComponent {
+	allObjects = allStructuresOB;
+	colonnes = colonnes;
+    id = "StructuresOBTree";
+    selection = structureOB;
+    editingContext = edc;
+    nbObjectsParPage = 50;
+    userFiltersFormID = "structuresOBForm";
+    utilisateurPersId = session.applicationUser.persId;
+    wantReset = resetLeftTreeView;
+    filtre = structureOBFilter;
+    qualifier = structureOBFilterQualifier;
+}
+
+DetailForm : ERXWOForm {
+	id = "FournisInterneDetailForm";
+	embedded = true;
+	multipleSubmit = true;
+	//action = doNuthin;
+	onSubmit = "return false;";
+}
+
+HasStructureOB : WOConditional {
+	condition = structureOB;
+}
+
+NomStructureOB : WOString {
+	value = structureOB.nomCompletAffichage;
+}
+
+EditFournisInt : EditFournisInterne {
+	editingContext = edc;
+	//onAnnuler = annuler;
+	//onValider = terminer;
+	structure = structureOB;
+	//wantReset = resetTabs;
+	updateContainerID = fournisInternesContainerId;
+	formID = "FournisInterneDetailForm";
+}
+
+ValidationAlertImg : WOImage {
+	border = 0;
+	framework = "FwkCktlThemes";
+	filename = "images/24x24/001_11_24x24.png";
+	style = "vertical-align:top;";
+	id = "busyLocal";
+}
+
+
+LancerFouInterneProcBouton : CktlAjaxButton {
+	action = callInsFournisInternesProc;
+	type = "process";
+	text = "Executer GRHUM.INS_FOURNIS_INTERNE maintenant";
+	updateContainerID = "ContainerPrincipal";
+}

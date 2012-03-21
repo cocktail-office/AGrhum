@@ -1,0 +1,8 @@
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Diplomes : IndividuDiplomesUI {
+	individu = personne;
+	editingContext = editingContext;
+}

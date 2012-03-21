@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="PersonneAdresseRIBAdmin.java" wocomponentcontent="false">
+
+        <binding name="editingContext"/>
+        <validation message="'editingContext' is a required binding.">
+            <unbound name="editingContext"/>
+        </validation>
+    <binding name="utilisateurPersId"/>
+        <validation message="'utilisateurPersId' is a required binding.">
+            <unbound name="utilisateurPersId"/>
+        </validation>
+    <binding name="personne"/>
+        <validation message="'personne' is a required binding.">
+            <unbound name="personne"/>
+        </validation>
+    </wo>
+</wodefinitions>

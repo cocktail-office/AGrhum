@@ -1,0 +1,184 @@
+LoginCreation : WOTextField {
+    value = cptLoginCreation;
+    //value = ticket.cptLogin;
+}
+
+VLogin : WOString {
+    value = ticket.cptLogin;
+}
+
+Mdp : WOTextField {
+    value = motDePasse;
+    type = "password";
+}
+
+MdpBis : WOTextField {
+    value = motDePasseBis;
+    type = "password";
+}
+
+FinJ : WORadioButton {
+    name = "Validitee";
+    value = FinJ;
+    selection = expiration;
+}
+
+DateValidFinContainer : AjaxUpdateContainer {
+	id = "DateValidFinContainer";
+}
+
+ChoixDureeFinJ : CktlAjaxButton {
+	action = setExpirationFinJ;
+	text = "Fin de la journée";
+	updateContainerID = "DateValidFinContainer";
+}
+
+ChoixDureeDemain : CktlAjaxButton {
+	action = setExpirationDemain;
+	text = "J+1";
+	updateContainerID = "DateValidFinContainer";
+}
+
+ChoixDureeFinSem : CktlAjaxButton {
+	action = setExpirationFinSem;
+	text = "Fin de la semaine courante";
+	updateContainerID = "DateValidFinContainer";
+}
+
+ChoixDuree1Mois : CktlAjaxButton {
+	action = setExpiration1Mois;
+	text = "1 Mois";
+	updateContainerID = "DateValidFinContainer";
+}
+
+ChoixDuree6Mois : CktlAjaxButton {
+	action = setExpiration6Mois;
+	text = "6 Mois";
+	updateContainerID = "DateValidFinContainer";
+}
+
+ChoixDureeFinAnneeU : CktlAjaxButton {
+	action = setExpirationFinAnneeU;
+	text = "Fin de l'année universitaire";
+	updateContainerID = "DateValidFinContainer";
+}
+
+Demain : WORadioButton {
+    name = "Validitee";
+    value = Demain;
+    selection = expiration;
+}
+
+FinSem : WORadioButton {
+    name = "Validitee";
+    value = FinSem;
+    selection = expiration;
+}
+
+IsCreation : WOConditional {
+    condition = isCreation;
+}
+
+IsNotCreation : WOConditional {
+    condition = isCreation;
+    negate = true;
+}
+
+IsEdition : WOConditional {
+    condition = isEdition;
+}
+
+IsVisu : WOConditional {
+    condition = isVisu;
+}
+
+ExpObs : CktlAjaxObserveField {
+	action = editerValiditeTicket;
+	updateContainerID = "DetailTicket";
+	formID = ^formID;
+	fullSubmit = true;
+}
+
+Container : AjaxUpdateContainer {
+	id = "DetailTicket";
+}
+
+ImprimerTicket : CktlAjaxButton {
+    text = "Imprimer ticket";
+    type = "print";
+    title = "Imprimer le ticket";
+    dialogIDForOpen = "TicketPrintWindow";
+}
+
+Annuler : CktlAjaxButton {
+    action = annuler;
+    updateContainerID = ^updateContainerID;
+    text = "Annuler";
+    type = "cancel";
+    title = "Annuler";
+}
+
+
+Valider : CktlAjaxSubmitButton {
+    action = creer;
+    updateContainerID = ^updateContainerID;
+    text = "Enregistrer";
+    type = "validate";
+    title = "Valider et enregistrer";
+}
+
+
+Edit : CktlAjaxButton {
+    action = editer;
+    updateContainerID = ^updateContainerID;
+    type = "edit";
+    title = "Editer le ticket";
+}
+
+
+
+FinValid : WOString {
+	value = ticket.cptFinValide;
+    dateformat = application.defaultTimestampFormatter;
+}
+
+DatePickerDebCreation : CktlAjaxDatePicker {
+	dateValue = cptDebutValideCreation;
+	showsTime = true;
+}
+
+DatePickerDeb : CktlAjaxDatePicker {
+	dateValue = ticket.cptDebutValide;
+	showsTime = true;
+}
+
+DatePickerFinCreation : CktlAjaxDatePicker {
+	dateValue = cptFinValideCreation;
+	showsTime = true;
+	updateContainerID = "DateValidFinContainer";
+}
+
+DatePickerFin : CktlAjaxDatePicker {
+	dateValue = ticket.cptFinValide;
+	showsTime = true;
+	updateContainerID = "DateValidFinContainer";
+}
+
+DateValidDeb : WOString {
+    value = ticket.cptDebutValide;
+    dateformat = application.defaultTimestampFormatter;
+}
+
+DateValidFin : WOString {
+    value = ticket.cptFinValide;
+    dateformat = application.defaultTimestampFormatter;
+}
+
+TicketPrintWindow : CktlAjaxWindow {
+    id = "TicketPrintWindow";
+	action = printWindow;
+	width = "600";
+	height = "300";
+	//onload = "function() { Windows.closeAll(); }";
+}
+

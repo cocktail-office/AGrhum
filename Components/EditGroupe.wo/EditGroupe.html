@@ -1,0 +1,86 @@
+<webobject name = "Tabs">
+  <webobject name = "MembresTab">
+    <webobject name = "IfGroupe"> <webobject name = "Membres" /> </webobject>
+    <webobject name = "ElseGroupe"> <webobject name = "NoGroupeMessage" /> </webobject>
+  </webobject>
+  <webobject name = "DetailTab">
+    <webobject name = "IfGroupe">
+      <div class = "box" style = "margin-bottom:1em;text-align:left;">
+        <div class = "boxTitre">Identification</div>
+        <div style = "padding:10px;"> <webobject name = "Libelle" /> </div>
+        <br/>
+        <span>Structure cr&eacute;&eacute; le : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><webobject name = "dateCreation" />&nbsp;par&nbsp;<webobject name = "createur" /><br/>
+        <span>Structure modifi&eacute; le : &nbsp;&nbsp;</span><webobject name = "dateModification" />&nbsp;par&nbsp;<webobject name = "agent" /><br/><br/>
+      </div>
+      <div class = "box" style = "margin-bottom:1em;">
+        <!-- Afficher les champs de saisie pour SIRET, TVA intra, NAF -->
+        <div class = "boxTitre">Informations administratives</div>
+        <webobject name = "IsFournis"><webobject name = "FournisseurInfoAdmin" /></webobject>
+        <webobject name = "PersonneAdminUI1" />
+      </div>
+    <webobject name = "IsFournis">
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">Etat de validation du fournisseur</div>
+        <webobject name = "FournisseurValidationAdmin" />
+      </div>
+    </webobject>
+    <div class = "box" style = "margin-bottom:1em;">
+      <div class = "boxTitre">Groupe parent</div>
+      
+      <webobject name = "IsGroupeDansArchive"> <webobject name = "StructureRattachementLabel" /> </webobject>
+      <webobject name = "ElseGroupeDansArchive">
+      	<webobject name = "CanEditGroupeParent">
+      		<webobject name = "FStructureRattachement" />
+      	</webobject>
+      	<webobject name = "CannotEditGroupeParent">
+      		<div style="text-align: left">
+      			<webobject name = "StructureRattachementLabel" />
+      		</div>
+      	</webobject>
+      </webobject>
+    </div>
+    <div class = "box" style = "margin-bottom:1em;">
+      <div class = "boxTitre">Administration</div>
+      <webobject name = "Groupe" />
+    </div>
+    </webobject>
+    <webobject name = "ElseGroupe"> <webobject name = "NoGroupeMessage" /> </webobject>
+  </webobject>
+  <webobject name = "CoordonnesTab">
+    <webobject name = "IfGroupe">
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">Adresses</div>
+        <webobject name = "GroupeAdresses" />
+      </div>
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">T&eacute;l&eacute;phones</div>
+        <webobject name = "Telephones" />
+      </div>
+      <webobject name = "IsFournis">
+      <div class = "box">
+        <div class = "boxTitre">Coordonn&eacute;es bancaires</div>
+        <webobject name = "UNRibUI" />
+      </div>
+    </webobject>
+    </webobject>
+    <webobject name = "ElseGroupe"> <webobject name = "NoGroupeMessage" /> </webobject>
+  </webobject>
+  <webobject name = "ComptesTab">
+    <webobject name = "IfGroupe">
+      <div class = "box">
+        <div class = "boxTitre">Compte d'acc&egrave;s</div>
+        <webobject name = "UnCompteUI"> </webobject>
+      </div>
+    </webobject>
+    <webobject name = "ElseGroupe"> <webobject name = "NoGroupeMessage" /> </webobject>
+  </webobject>
+  <webobject name = "GroupesLiesTab">
+    <webobject name = "IfGroupe"> <webobject name = "GroupesLies" /> </webobject>
+    <webobject name = "ElseGroupe"> <webobject name = "NoGroupeMessage" /> </webobject>
+  </webobject>
+  <webobject name = "IsStructureSelected"> </webobject>
+</webobject>
+<webobject name = "BasToolbar">
+  <webobject name = "Annuler" />
+  <webobject name = "Valider" />
+</webobject>

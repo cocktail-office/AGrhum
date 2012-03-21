@@ -1,0 +1,112 @@
+<webobject name = "Tabs">
+  <webobject name = "Infos">
+    <div class = "box" style = "margin-bottom:1em;text-align:left;">
+      <div class = "boxTitre">Identification</div>
+      <webobject name = "FieldObserverGeneric">
+        <webobject name = "IsIndividu">
+        	<webobject name = "IsPhotoEnable">
+          	<div style = "float:left;margin-right:10px;"> <webobject name = "Photo" /> </div>
+          	</webobject>
+        </webobject>
+        <webobject name = "SNom" />
+        <webobject name = "IsIndividu">
+        <table>
+          <tbody>
+            <tr>
+              <th>Liste rouge</th>
+              <td>
+                <webobject name = "RadioListeRougeO" />Oui &nbsp;<webobject name = "RadioListeRougeN" />Non</td>
+            </tr>
+            <tr><td colspan = "2">&nbsp;&nbsp;</td></tr>
+            <tr><td colspan = "2">&nbsp;&nbsp;</td></tr>
+            <tr>
+              <td>Individu cr&eacute;&eacute; le </td>
+              <td>
+                <webobject name = "dateCreation" />&nbsp;par&nbsp;<webobject name = "createur" /></td>
+            </tr>
+            <tr>
+              <td>Individu modifi&eacute; le &nbsp;&nbsp;</td>
+              <td>
+                <webobject name = "dateModification" />&nbsp;par&nbsp;<webobject name = "agent" /></td>
+            </tr>
+          </tbody>
+        </table>
+        </webobject>
+        <br style = "clear:both;" />
+      </webobject>
+    </div>
+    <div class = "box" style = "margin-bottom:1em;">
+      <!-- Afficher les champs de saisie pour SIRET, TVA intra, NAF -->
+      <div class = "boxTitre">Informations administratives</div>
+      <webobject name = "ShowFournisInfos">
+      	<webobject name = "EditFournisInfosEnabled">
+      		<webobject name = "FournisseurInfoAdmin" />
+      	</webobject>
+      	<webobject name = "Else">
+      		<webobject name = "FournisseurInfoView" />
+      	</webobject>
+      </webobject>
+      <webobject name = "PersonneAdminUI1" />
+    </div>
+    <webobject name = "IsFournisValidationEnabled">
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">Etat de validation du fournisseur</div>
+        <webobject name = "FournisseurValidationAdmin" />
+      </div>
+    </webobject>
+    <webobject name = "IsStructure">
+      <div class = "box" style = "margin-bottom:1em;">
+        <div class = "boxTitre">Groupe parent</div>
+        <webobject name = "FStructureRattachement" />
+      </div>
+      <div class = "box">
+        <div class = "boxTitre">Administration du groupe <webobject name = "GroupeAdminTitle" /></div>
+        <webobject name = "GroupeAdminUI1" />
+      </div>
+    </webobject>
+    <webobject name = "IsIndividu">
+      <div class = "box">
+      	<div class = "boxTitre">Agendas</div>
+      	<div style="padding: 10px;"><webobject name = "Calendriers" /></div>
+        </div>
+      </webobject>
+  </webobject>
+  <webobject name = "Coordonnees">
+    <div class = "box">
+      <div class = "boxTitre">T&eacute;l&eacute;phones</div>
+      <webobject name = "UnPersonneTelephoneUI" />
+    </div>
+    <div class = "box">
+      <div class = "boxTitre">Adresses</div>
+      <div class = "blocInstruction"></div>
+      <webobject name = "UNPersonneAdresseUI" />
+    </div>
+    <webobject name = "IsShowRib">
+      <div class = "box">
+        <div class = "boxTitre">Coordonn&eacute;es bancaires</div>
+        <webobject name = "UNRibUI" />
+      </div>
+    </webobject>
+    <webobject name = "IsIndividu"><webobject name = "HebergeBureaux" /></webobject>
+  </webobject>
+  <webobject name = "Comptes">
+    <div class = "box">
+      <div class = "boxTitre">Compte d'acc&egrave;s</div>
+      <webobject name = "UnCompteUI"> </webobject>
+    </div>
+    <div class = "box">
+    	<div class = "boxTitre">Aliases</div> 
+    	<webobject name = "Alias"/>
+    </div>
+  </webobject>
+  <webobject name = "Droits">
+    <webobject name = "EditDroits"> </webobject>
+  </webobject>
+  <webobject name = "Groupes">
+  	<webobject name = "GroupesLies" />
+  </webobject> 
+  
+  <webobject name = "Documents">
+    <div class = "box">En cours de r&eacute;alisation</div>
+  </webobject>
+</webobject>

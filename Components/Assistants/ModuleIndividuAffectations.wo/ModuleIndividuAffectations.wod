@@ -1,0 +1,9 @@
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Affectations : IndividuAffectationsUI {
+    individu = personne;
+    editingContext = editingContext;
+    utilisateurPersId = session.applicationUser.persId;
+}

@@ -1,0 +1,62 @@
+
+IfStructureOB : WOConditional {
+	condition = structureOB;
+}
+
+ElseStructureOB : WOConditional {
+	condition = structureOB;
+	negate = true;
+}
+
+NoStructureOBMessage : WOString {
+	value = "Aucune structure n'est sélectionnée";
+}
+
+Libelle : PersonneNomUI {
+	editingContext = editingContext;
+	isEditing = false;
+	isReadOnly = true;
+	personne = structureOB;
+	utilisateurPersId = session.applicationUser.persId;
+	useMinWidth = true;
+}
+
+PersonneAdminUI1 : PersonneAdminUI {
+    editingContext = editingContext;
+    isEditing = false;
+    isReadOnly = true;
+    personne = structureOB;
+    utilisateurPersId = session.applicationUser.persId;
+    //showNoInsee = true;
+    //allowEditNoInsee = false;
+    disableAutoCompleteFields = true;
+	showNoInsee = showNoInsee;
+	allowEditNoInsee = allowEditNoInsee;
+}
+
+Groupe : GroupeAdminUI {
+    editingContext = editingContext;
+    isReadOnly = false;
+    groupe = structureOB;
+    utilisateurPersId = session.applicationUser.persId;
+    isEditing = true;
+    shouldShowTypesGroupes = false;
+    shouldShowAliasGroupes = false;
+    shouldShowAccesGroupes = false;
+}
+
+IsFournisseurInterne : WOConditional {
+	condition = isFournisseurInterne;
+}
+
+IsNotFournisseurInterne : WOConditional {
+	condition = isFournisseurInterne;
+	negate = true;
+}
+
+DeclareFouInterneBouton : CktlAjaxButton {
+	action = declareFournisseurInterne;
+	type = "validate";
+	text = "Déclarer fournisseur interne";
+	updateContainerID = updateContainerID;
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wodefinitions>
+        <wo class="FournisseurInfosAdmin.java" wocomponentcontent="false">
+
+        <binding name="fournisseur"/>
+        <validation message="'fournisseur' is a required binding.">
+            <unbound name="fournisseur"/>
+        </validation>
+    </wo>
+</wodefinitions>

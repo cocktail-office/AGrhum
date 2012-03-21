@@ -1,0 +1,12 @@
+Container : AjaxUpdateContainer {
+	id = containerId;
+}
+
+Form : ERXOptionalForm {
+	
+}
+
+FournisseurValidationAdmin : FournisseurValidationAdmin {
+	updateContainerID = updateContainerId;
+	fournisseur = fournisseur;
+}

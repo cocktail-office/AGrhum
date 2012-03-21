@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="MoveRoleForm" wocomponentcontent="false">    <binding defaults="Boolean" name="confirmBeforeSelection"/>
+        <binding name="editingContext"/>
+        <binding name="expandToLevel"/>
+        <binding name="id"/>
+        <validation message="'id' is a required binding.">
+            <unbound name="id"/>
+        </validation>
+        <binding name="selection"/>
+        <binding name="treeCollapsedImage"/>
+        <binding name="treeCollapsedImageFramework"/>
+        <binding name="treeExclusions"/>
+        <binding name="treeExpandedImage"/>
+        <binding name="treeExpandedImageFramework"/>
+        <binding name="treeLeafImage"/>
+        <binding name="treeLeafImageFramework"/>
+        <binding name="treeRootObject"/>
+        <binding name="treeQualifier"/>
+        <binding name="treeViewAllExpanded"/>
+        <binding name="treeViewClassName"/>
+        <binding name="treeViewHeight"/>
+        <binding name="treeViewTitle"/>
+        <binding name="treeViewWidth"/>
+        <binding name="updateContainerID"/>
+        <binding name="userFiltersDictionary"/>
+        <binding name="userFiltersFormID"/>
+        <binding name="utilisateurPersId"/>
+        <validation message="'utilisateurPersId' is a required binding.">
+            <unbound name="utilisateurPersId"/>
+        </validation>
+        
+        
+    <validation message="'selection' is a required binding.">
+            <unbound name="selection"/>
+        </validation>
+        <binding name="selectionRole"/>
+        <validation message="'selectionRole' is a required binding.">
+            <unbound name="selectionRole"/>
+        </validation>
+    <binding name="newParent"/>
+        <validation message="'newParent' is a required binding.">
+            <unbound name="newParent"/>
+        </validation>
+    
+    </wo>
+</wodefinitions>

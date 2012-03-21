@@ -1,0 +1,103 @@
+ContainerGroupes : AjaxUpdateContainer {
+	id = mainContainerId;
+	class = "cktlComponentContainer";
+}
+
+SGroupe : WOString {
+	value = getStructureGroupe.libelleForGroupe;
+	//value = ^repartStructure.toStructureGroupe.libelleForGroupe;	
+}
+
+MyToolbar1: CktlAjaxToolbar {
+	
+}
+
+AddRepartAssociation : CktlAjaxButton {
+	action = onRepartAssociationCreer;	
+	type = "new";
+	updateContainerID = mainContainerId;	
+	title = addRepartAssociationTitle;
+	showBusyImage = true;
+}
+
+DeleteRepartAssociation : CktlAjaxButton {
+	action = onRepartAssociationSupprimer;	
+	type = "delete";
+	updateContainerID = mainContainerId;	
+	title = "Supprimer ce rôle";
+	showBusyImage = true;
+}
+
+IsShowRolesPopup : WOConditional {
+	condition = true;
+	//condition = isShowRolesPopup;
+}
+
+PopupRepartAssociationsObserver : AjaxObserveField {
+	action  = doNothing;
+	fullSubmit = false;
+	elementName = "span";
+	updateContainerID = mainContainerId;
+}
+
+PopUpRepartAssociations : WOPopUpButton {
+  list = selectedRepartAssociationsList;
+  selection = selectedRepartAssociation;
+  item = unRepartAssociation;
+  displayString = unRepartAssociationDisplayString;
+  size = 10;
+  
+  //disabled = isEditing;
+}
+
+FAssociation : CktlAjaxAssociationSelect {
+	id = associationSelectID;
+	utilisateur = utilisateurPersId;
+	selection = selectedAssociation;
+	value = selectedRepartAssociation.toAssociation.assLibelle;
+	editingContext = edc;
+	label = "Association";
+	treeViewTitle = "Associations";	
+	treeViewClassName = "greenlighting";
+	treeViewWidth = 600; 
+	treeViewHeight = 250;
+	//userFiltersDictionary = userFiltersDictionary; 
+	userFiltersFormID = ^formID;
+	//treeRootObject = rootStructure;
+	//treeQualifier = groupeQualifier;
+	textFieldSize = 30;
+	confirmBeforeSelection = true;
+	updateContainerID = mainContainerId;
+	emptyValue = "Nouveau role";
+}
+
+GenericFieldObserver : AjaxObserveField {
+	fullsubmit = true;
+	action = doNothing;
+}
+
+FDebut : CktlAjaxDatePicker {
+	dateValue = selectedRepartAssociation.rasDOuverture;
+//	dateformat = "%d/%m/%Y"; 
+	size = 12;
+	
+}
+
+FFin : CktlAjaxDatePicker {
+	dateValue = selectedRepartAssociation.rasDFermeture;
+	//dateformat = "%d/%m/%Y"; 
+	size = 12;
+}
+
+FQuotite : WOTextField {
+	value = selectedRepartAssociation.rasQuotite;
+	numberformat = "0.00";
+}
+
+FCommentaires : WOText {
+	value = selectedRepartAssociation.rasCommentaire;
+}
+
+Content : WOComponentContent {
+	
+}

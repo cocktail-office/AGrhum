@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="PersonneMultipleSrch.java" wocomponentcontent="false">
+
+        <binding name="editingContext"/>
+    
+    <binding name="utilisateurPersId"/>
+    <binding name="selectionDisplayGroup"/>
+        <validation message="'selectionDisplayGroup' is a required binding.">
+            <unbound name="selectionDisplayGroup"/>
+        </validation>
+    <binding name="wantReset"/>
+    <validation message="'editingContext' is a required binding.">
+            <unbound name="editingContext"/>
+        </validation>
+    <validation message="'utilisateurPersId' is a required binding.">
+            <unbound name="utilisateurPersId"/>
+        </validation>
+    </wo>
+</wodefinitions>

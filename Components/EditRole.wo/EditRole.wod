@@ -1,0 +1,167 @@
+isSelected : WOConditional {
+	condition = isRoleSelected;
+}
+
+editRoleContainer : AjaxUpdateContainer {
+	id = "editRoleContainerID";
+}
+
+isNotSelected : WOConditional {
+	condition = isRoleSelected;
+	negate = true;
+	style= "bold";
+}
+
+DetailForm : ERXWOForm {
+	id = "TestDetailForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+
+RoleInPlace : AjaxInPlace {
+	id = roleInPlaceID;
+	manualControl = true;
+	saveAction = onRoleEnregistrer;
+	cancelAction = onRoleCancelEdit;
+	editAction = onRoleEdit;
+	cancelUpdateContainerID = ^updateContainerID;
+//	cancelUpdateContainerID = "editRoleContainerID";
+	saveUpdateContainerID = ^updateContainerID;
+//	saveUpdateContainerID = "editRoleContainerID";
+	submitOnSave = true;
+	editing = editingMode;
+}
+
+editRoleView : ERXWOTemplate {
+	templateName = "view";
+}
+
+editRoleModification : ERXWOTemplate {
+	templateName = "edit";
+}
+
+FieldFormGeneric : ERXWOForm {
+	embedded = true;
+	multipleSubmit = true;
+}
+
+fonctionParente : WOString {
+	value = affichageParent;
+	valueWhenEmpty = "Racine des fonctions";
+}
+
+CodeRole : WOString {
+	value = selectedRole.assCode;
+}
+
+LibelleRole : WOString {
+	value = selectedRole.assLibelle;
+}
+
+RoleLocal : WOString {
+	value = selectedRole.assLocale;
+}
+
+DateCreation : WOString {
+	value = selectedRole.dCreation;
+	dateformat = timestampFormatter;
+}
+
+DateModification : WOString {
+	value = selectedRole.dModification;
+	dateformat = timestampFormatter;
+}
+
+DateFermeture : WOString {
+	value = selectedRole.dFermeture;
+	dateformat = timestampFormatter;
+}
+
+isClosed : WOConditional {
+	condition = isClosed;
+}
+
+Rouvrir : CktlAjaxButton {
+	onClickBefore = beforeClickOnOpenAgain;
+	type = "new";
+    action = rouvrir;
+    title = "Réouvrir la fonction";
+    updateContainerID = "editRoleContainerID";
+}
+
+
+ModifCodeRole : WOTextField {
+	value = selectedRole.assCode;
+	style = "height:14px; width:150px; font-size:12px;";
+}
+
+ModifLibelleRole : WOTextField {
+	value = selectedRole.assLibelle;
+	style = "height:14px; width:490px; font-size:12px;";
+}
+
+ModifRoleLocal : WOString {
+	value = selectedRole.assLocale;
+}
+
+DateCreationContainer : AjaxUpdateContainer {
+	id = "DateCreationContainer";
+}
+
+isLocal : WOConditional {
+	condition = isLocal;
+}
+
+isNotLocal : ERXElse {
+	
+}
+
+CreationDatePicker : CktlAjaxDatePicker {
+	dateValue = selectedRole.dCreation;
+	updateContainerID = "DateValidDebContainer";
+}
+
+
+DateFermetureContainer :  AjaxUpdateContainer {
+	id = "DateFermetureContainer";
+}
+
+FermetureDatePicker : CktlAjaxDatePicker {
+	dateValue = selectedRole.dFermeture;
+	updateContainerID = "DateFermetureContainer";
+}
+
+
+Modifier : CktlAjaxButton {
+    //action = modifier;
+    text = "Modifier";
+    enabled = isRoleNotEmpty;
+    type = "validate";
+    title = "Modifier";
+    //updateContainerID = ^updateContainerID;
+    showBusyImage = true;
+    onSuccess = inPlaceManualEditFunctionName;
+}
+
+
+Valider : CktlAjaxButton {
+    //action = valider;
+    text = "Valider";
+    //enabled = isRoleNotEmpty;
+    type = "validate";
+    title = "Valider et enregistrer";
+    //updateContainerID = ^updateContainerID;
+    showBusyImage = true;
+	onSuccess = inPlaceManualValidEditFunctionName;
+}
+
+AnnulerModification : CktlAjaxButton {
+//    action = onRoleAnnuler;
+    title = "Annuler les modifications";
+    text = "Annuler les modifications";
+    type = "cancel";
+//    updateContainerID = ^updateContainerID;
+	showBusyImage = true;
+	onSuccess = inPlaceManualCancelEditFunctionName;
+}

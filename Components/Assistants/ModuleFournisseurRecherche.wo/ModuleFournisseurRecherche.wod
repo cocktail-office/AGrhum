@@ -1,0 +1,29 @@
+FournisseurSrch : FournisseurSrch {
+    utilisateurPersId = utilisateurPersId; 
+    selectedPersonne = ^personne;
+    unPersonneFournisseur = ^fournisseur;
+    callbackOnCreerFournisseur = creerFournisseur;
+    callbackOnModifierFournisseur = modifierFournisseur;
+    callbackOnValiderFournisseur = "onValiderFournisseur";
+    wantRefreshDetail = false;
+    //forceRecherche = forceRecherche;
+    editingContext = editingContext;
+    displayGroup = displayGroup;
+    resetSrchForm = ^wantRefresh;
+    ctrl = fournisseurSrchCtrl;
+    updateContainerID = ^updateContainerID;
+    isReadOnly = false;
+    showPersonnesExternes = true;
+    showPersonnesInternes = true;
+    showIndividus = modeIndividu;
+    showStructures = modeStructure;
+    
+}
+
+Container : AjaxUpdateContainer {
+	id = containerId;
+}
+
+Form : WOForm {
+	multipleSubmit = true;
+}

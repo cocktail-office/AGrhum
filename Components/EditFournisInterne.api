@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="EditFournisInterne.java" wocomponentcontent="false">
+
+        <binding name="editingContext"/>
+        <validation message="'editingContext' is a required binding.">
+            <unbound name="editingContext"/>
+        </validation>
+    <binding name="structure"/>
+        <validation message="'structure' is a required binding.">
+            <unbound name="structure"/>
+        </validation>
+    <binding defaults="Boolean" name="wantReset"/>
+    <binding name="updateContainerID"/>
+    </wo>
+</wodefinitions>

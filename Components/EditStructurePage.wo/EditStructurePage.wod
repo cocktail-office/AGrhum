@@ -1,0 +1,33 @@
+Wrapper : Wrapper {
+	section = "Gestion d'une structure";
+}
+
+EditStructureContainer : AjaxUpdateContainer {
+	id = editStructureContainerId;
+}
+
+DetailForm : ERXWOForm {
+	id = "StructureDetailForm";
+	embedded = true;
+	multipleSubmit = true;
+	action = doNothing;
+	onSubmit = "return false;";
+}
+
+HasStrucure : WOConditional {
+	condition = structure;
+}
+
+NomStructure : WOString {
+	value = structure.nomCompletAffichage;
+}
+
+EditGroupe : EditGroupe {
+	edc = edc;
+	onAnnuler = annuler;
+	onValider = terminer;
+	structure = structure;
+	wantReset = resetTabs;
+	updateContainerID = editStructureContainerId;
+	formID = "StructureDetailForm";
+}

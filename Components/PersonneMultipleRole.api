@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+        <wo class="PersonneMultipleRole.java" wocomponentcontent="true">
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <binding name="utilisateurPersId"/>
+        <validation message="'utilisateurPersId' is a required binding.">
+            <unbound name="utilisateurPersId"/>
+        </validation>
+    <binding name="structureGroupe"/>
+        <validation message="'structureGroupe' is a required binding.">
+            <unbound name="structureGroupe"/>
+        </validation>
+    <binding name="selectedRepartAssociationsList"/>
+        <validation message="'selectedRepartAssociationsList' must be bound to a settable value">
+            <unsettable name="selectedRepartAssociationsList"/>
+        </validation>
+    <validation message="'selectedRepartAssociationsList' is a required binding.">
+            <unbound name="selectedRepartAssociationsList"/>
+        </validation>
+    
+    <binding defaults="Boolean" name="wantReset"/>
+    </wo>
+</wodefinitions>

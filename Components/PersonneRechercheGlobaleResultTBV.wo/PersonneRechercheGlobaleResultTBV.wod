@@ -1,0 +1,19 @@
+TBVPersonne : CktlAjaxTableView {
+	id = componentId;
+	colonnes = colonnes;
+	dg = ^dg;
+	item = unePersonne;
+	selectionMultipleEnabled = ^selectionMultipleEnabled;
+	selectionEnabled = true;	
+	afficherBarreDeNavigation = false; 
+	afficherBarreDeStatut = false;
+	updateContainerID = ^updateContainerID;
+	cssClass = ^cssClass;
+	height = ^height;
+	width = ^width;
+	cssStyle = ^cssStyle;
+}
+
+Content : WOComponentContent {
+	
+}

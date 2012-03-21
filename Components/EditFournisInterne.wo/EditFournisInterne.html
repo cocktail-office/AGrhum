@@ -1,0 +1,26 @@
+<webobject name = "IfStructureOB">
+  <div class = "box" style = "margin-bottom:1em;text-align:left;">
+    <div class = "boxTitre">Identification</div>
+    <div style = "padding:10px;">
+      <webobject name = "Libelle" />
+    </div>
+  </div>
+  <div class = "box" style="margin-bottom:1em;">
+    <!-- Afficher les champs de saisie pour SIRET, TVA intra, NAF -->
+    <div class = "boxTitre">Informations administratives</div>
+    <webobject name = "PersonneAdminUI1" />
+  </div>
+  <div class = "box" style = "margin-bottom:1em;">
+    <div class = "boxTitre">Administration</div>
+    <webobject name = "IsFournisseurInterne">
+    	<p>Cette structure est considérée comme étant un fournisseur interne.</p>
+    </webobject>
+    <webobject name = "IsNotFournisseurInterne">
+    	<p>Cette structure n'est pas considérée comme étant un fournisseur interne.</p>
+    	<webobject name = "DeclareFouInterneBouton"/>
+    	<br/>&nbsp;
+    </webobject>
+    
+  </div>
+</webobject>
+<webobject name = "ElseStructureOB"> <webobject name = "NoStructureOBMessage" /> </webobject>

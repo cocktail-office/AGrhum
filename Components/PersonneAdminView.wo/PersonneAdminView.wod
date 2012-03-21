@@ -1,0 +1,278 @@
+SNom : PersonneNomUI {
+    personne = personne;
+    isReadOnly = false;
+    isEditing = nomEditing;
+    showCivilite = true;
+    utilisateurPersId = ^utilisateurPersId;
+    editingContext = editingContext;
+    useMinWidth = true;
+}
+
+
+RadioListeRougeO : WORadioButton {
+	name = "ListeRougeON";
+    value = listeRougeOui;
+    selection = individu.listeRouge;
+}
+
+RadioListeRougeN : WORadioButton {
+	name = "ListeRougeON";
+    value = listeRougeNon;
+    selection = individu.listeRouge;
+}
+
+dateCreation : WOString {
+	value = retourneDateCreation;
+	dateformat = getTimestampFormatter;
+	valueWhenEmpty = "NULL";
+}
+
+createur : WOString {
+	value = retourneCreateur;
+	valueWhenEmpty = "NULL";
+}
+
+dateModification : WOString {
+	value = retourneDateModification;
+	dateformat = getTimestampFormatter;
+	valueWhenEmpty = "NULL";
+}
+
+agent : WOString {
+	value = retourneModificateur;
+	valueWhenEmpty = "NULL";
+}
+
+IsPhotoEnable : WOConditional {
+	condition = application.isPhotoEnabled;
+}
+
+IsIndividu : WOConditional {
+  condition = personne.isIndividu;
+}
+
+IsStructure : WOConditional {
+  condition = personne.isStructure;
+}
+
+EditFournisInfosEnabled : WOConditional {
+	condition = isFournisEditionEnabled;
+}
+
+ShowFournisInfos : WOConditional {
+	condition = showFournisInfos;
+}
+
+IsFournisValidationEnabled : WOConditional {
+	condition = isFournisValidationEnabled;
+}
+
+FournisseurInfoAdmin : FournisseurInfosAdmin {
+	fournisseur = personne.toFournis;
+}
+
+Else : ERXElse {
+
+}
+
+FournisseurInfoView : FournisseurInfoView {
+	fournis = personne.toFournis;
+	showCompteUI = false;
+	showRibUI = false;
+	utilisateurPersId = ^utilisateurPersId;
+	editingContext = editingContext;
+}
+
+
+PersonneAdminUI1 : PersonneAdminUI {
+    editingContext = editingContext;
+    isEditing = personneAdminEditing;
+    isReadOnly = false;
+    personne = personne;
+    utilisateurPersId = ^utilisateurPersId;
+    showNoInsee = peutVoirInfoPerso;
+//    allowEditNoInsee = true;
+    allowEditNoInsee = allowEditNoInsee;
+    disableAutoCompleteFields = true;
+    allowEditCivilite = false;
+    showEtatCivil = peutVoirInfoPerso;
+//    allowEditEtatCivil = true;
+    allowEditEtatCivil = allowEditEtatCivil;
+}
+
+FieldObserverGeneric : AjaxObserveField {
+    fullSubmit = true;
+    style = "padding:10px;";
+}
+
+UnPersonneTelephoneUI : PersonneTelephoneUI {
+    editingContext = editingContext; 
+    personne = personne;
+    isReadOnly = false;
+    isCompactView = false;
+    defaultTypeTel = "PRF";
+    utilisateurPersId = ^utilisateurPersId;
+    wantReset = wantResetTelephones;
+}
+
+UNPersonneAdresseUI : PersonneAdressesUI {
+    isDeterminerTypesSelonDroits = true;
+    editingContext = editingContext;
+    personne = personne;
+    //selectedRepartPersonneAdresse = selectedRepartPersonneAdresse;
+    isEditing = adresseEditing;
+    utilisateurPersId = ^utilisateurPersId;
+    isReadOnly = false;
+    defaultTypeAdr = "PRO";
+}
+
+IsShowRib : WOConditional {
+	condition = showRibUI;
+}
+
+UNRibUI : RibUI {
+    editingContext = editingContext;
+    fournis = personne.toFournis;
+    isEditing = isRibEditing;
+    //isReadOnly = false;
+    isReadOnly = isRibReadOnly;
+    isCompactView = false;
+    utilisateurPersId = ^utilisateurPersId;
+}
+
+IsHeberge : WOConditional {
+	condition = isPersonneHeberge;
+}
+
+HebergeBureaux : ModulePersonneLocalisation {
+	personne = personne;
+	editingContext = editingContext;
+	wantReset = wantResetBureaux;
+}
+
+
+GroupeAdminTitle : WOString {
+    value = personne.persLibelleAffichage;
+    escapeHTML = false;
+}
+
+GroupeAdminUI1 : GroupeAdminUI {
+    editingContext = editingContext;
+    isReadOnly = false;
+    groupe = personne;
+    utilisateurPersId = ^utilisateurPersId;
+    isEditing = groupeAdminEditing;
+    shouldShowTypesGroupes = true;
+    shouldShowAliasGroupes = true;
+    shouldShowAccesGroupes = true;
+}
+
+Calendriers : IndividuICalUI {
+	editedPersonne = personne;
+	ec = editingContext;
+	utilisateurPersId = ^utilisateurPersId;
+	wantReset = wantResetCalendriers;
+}
+
+UnCompteUI : CompteUI {
+    editingContext = editingContext;
+    personne = personne;
+    selectedCompte = selectedCompte;
+    utilisateurPersId = ^utilisateurPersId;
+    isReadOnly = false;
+    isCompactView = false;
+    isMultipleAllowed = true;
+    vlansAutorisesPourCreation = vlansAutorises;
+    showCommentaire = true;
+    showDateValidite = true;
+}
+
+Alias : PersonneAliasUI {
+	personne = personne;
+	editingContext = editingContext;
+	utilisateurPersId = ^utilisateurPersId;
+	isEditing = true;
+}
+
+Tabs : AjaxTabbedPanel {
+	id = "AdminViewTabs";
+}
+
+Infos : AjaxTabbedPanelTab {
+	id = "AdminViewInfosTab";
+	name = "Détail";
+	isSelected = infosTabSelected;
+}
+
+Coordonnees : AjaxTabbedPanelTab {
+	id = "AdminViewCoorTab";
+	name = "Coordonnées";
+	isSelected = coordonneesTabSelected;
+}
+
+Comptes : AjaxTabbedPanelTab {
+	id = "AdminViewComptesTab";
+	name = "Comptes";
+	isSelected = compteTabSelected;
+}
+
+Groupes : AjaxTabbedPanelTab {
+	id = "AdminViewGrpTab";
+//    name = "Affectations aux groupes";
+    name = "Groupes";
+    isSelected = groupesTabSelected;
+}
+
+Documents : AjaxTabbedPanelTab {
+	id = "AdminViewDocsTab";
+    name = "Documents";
+    isSelected = documentsTabSelected;
+}
+
+GroupesLies : PersonneGroupesUI {
+    editingContext = editingContext;
+    isReadOnly = false;
+    personne = personne;
+    utilisateurPersId = session.applicationUser.persId;
+    isEditing = personneGroupesEditing;
+    formID = ^formID;
+}
+
+FournisseurValidationAdmin : FournisseurValidationAdmin {
+	fournisseur = personne.toFournis;
+}
+
+FStructureRattachement : CktlAjaxGroupeSelect {
+    id = "AdminViewInfosTabStrParente";
+    utilisateur = ^utilisateurPersId;
+    selection = personne.toStructurePere; // VALID
+    value = personne.toStructurePere.llStructure; // VALID
+    editingContext = editingContext;
+    label = "Structure parente";
+    treeViewTitle = "Sélectionnez la structure parente";    
+    treeViewWidth = 600; 
+    treeViewHeight = 250;
+    textFieldSize = 50;
+    utilisateurPersId = ^utilisateurPersId;
+    //updateContainerID = updateContainerID;
+}
+
+Photo : CktlAjaxIndividuPhotoSelect {
+	editingContext = editingContext;
+	individu = personne;
+	utilisateurPersId = ^utilisateurPersId;
+}
+
+Droits : AjaxTabbedPanelTab {
+    id = "AdminViewDroitsTab";
+    name = "Droits";
+    isSelected = droitsTabSelected;
+    isVisible = canEditDroits;
+}
+
+EditDroits : EditDroitsIndividu {
+	editingContext = editingContext;
+	individu = personne;
+}
+
+

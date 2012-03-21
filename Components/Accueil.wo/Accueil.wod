@@ -1,0 +1,143 @@
+Wrapper : Wrapper {
+	onloadJS = onloadJS;
+}
+
+PersonneRechercheGlobale : PersonneRechercheGlobale {
+	
+}
+
+ItemGrp : MenuItemAccueil {
+    action = ctrl.gererGroupes;
+    title = "Groupes classiques, groupes dynamiques, laboratoires, services, composantes,...";
+    disabled = false;
+}
+
+IndicateurBusy : WOImage {
+	border = 0;
+	framework = "FwkCktlThemes";
+	filename = "images/ajax-loader_bleu.gif";
+	style = "display:none;vertical-align:top;";
+	id = "busyLocal";
+	// width = "16px";
+	// height = "16px";
+}
+IndicateurBusy1 : WOImage {
+	border = 0;
+	framework = "FwkCktlThemes";
+	filename = "images/ajax-loader_bleu.gif";
+	style = "display:none;vertical-align:top;";
+	id = "busyLocal1";
+	width = "16px";
+	height = "16px";
+}
+
+ItemFou : MenuItemAccueil {
+    action = ctrl.gererFournisseurs;
+    disabled = ctrl.fournisseursDisabled;
+    cleMenu = "FOURNISPHYS";
+    cssClassMenu = "menuIndividu";
+}
+
+ItemInvite : MenuItemAccueil {
+	action = ctrl.gererHeberges;
+	disabled = ctrl.hebergesDisabled;
+	cssClassMenu = "menuIndividu";
+	cleMenu = "HEBERGEINVITEPERSONNEL";
+}
+
+
+ItemInvWifi : MenuItemAccueil {
+    action = ctrl.gererTicketWifi;
+    disabled = ctrl.ticketsDisabled;
+    cleMenu = "TICKETWIFI";
+    cssClassMenu = "menuIndividu";
+}
+
+ItemContacts : MenuItemAccueil {
+    action = ctrl.gererContact;
+    disabled = ctrl.contactsDisabled;
+    cleMenu = "CONTACTS";
+    cssClassMenu = "menuIndividu";
+}
+
+
+
+ExceptionModalDialog: CktlAjaxModalDialog {
+	id = "ExceptionModalDialog";
+	pageName = "Erreur";
+	title = "Une erreur inattendue est survenue";
+	minWidth = 500;
+	resizable = true;
+	minimizable = false;
+	closable = false;
+	maximizable = false;
+	draggable = true;
+	centerVertically = true;
+	open = isOpenFenetreException;
+	showOpener = false;
+}
+
+ItemFourniss : MenuItemAccueil {
+	action = ctrl.gererFournisseursStr;
+	disabled = ctrl.fournisseursDisabled;
+	cleMenu = "FOURNISMORAL";
+}
+
+ItemFournissInt : MenuItemAccueil {
+	action = ctrl.gererFournisseursStrInternes;
+	disabled = ctrl.fournisseursInternesDisabled;
+	cleMenu = "FOURNISINTERNES";
+}
+
+
+ItemOther : MenuItemAccueil {
+	action = ctrl.gererAutresStr;
+	onclick = "$('busyLocal').show();";
+	disabled = false;
+	cleMenu = "PERSMORALES";
+}
+
+ ShowParameter : WOConditional {
+	condition = ctrl.isGrhumManager;
+}
+
+IndicateurBusy2 : WOImage {
+	border = 0;
+	framework = "FwkCktlThemes";
+	filename = "images/ajax-loader_bleu.gif";
+	style = "display:none;vertical-align:top;";
+	id = "busyLocal1";
+	width = "16px";
+	height = "16px";
+}
+
+ItemParameter : MenuItemAccueil {
+	action = ctrl.gererParametres;
+	cssClassMenu = "menuParametres";
+    disabled = false;
+    title = "Accéder aux paramètres de Grhum";
+}
+
+ItemRoles : MenuItemAccueil {
+	action = ctrl.gererRoles;
+	//action = ctrl.gererTypesAssociation;
+	cssClassMenu = "menuParametres";
+    disabled = false;
+    title = "Accéder aux rôles et fonctions de Grhum";
+}
+
+DontShowParameter : WOConditional {
+	condition = ctrl.isGrhumManager;
+	negate = true;
+}
+
+
+GestionDroits : MenuItemAccueil {
+    action = ctrl.gererDroits;
+    disabled = false;
+}
+
+HasNewsGD : WOConditional {
+	condition = newGestionDroitsEnabled;
+}
+

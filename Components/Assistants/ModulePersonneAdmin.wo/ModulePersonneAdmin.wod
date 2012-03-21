@@ -1,0 +1,43 @@
+PersonneAdmin : PersonneAdminUI {
+	editingContext = editingContext;
+	isEditing = true;
+	isReadOnly = false;
+	personne = personne;
+	allowEditCivilite = true;
+//	allowEditCivilite = ^allowEditCivilite;
+//	allowEditNoInsee = true;
+	allowEditNoInsee = allowEditNoInsee;
+//	allowEditNoInsee = ^allowEditNoInsee;
+//	allowEditEtatCivil = true;
+	allowEditEtatCivil = allowEditEtatCivil;
+//	allowEditEtatCivil = ^allowEditEtatCivil;
+//	ShowNoInsee = false;
+	showNoInsee = showNoInsee;
+//	showEtatCivil = ^showEtatCivil;
+//	showEtatCivil = false;
+	showEtatCivil = showEtatCivil;
+	utilisateurPersId = utilisateurPersId;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Form : ERXWOForm {
+    multipleSubmit = true;
+    embeded = true;
+}
+
+PersonneAdresseRIBAdmin : PersonneAdresseRIBAdmin {
+	editingContext = editingContext;
+	personne = personne;
+	utilisateurPersId = utilisateurPersId;
+	//updateContainerId = ^updateContainerId;
+}
+
+PersonneTelephoneAdmin : PersonneTelephoneAdmin {
+	editingContext = editingContext;
+	personne = personne;
+	utilisateurPersId = utilisateurPersId;
+	//updateContainerId = ^updateContainerId;
+}

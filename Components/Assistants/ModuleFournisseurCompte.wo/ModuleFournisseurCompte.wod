@@ -1,0 +1,28 @@
+CONDShowCompte : WOConditional {
+    condition = session.applicationUser.peutValiderFournisseur; 
+}
+
+ISCompteAuto : WOConditional {
+    condition = creerCompteAuto;
+}
+
+ISNotCompte : WOConditional {
+    condition = hasComptes;
+    negate = true;
+}
+
+Form : ERXWOForm {
+    	
+}
+
+ViewCompte : CompteUI {
+    compte = selectedCompte;  
+    editingContext = editingContext;
+    personne = personne;
+    selectedCompte = selectedCompte;
+    vlansAutorisesPourCreation = vlansAutorises; 
+    utilisateurPersId = utilisateurPersId;
+    isReadOnly = false;
+    isCompactView = false;
+    isMultipleAllowed = true;
+}

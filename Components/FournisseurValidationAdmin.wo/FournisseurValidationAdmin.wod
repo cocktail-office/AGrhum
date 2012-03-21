@@ -1,0 +1,48 @@
+FieldObserverValidite : AjaxObserveField {
+    fullSubmit = true;
+    updateContainerID = updateContainerID;
+}
+
+RadioFouValideEnCours : WORadioButton {
+    id = "RadioFouValideEnCours";
+    name = "fouValide";
+    checked = fouValideEncoursSelected; 
+    disabled = session.applicationUser.nePeutValiderFournisseur;   
+}
+
+RadioFouValideValide : WORadioButton {
+    id = "RadioFouValideValide";
+    name = "fouValide";
+    checked = fouValideValideSelected;  
+    disabled = session.applicationUser.nePeutValiderFournisseur;   
+}
+
+RadioFouValideAnnule : WORadioButton {
+    id = "RadioFouValideAnnule";
+    name = "fouValide";
+    checked = fouValideAnnuleSelected;  
+    disabled = session.applicationUser.nePeutValiderFournisseur;   
+}
+
+SCreateur : WOString {
+    value = fournisCreateur;
+}
+
+SValideur : WOString {
+    value = fournisValideur;
+}
+
+CreationDate : WOString {
+    value = fournisValidationDateCreation;
+    dateformat = "%d/%m/%y"; 
+}
+
+IFValideur : WOConditional {
+    condition = fournisValideur;
+}
+
+ValidationDate : WOString {
+    value = fournisValidationDateValidation;
+    dateformat = "%d/%m/%y";
+}
+

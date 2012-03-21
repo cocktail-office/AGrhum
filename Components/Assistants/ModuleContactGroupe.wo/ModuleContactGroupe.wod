@@ -1,0 +1,45 @@
+Form : ERXWOForm {
+	embedded = true;
+	id = "FormContactGroupe";
+}
+
+//EntrepriseRattachement : ContactEntreprisesForm {
+//	utilisateurPersId = session.applicationUser.persId;
+//	editingContext = editingContext;
+//	isEditing = true;
+//	personne = personne;
+//	selectedEnterprise = repartStructureContact;
+//}
+
+PersonneGroupesForm1 : ContactGroupesForm {
+    repartStructure = repartStructureContact;
+    utilisateurPersId = session.applicationUser.persId;
+    isNew = isCreatingNewAffectation;
+    formID = "FormContactGroupe";
+    editingContext = editingContext;
+    updateContainerId = ^updateContainerId;
+}
+
+SubmitButtonAffectationAnnuler : CktlAjaxButton {
+    text = "Annuler";
+    action = annuler;
+    updateContainerID = ^updateContainerId;
+    type = "cancel";
+    showText = false;
+    showBusyImage = true;
+}
+
+SubmitButtonAffectationEnregistrer : CktlAjaxButton {
+    text = "Enregistrer";
+    action = enregistrer;
+    //onComplete = affectationEnregistrerOnComplete;
+    updateContainerID = ^updateContainerId;
+    type = "validate";
+    showText = false;
+    showBusyImage = true;
+}
+
+ShowButtons : WOConditional {
+	condition = hasAtLeastOneAssociationOrDeleteChanges;
+}
+

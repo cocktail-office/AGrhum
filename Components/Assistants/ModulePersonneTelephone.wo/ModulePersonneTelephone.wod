@@ -1,0 +1,10 @@
+Form : WOForm {
+	multipleSubmit = true;
+}
+
+PersonneTelephoneAdmin : PersonneTelephoneAdmin {
+	editingContext = editingContext;
+	personne = personne;
+	utilisateurPersId = utilisateurPersId;
+	//updateContainerId = ^updateContainerId;
+}

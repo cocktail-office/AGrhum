@@ -1,0 +1,19 @@
+Wrapper : Wrapper {
+    section = localizer.str.contacts;
+}
+
+AssistantContactsContainer : AjaxUpdateContainer {
+    id = "AssistantContactsContainer";
+}
+
+AssistantContact : AssistantPersonne {
+    modules = modules;
+    indexModuleActif = session.indexModuleActifGestionPersonne; 
+    etapes = etapes;
+    updateContainerId = "AssistantContactsContainer";
+    utilisateurPersId = session.applicationUser.getPersId;
+    personne = selectedPersonne;
+    editingContext = editingContext;
+    modeIndividu = true;
+    vlansAutorises = vlanExterieur;
+}

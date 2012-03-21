@@ -1,0 +1,120 @@
+isCreationMode : WOConditional {
+	condition = isEditMode;
+	negate = true;
+}
+
+isEditMode : WOConditional {
+	condition = isEditMode;
+}
+
+ContainerPersonneGestionEtapes : AjaxUpdateContainer {
+    id = "ContainerPersonneGestionEtapes";
+    class = "assistantEtapes";
+}
+
+Etapes : WORepetition {
+    list = etapes;
+    item = uneEtape;
+}
+
+DivEtape : WOGenericContainer {
+  elementName = "div";
+  class = styleForEtape;
+}
+Etape : WOString {
+  value = uneEtape;
+  escapeHTML = false;
+}
+
+SelectEtapeHyperLink : AjaxHyperlink {
+	action = selectEtape;
+	onSuccess = "function () {ContainerModuleAssistantPersonneUpdate();ContainerPersonneGestionMenuUpdate();ContainerPersonneGestionEtapesUpdate();}";
+}
+
+ContainerPersonneGestionContent : AjaxUpdateContainer {
+    id = "ContainerPersonneGestionContent";
+    class = "assistantContent";
+}
+
+Module : WOSwitchComponent {
+    WOComponentName = moduleName;
+    module = module;
+    editingContext = editingContext;
+    persType = ^persType;
+    persTypeInterneExterne = ^persTypeInterneExterne;
+    personne = personne;
+    fournisseur = fournisseur;
+    utilisateurPersId = utilisateurPersId;
+    assistant = assistant;
+    updateContainerID = ^updateContainerId;
+    updateContainerIDOnSelectionnerPersonneInTableview = idContainerGestionMenu;
+    modeIndividu = ^modeIndividu;
+    selectedCompte = ^selectedCompte;
+    onAdresseDidChange = refreshActions;
+    defaultTypeTel = "PRF";
+    wantRefresh = wantRefreshEtapeModule;
+}
+ContainerModuleAssistantPersonne : AjaxUpdateContainer {
+    id = "ContainerModuleAssistantPersonne";
+    class = "assitantModuleContainer";
+}
+
+ContainerPersonneGestionMenu : AjaxUpdateContainer {
+    id = idContainerGestionMenu;
+    //onRefreshComplete = "parent.$('DestinataireConventionModalBox_win_top').update('Creation de Harry cover');";
+    // onRefreshComplete = onRefreshComplete;
+    style = "height:28px;";
+    class = "assistantMenu";
+}
+
+Annuler : CktlButton {
+    onClick = "return confirm('Les données déjà saisies seront définitivement perdues ?');";
+    action = annuler;
+    title = "Tout annuler";
+    text = "Tout annuler";
+    type = "cancel";
+}
+
+Precedent : CktlAjaxButton {
+    action = precedent;
+    onSuccess = "function () {ContainerModuleAssistantPersonneUpdate();ContainerPersonneGestionMenuUpdate();ContainerPersonneGestionEtapesUpdate();}";
+    // disabled = isPrecedentDisabled;
+    id = "BtnPrecedent";
+    title = "Précédent";
+    text = "Précédent";
+    type = "previous";
+    enabled = isPrecedentEnabled;
+}
+Suivant : CktlAjaxButton {
+    action = suivant;
+    onSuccess = "function () {ContainerModuleAssistantPersonneUpdate();ContainerPersonneGestionMenuUpdate();ContainerPersonneGestionEtapesUpdate();}";
+    id = "Suivant1";
+    title = "Suivant";
+    text = "Suivant";
+    type = "next";
+    enabled = isSuivantEnabled;
+    isImagePositionIsRight = true;
+}
+
+Terminer : CktlAjaxButton {
+    action = terminer;
+    updateContainerID = "ContainerModuleAssistantPersonne";
+    text = "Enregistrer";
+    enabled = isTerminerEnabled;
+    type = "validate";
+    title = "Valider et enregistrer";
+}
+
+IsEtapeActive : WOConditional {
+  condition = isEtapeActive;
+}
+
+Tabs : AjaxTabbedPanel {
+    id = tabsId;
+}
+
+ModuleTab : AjaxTabbedPanelTab {
+    name = uneEtapeName;
+    isSelected = isModuleEtapeActive;
+    id = etapeId;
+}

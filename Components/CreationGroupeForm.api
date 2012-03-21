@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wodefinitions>
+    <wo class="CreationGroupeForm" wocomponentcontent="false">    <binding name="parent"/>
+        <validation message="'parent' is a required binding.">
+            <unbound name="parent"/>
+        </validation>
+    <binding name="onCreationSuccess"/>
+    <binding name="wantReset"/>
+    <binding name="newGroup"/>
+        <validation message="'newGroup' must be bound to a settable value">
+            <unsettable name="newGroup"/>
+        </validation>
+    </wo>
+</wodefinitions>

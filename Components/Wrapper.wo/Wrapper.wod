@@ -1,0 +1,77 @@
+Titre : WOString {
+	value = titre;
+}
+
+HasSection : WOConditional {
+	condition = ^section;
+}
+
+Section : WOString {
+	value = ^section;
+}
+
+Body : WOBody {
+	onload = onloadJS;
+}
+ContainerPrincipal : AjaxUpdateContainer {
+	id = "ContainerPrincipal";
+	class = "cktl_container_principal";	
+}
+
+LinkAccueilBis : WOHyperlink {
+    action = ctrl.accueil;
+    onClick = "if (confirm('Voulez-vous vraiment revenir sur la page d\u0027accueil ?')) {return true;} else {return false;}";
+    title = "Revenir sur l'accueil";
+}
+
+AjaxIndicator : AjaxBusyIndicator {
+	divID = "busy1";
+	busyImage = "images/ajax-loader_bleu.gif";
+	busyImageFramework = "FwkCktlThemes";
+	style = "display:none;float:left;height:16px;margin-left:25%;margin-right:auto;width:40px;text-align:center;";
+}
+
+BtnQuitter : WOImage {	
+	border = 0;
+	filename = "images/16x16/logout_16x16.png";
+	framework = "FwkCktlThemes";
+	align = "absmiddle";
+}
+
+NomUtilisateur : WOString {
+	value = session.applicationUser.nomAndPrenom;
+	valueWhenEmpty = "Aucun nom d'utilisateur";
+}
+
+LinkQuitter : WOHyperlink {
+	action = ctrl.quitter;
+	onClick = "if (confirm('Voulez-vous vraiment quitter cette application ?')) {return true;} else {return false;}";
+}
+Contenu : WOComponentContent {
+	
+}
+Copyright : WOString {
+	value = copyright;
+	escapeHTML = false;
+}
+Version : WOString {
+	value = version;
+	escapeHTML = false;
+}
+ServerId : WOString {
+	value = serverId;
+	escapeHTML = false;
+}
+
+Notifs : CktlAjaxUiMessageContainer {
+	id = "UIMessageContainer";
+}
+
+CanUseApp : WOConditional {
+	condition = session.applicationUser.peutUtiliserGrhum;
+}
+
+Else : WOConditional {
+	condition = session.applicationUser.peutUtiliserGrhum;
+	negate = true;
+}

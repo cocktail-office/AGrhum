@@ -1,0 +1,157 @@
+
+Wrapper : Wrapper {
+    section = sectionTypeAssociation;
+}
+
+ContainerID : AjaxUpdateContainer {
+	id = associationContainerID;
+}
+
+Form : WOForm {
+	id = "typeAssoForm";
+	multipleSubmit = true;
+}
+
+PopUpTypeAssociation : WOPopUpButton {
+	id = popUpTypeAssoID;
+	list = selectedTypeAssociationsList;
+	selection = selectedTypeAssociation;
+	item = unTypeAssociation;
+	displayString = unTypeAssociation.tasLibelle;
+  	size = 1;
+	
+}
+
+EditTypeAsso : CktlAjaxButton {
+	dialogIDForOpen = TypeAssoEditModalID;	
+	type = "edit";
+	title = "Editer ce rôle";
+	showBusyImage = true;
+}
+
+AjoutTypeAsso : CktlAjaxButton {
+	action = ouvrirAjoutModalW;
+	dialogIDForOpen = TypeAssoAjoutModalID;
+	type = "new";
+	title = "Ajouter un rôle";
+	showBusyImage = false;
+}
+
+SupprimeTypeAsso : CktlAjaxButton {
+	dialogIDForOpen = TypeAssoSupprModalID;	
+	type = "delete";
+	title = "Supprimer ce rôle";
+	showBusyImage = false;
+}
+
+
+TypeAssoObserverField : AjaxObserveField {
+	observeFieldID = popUpTypeAssoID;
+	updateContainerID = associationContainerID;
+	fullSubmit = true;
+}
+
+
+EditWindow : CktlAjaxWindow {
+	id = typeAssoEditModalID;
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onCloseResultModal;
+    closeUpdateContainerID = ^updateContainerID;
+}
+AjoutWindow : CktlAjaxWindow {
+	id = typeAssoAjoutModalID;
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onCloseResultModal;
+    closeUpdateContainerID = ^updateContainerID;
+}
+SuppressionWindow : CktlAjaxWindow {
+	id = typeAssoSupprModalID;
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onCloseResultModal;
+    closeUpdateContainerID = ^updateContainerID;
+}
+
+FormModalStructure : WOForm {
+	id = "TypeAssociationModalForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+TAS_Libelle_Affichage : WOString {
+	//value = selectedTypeAssociation.tasLibelle;
+	value = interimTasLibelle;
+}
+
+TAS_Libelle : WOTextField {
+	//value = selectedTypeAssociation.tasLibelle;
+	value = interimTasLibelle;
+	style = "height:14px; width:300px; font-size:12px;";
+}
+
+TAS_Code_Affichage : WOString {
+	//value = selectedTypeAssociation.tasCode;
+	value = interimTasCode;
+}
+
+TAS_Code : WOTextField {
+	//value = selectedTypeAssociation.tasCode;
+	value = interimTasCode;
+	style = "height:14px; width:300px; font-size:12px;";
+}
+
+
+validerSuppression : CktlAjaxSubmitButton {
+	action = onTypeAssociationSupprimer;
+	text = "Valider suppression";
+	title = "Valider supression";
+	type = "validate";
+	updateContainerID = associationContainerID;
+}
+
+
+validerAjout : CktlAjaxSubmitButton {
+	action = onTypeAssociationCreer;
+	text = "Valider ajout";
+	title = "Valider l'ajout";
+	type = "validate";
+	updateContainerID = associationContainerID;
+}
+
+
+
+
+validerModification : CktlAjaxSubmitButton {
+	action = onTypeAssociationModifier;
+	text = "Valider modification";
+	title = "Valider la modification";
+	type = "validate";
+	updateContainerID = associationContainerID;
+}
+
+
+Annulation : CktlAjaxSubmitButton {
+	action = onTypeAssociationAnnuler;
+	text = "Annuler";
+	title = "Annuler l'opération";
+	type = "cancel";
+	updateContainerID = associationContainerID;
+}
+
+ModalContainerID : AjaxUpdateContainer {
+	id = modalWindowContainerID;
+}

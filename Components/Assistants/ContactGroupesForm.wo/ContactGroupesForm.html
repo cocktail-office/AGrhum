@@ -1,0 +1,60 @@
+<webobject name = "PersonneGroupesFormContainer">
+<webobject name = "unBlocErreur"/>
+  <table>
+    <tbody>
+      <tr>
+        <td colspan = "2">
+        <div>R&ocirc;le(s) <webobject name = "FPersonneNom"/>dans le groupe contacts</div>
+                  <webobject name = "MyToolbar1">
+                    <webobject name = "AddRepartAssociation" />
+                    <webobject name = "DeleteRepartAssociation" />
+                  </webobject>
+                  <webobject name = "IsNotShowRoles">
+                    Aucun rôle actuellement
+                  </webobject>
+                  <webobject name = "IsShowRoles">  
+          <table>
+            <tbody>
+              <tr>
+                <td valign="top">
+                             
+                  <webobject name = "IsShowRolesPopup">             
+                    <webobject name = "PopupRepartAssociationsObserver"><webobject name = "PopUpRepartAssociations" /></webobject>
+                </webobject>
+                </td>
+                <td>
+                  <table>
+                    <tbody>
+                      <tr>
+                      	<th>Rôles</th>
+                        <td />
+                        <td><webobject name = "FAssociation" /></td>
+                      </tr>
+                      <tr>
+                        <th>Date de début</th>
+                        <td>
+                          <webobject name = "GenericFieldObserver"><webobject name = "FDebut" />&nbsp;au&nbsp;<webobject name = "FFin" /></webobject>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th>Commentaire</th>
+                        <td>
+                          <webobject name = "GenericFieldObserver"><webobject name = "FCommentaires" /></webobject>
+                        </td>
+                      </tr>
+                      <tr>
+                      	<td>
+                      	</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </webobject>
+        </td>
+      </tr>
+    </tbody>
+  </table> 
+</webobject>

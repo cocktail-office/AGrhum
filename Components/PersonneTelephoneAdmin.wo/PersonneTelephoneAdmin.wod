@@ -1,0 +1,12 @@
+PersonneTelephone : PersonneTelephoneUI {
+	editingContext = ^editingContext;
+	personne = personne;
+	isReadOnly = false;
+	utilisateurPersId = ^utilisateurPersId;
+	defaultTypeTel = ^defaultTypeTel;
+	// qualifierForTypeTel = qualifierTelPro;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}

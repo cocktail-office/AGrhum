@@ -1,0 +1,11 @@
+Wrapper : Wrapper {
+	
+}
+AssistantPersonne : AssistantPersonne {
+	modules = modules;
+	indexModuleActif = session.indexModuleActifGestionPersonne; 
+	etapes = etapes;
+	utilisateurPersId = session.applicationUser.getPersId;
+	personne = selectedPersonne;
+	editingContext = editingContext;
+}

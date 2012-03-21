@@ -1,0 +1,34 @@
+ModalWrapper : WrapperModal {
+	
+}
+
+Login : WOString {
+    value = ticket.cptLogin;
+}
+
+Mdp : WOString {
+    value = ticket.cptPasswdClair;
+}
+
+DateValid : WOString {
+    value = ticket.cptFinValide;
+    dateformat = application.defaultTimestampFormatter;
+}
+
+DateInscr : WOString {
+    value = ticket.dCreation;
+    dateformat = application.defaultTimestampFormatter;
+}
+
+Etab : WOString {
+	value = etab;
+}
+
+TODO : WOConditional {
+	condition = false;
+}
+
+Js : ERXJavaScript {
+	
+}
+

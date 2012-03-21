@@ -1,0 +1,111 @@
+ContainerPersonneGestionEtapes : AjaxUpdateContainer {
+	id = "ContainerPersonneGestionEtapes";
+	class = "assistantEtapes";
+	style = "width:150px;height:555px;";
+}
+
+Etapes : WORepetition {
+	list = etapes;
+	item = uneEtape;
+}
+
+DivEtape : WOGenericContainer {
+  elementName = "div";
+  style = styleForEtape;
+}
+Etape : WOString {
+  value = uneEtape;
+  escapeHTML = false;
+}
+ContainerPersonneGestionContent : AjaxUpdateContainer {
+	id = "ContainerPersonneGestionContent";
+	class = "assistantContent";
+}
+FormModuleAssistantPersonne : WOForm {
+	id = "FormModuleAssistantPersonne";
+	multipleSubmit = true;
+	action = doNothing;
+	style = "text-align:left;height:505px;padding:0;margin:0;";
+}
+Module : WOSwitchComponent {
+	WOComponentName = moduleName;
+	module = module;
+	editingContext = editingContext;
+	persType = ^persType;
+	persTypeInterneExterne = ^persTypeInterneExterne;
+	personne = personne;
+	utilisateurPersId = utilisateurPersId;
+	assistant = assistant;
+	updateContainerId = ^updateContainerId;
+	updateContainerIdOnSelectionnerPersonneInTableview = updateContainerIdOnSelectionnerPersonneInTableview;
+	formID = "FormModuleAssistantPersonne";
+}
+ContainerModuleAssistantPersonne : AjaxUpdateContainer {
+	id = "ContainerModuleAssistantPersonne";
+	style = "height:515px;padding:5px;";
+}
+
+PersonneDetail : PersonneDetailView {
+	id = "PersonneDetail";
+	editingContext = ^editingContext;
+	personne = personne;
+	utilisateurPersId = ^utilisateurPersId;	
+}
+ContainerPersonneGestionMenu : AjaxUpdateContainer {
+	id = "ContainerPersonneGestionMenu";
+	//onRefreshComplete = "parent.$('DestinataireConventionModalBox_win_top').update('Creation de Harry cover');";
+	// onRefreshComplete = onRefreshComplete;
+	style = "border-top:2px solid #4E80C0;height:28px;";
+	class = "assistantMenu";
+}
+
+Annuler : WOHyperlink {
+	onClick = "return confirm('Les données déjà saisies seront définitivement perdues ?');";
+	action = annuler;
+}
+
+Precedent : AjaxUpdateLink {
+	action = precedent;
+	onSuccess = "function () {ContainerPersonneGestionContentUpdate();ContainerPersonneGestionMenuUpdate();ContainerPersonneGestionEtapesUpdate();}";
+	disabled = isPrecedentDisabled;
+}
+
+Suivant : AjaxUpdateLink {
+	action = suivant;
+	onFailure = "function () {ErreurContainerUpdate();}";
+	onSuccess = "function () {ContainerPersonneGestionContentUpdate();ContainerPersonneGestionMenuUpdate();ContainerPersonneGestionEtapesUpdate();}";
+	disabled = isSuivantDisabled;
+}
+
+Terminer : AjaxHyperlink {
+	action = terminer;
+	onFailure = "function(oF){ErreurContainerUpdate();}";
+	onSuccess = "function(v) {openCAMD_ApresEnregistrerModalDialog('Enregistrement OK'); return false;}";
+	disabled = isTerminerDisabled;
+}
+ApresEnregistrerModalDialog: CktlAjaxModalDialog {
+	id = "ApresEnregistrerModalDialog";
+	showOpener = false; 
+	title = "Enregistrement OK";
+	action = apresTerminer;
+	width = 400;
+	height = 250;
+	closable = false;
+}
+
+IsEtapeActive : WOConditional {
+  condition = isEtapeActive;
+}
+IndicateurBusy : WOImage {
+	border = 0;
+	filename = "styles/images/indicator_arrows_blue.gif";
+	style = "display:none;";
+	id = "busy";
+	width = "16px";
+	height = "16px";
+}
+Busy: AjaxBusyIndicator {
+	divID = "busy";
+}
+
+

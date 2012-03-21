@@ -1,0 +1,20 @@
+Compte : CompteUI {
+    editingContext = editingContext;
+    personne = personne;
+    utilisateurPersId = session.applicationUser.persId;
+    selectedCompte = selectedCompte;
+    isMultipleAllowed = true;
+    isReadOnly = false;
+    isCompactView = false;
+    vlansAutorisesPourCreation = vlansAutorises;
+    showDateValidite = ^showDateValidite;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Form : ERXWOForm {
+	multipleSubmit = true;
+	//embedded = true;
+}

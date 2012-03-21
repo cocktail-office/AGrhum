@@ -1,0 +1,16 @@
+PersonneGroupeAdmin : GroupeAdminUI {
+	editingContext = editingContext;
+	isReadOnly = false;
+	groupe = personne;
+	utilisateurPersId = utilisateurPersId;
+	isEditing = true;
+	shouldShowTypesGroupes = true;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}
+
+Form : WOForm {
+    multipleSubmit = true;
+}

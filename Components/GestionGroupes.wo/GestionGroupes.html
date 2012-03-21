@@ -1,0 +1,41 @@
+<webobject name = "Wrapper">
+  <webobject name = "Container">
+    <div style = "width:301px;float:left;">
+      <webobject name = "ToolbarTree">
+        <webobject name = "AddGroupe" />
+        <webobject name = "OpenDelGroupe" />
+        <webobject name = "MoveGroupe"/>
+      <webobject name = "Form"> <webobject name = "GroupesTree" /> </webobject>
+      </webobject>
+      <webobject name = "AjoutGroupeModal">
+           <webobject name = "FormNewGroupe">
+	           <webobject name = "CreationGroupeForm"></webobject>
+            </webobject>
+      </webobject>
+      <webobject name = "DelGroupeModal">
+        <webobject name = "FormDelGroupe">
+            <webobject name = "GroupesTreeForDel"></webobject>
+            <webobject name = "DelToolbarTree">
+            	<webobject name = "DelAnnuler" />
+        		<webobject name = "DelGroupe"/>
+        	</webobject>
+        </webobject>
+      </webobject>
+      <webobject name = "MoveGroupeModal">
+        <webobject name = "FormMoveGroupe">
+            <webobject name = "GroupesTreeForMove"></webobject>
+        </webobject>
+      </webobject>
+    </div>
+
+    <div style = "margin-left:303px;background-color:#E4F1FF;">
+      <webobject name = "DetailForm">
+        <div class="boxTitre" style="text-align:center;">
+          <webobject name = "HasGroupe">&Eacute;dition du groupe : <webobject name = "NomGroupe" /></webobject>&nbsp;
+        </div>
+        <webobject name = "EditGroupe" />
+      </webobject>
+      <br style = "clear:both;" />
+    </div>
+  </webobject>
+</webobject>

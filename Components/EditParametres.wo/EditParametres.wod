@@ -1,0 +1,262 @@
+IfParametersMA : WOConditional {
+	condition = parametersMA;
+}
+
+editParamContainer : AjaxUpdateContainer {
+	id = editParamContainerID;
+}
+
+DetailForm : ERXWOForm {
+//DetailForm : WOForm {
+	id = "ParametresDetailForm";
+	name = "ParametresDetailForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+ElseParametersMA : WOConditional {
+	condition = parametersMA;
+	negate = true;
+}
+
+NoParametersMAMessage : WOString {
+	value = "Aucun paramètre n'est sélectionné";
+}
+
+ParametresInPlace : AjaxInPlace {
+	id = paramInPlaceID;
+	manualControl = true;
+	saveAction = sauvegardeEnBase;
+	cancelAction = annuler;
+	editAction = modificationParametres;
+	cancelUpdateContainerID = ^updateContainerID;
+	saveUpdateContainerID = ^updateContainerID;
+	submitOnSave = true;
+	editing = editingMode;
+}
+
+ParamView : ERXWOTemplate {
+	templateName = "view";
+}
+
+ParamEdition : ERXWOTemplate {
+	templateName = "edit";
+}
+
+IndicateurBusy1 : WOImage {
+	border = 0;
+	framework = "FwkCktlThemes";
+	filename = "images/ajax-loader_bleu.gif";
+	style = "display:none;vertical-align:top;";
+	id = "busyLocal1";
+	width = "16px";
+	height = "16px";
+}
+
+ParamValeur : WOString {
+	value = parametersMA.paramValue;
+	valueWhenEmpty = "---";
+}
+
+SaisieValeur : WOTextField {
+	value = parametersMA.paramValue;
+	style = "height:14px; width:300px; font-size:12px;";
+}
+
+showPersId : WOConditional {
+	condition = isDisplayedPersId;
+	negate = false;
+}
+
+BTRecherchePersId : CktlAjaxButton {
+	type = "find";
+	dialogIDForOpen = PersIdSearchResultModalID;
+	title = "Rechercher les PersID en base";
+}
+
+PersId : CktlAjaxWindow {
+	id = PersIdSearchResultModalID;
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onCloseResultModal;
+    closeUpdateContainerID = editParamContainerID;
+}
+
+dontShowPersId : WOConditional {
+	condition = isDisplayedPersId;
+	negate = true;
+}
+
+showCStructure : WOConditional {
+	condition = isDisplayedCStructure;
+	negate = false;
+}
+
+BTRechercheCStructure : CktlAjaxButton {
+	type = "find";
+	dialogIDForOpen = CStructureSearchResultModalID;
+	title = "Rechercher les clefs de la table Structure";
+}
+
+CStructure : CktlAjaxWindow {
+	id = CStructureSearchResultModalID;
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onCloseResultModal;
+    closeUpdateContainerID = editParamContainerID;
+}
+
+CStructureSrch : PersonneSrch {
+	updateContainerID = ^updateContainerID;
+	editingContext = ^editingContext;
+	formID = "CStructureModalForm";
+    displayGroup = ^dg;
+    isReadOnly = true;
+    showDetail = false;
+    showDetailInModalBox = false;
+    updateContainerIDOnSelectionnerPersonneInTableview = boutonSelectionContainerID;
+    utilisateurPersId = ^utilisateurPersId;
+    showIndividus = false;
+    showStructures = true;
+    showPersonnesInternes = true;
+    showPersonnesExternes = false;
+    showRadioInterneExterne = false;
+    persType = "structure";
+    selectedPersonne = currentPersonneSelected;
+    selectionMultipleEnabled = false;
+    structureTableViewColonneKeys = "numero,nomPrenomAffichage";
+    resultListHeight = "175";
+}
+
+PersIdSrch : PersonneSrch {
+	updateContainerID = ^updateContainerID;
+	editingContext = ^editingContext;
+	formID = "PersIdModalForm";
+    displayGroup = ^dg;
+    isReadOnly = true;
+    showDetail = false;
+    showDetailInModalBox = false;
+    updateContainerIDOnSelectionnerPersonneInTableview = boutonSelectionContainerID;
+    utilisateurPersId = ^utilisateurPersId;
+    showIndividus = true;
+    showStructures = false;
+    showPersonnesInternes = true;
+    showPersonnesExternes = false;
+    showRadioInterneExterne = false;
+    persType = "individu";
+    selectedPersonne = currentPersonneSelected;
+    selectionMultipleEnabled = false;
+    structureTableViewColonneKeys = "persId,persLibelle";
+    resultListHeight = "175";
+}
+
+dontShowCStructure : WOConditional {
+	condition = isDisplayedCStructure;
+	negate = true;
+}
+
+ParamCommentaires : WOString {
+	value = parametersMA.paramCommentaires;
+}
+
+SaisieCommentaires : WOText {
+	value = parametersMA.paramCommentaires;
+	style = "height:150px; width:300px; font-size:12px;";
+}
+
+ParamTypeLibelle : WOString {
+	value = parametersMA.toParametresType.typeLibelle;
+}
+
+ParamTypeDescription : WOString {
+	value = parametersMA.toParametresType.typeDescription;
+}
+
+AjaxObserverField : CktlAjaxObserveField {
+	updateContainerID = ^updateContainerID;
+}
+
+SaisieTypeLibelle : WOPopUpButton {
+	item = currentType;
+	list = types;
+	selection = parametersMA.toParametresType;
+	displayString = currentType.typeLibelle;
+}
+
+SaisieTypeCode : WOString {
+	value = parametersMA.toParametresType.typeIdInterne;
+}
+
+SaisieTypeDescription : WOString {
+	value = parametersMA.toParametresType.typeDescription;
+}
+
+AnnulationSaisie : CktlAjaxButton {
+	type = "cancel";
+	text = "Annuler";
+	title = "Annulation et retour à l'état précédent";
+	showBusyImage = true;
+	onSuccess = inPlaceManualCancelEditFunctionName;
+}
+
+ModificationParametres : CktlAjaxButton {
+	type = "edit";
+	text = "Modifier";
+	title = "Modifier les attributs du paramètres";
+	showBusyImage = true;
+    onSuccess = inPlaceManualEditFunctionName;
+}
+
+EditionParametres : CktlAjaxButton {
+	type = "validate";
+	text = "Enregistrer";
+	title = "Enregistrer les changements en base";
+	showBusyImage = true;
+	onSuccess = inPlaceManualValidEditFunctionName;
+}
+
+ClefParam : WOString {
+	value = parametersMA.paramKey;
+}
+
+FormModalStructure : WOForm {
+	id = "CStructureModalForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+BoutonSelectionSubmit : CktlAjaxSubmitButton {
+	action = selectionnerPersonne;
+	text = "Valider sélection";
+	title = "Valider la sélection";
+	type = "new";
+	updateContainerID = editParamContainerID;
+}
+
+BoutonSelectionContainer : AjaxUpdateContainer {
+	id = boutonSelectionContainerID;
+}
+
+FormModalIndividu : WOForm {
+	id = "PersIdModalForm";
+	embedded = true;
+	multipleSubmit = true;
+}
+
+ShowBoutonSelection : WOConditional {
+	condition = isSelected;
+	negate = false;
+}
+
+DontShowBoutonSelection : WOConditional {
+	condition = isSelected;
+	negate = true;
+}

@@ -1,0 +1,56 @@
+<webobject name = "ContainerGroupes">
+	<table>
+	    <tbody>
+	        <tr>
+	          <th>Groupe</th>
+	          <td><webobject name = "SGroupe" /></td>
+	        </tr>
+	    </tbody>
+    </table>
+    <div>R&ocirc;le(s) des personnes sélectionnées dans le groupe <webobject name = "SGroupe" /></div>
+    <webobject name = "MyToolbar1">
+      <webobject name = "AddRepartAssociation" />
+      <webobject name = "DeleteRepartAssociation" />
+    </webobject>
+      <table>
+        <tbody>
+          <tr>
+            <td valign = "top">
+              <webobject name = "IsShowRolesPopup">
+                <webobject name = "PopupRepartAssociationsObserver"><webobject name = "PopUpRepartAssociations" /></webobject>
+              </webobject>
+            </td>
+            <td>
+              <table>
+                <tbody>
+                  <tr>
+                    <td />
+                    <td><webobject name = "FAssociation" /></td>
+                  </tr>
+                  <tr>
+                    <th>P&eacute;riode</th>
+                    <td>
+                      <webobject name = "GenericFieldObserver">du&nbsp;<webobject name = "FDebut" />&nbsp;au&nbsp;<webobject name = "FFin" />
+                      </webobject>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Quotit&eacute;</th>
+                    <td>
+                      <webobject name = "GenericFieldObserver"><webobject name = "FQuotite" /></webobject>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Commentaire</th>
+                    <td>
+                      <webobject name = "GenericFieldObserver"><webobject name = "FCommentaires" /></webobject>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    <webobject name = "Content" />
+</webobject>

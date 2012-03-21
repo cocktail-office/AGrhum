@@ -1,0 +1,90 @@
+Filtre : WOTextField {
+    value = filtre;
+}
+
+Container : AjaxUpdateContainer {
+    id = containerId;
+}
+
+Filtrer : AjaxSubmitButton {
+    action = filtrer;
+    value = "Filtrer";
+    updateContainerID = containerId;
+}
+
+Reset : AjaxSubmitButton {
+    action = afficherTous;
+    value = "Afficher Tous";
+    updateContainerID = containerId;
+}
+
+Resultats : CktlAjaxTableView {
+    id = "TicketsTBV";
+    colonnes = colonnes;
+    dg = displayGroup;
+    item = ticket;
+    updateContainerID = containerId;
+    selectionEnabled = true;
+    callbackOnSelectionner=onSelection;
+}
+
+CreerTicket : CktlAjaxActionButton {
+    type = "new";
+    action = creerTicket;
+    text = "Créer un nouveau ticket";
+    updateContainerID = containerId;
+}
+
+SupprimerTicket : CktlAjaxActionButton {
+    type = "delete";
+    action = supprimerTicket;
+    title = "supprimer le ticket sélectionné";
+    updateContainerID = containerId;
+    enabled = isDelTicketEnable;
+}
+
+Form : WOForm {
+    multipleSubmit = true;
+    id = "TicketsForm";
+}
+
+ToolBar : CktlAjaxToolbar {
+    
+}
+
+EditTicket : EditTicket {
+    ticket = displayGroup.selectedObject;
+    formID = "TicketsForm";
+    editingContext = editingContext;
+    updateContainerID = containerId;
+    didCancel = afficherTous;
+    willRefresh = willRefreshEditor;
+}
+
+EditTicketCreation : EditTicket {
+    ticket = ticketCreation;
+    formID = "TicketsForm";
+    editingContext = editingContext;
+    updateContainerID = containerId;
+    didCancel = afficherTous;
+    isCreation = isTicketCreationMode;
+    didCreate = refreshAfterCreation;
+    willRefresh = willRefreshEditor;
+}
+
+IsTicketSelect : WOConditional {
+	condition = displayGroup.selectedObject;
+}
+
+IsTicketCreation : WOConditional {
+	condition = isTicketCreationMode;
+}
+
+HasTickets : WOConditional {
+	condition = hasTickets;
+}
+
+HasNoTickets : WOConditional {
+    condition = hasTickets;
+    negate = true;
+}

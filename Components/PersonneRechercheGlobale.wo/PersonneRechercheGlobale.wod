@@ -1,0 +1,70 @@
+GlobalSrchContainer : AjaxUpdateContainer {
+	id = globalSrchContainerId;
+	class = "recherche";
+}
+
+GlobalSrchForm : ERXWOForm {
+	id = srchFormId;
+	multipleSubmit = true;
+	onKeyPress="if (event.keyCode == 13) {performRechercherGlobal();return false;}";
+}
+
+TFSrchPatern : WOTextField {
+	id = srchPaternFieldId;
+	value = srchPatern;
+	autocomplete = "off";
+	onKeyPress="if (event.keyCode == 13) {return false;}";
+}
+
+BTRechercher : CktlAjaxSubmitButton {
+  id = "validSrchBt";
+  updateContainerID = globalSrchContainerId;
+  action = doGlobalSearch;
+  type = "find";
+  title = "Rechercher dans le référentiel";
+  onSuccess = onFormSrchObserverSuccess;
+}
+
+RechercherSubmitFunction : AjaxSubmitButton {
+  updateContainerID = globalSrchContainerId;
+  action = doGlobalSearch;
+  onSuccess = onFormSrchObserverSuccess;
+  functionName = "performRechercherGlobal";
+}
+
+GlobalSrchResultModal : CktlAjaxWindow {
+	id = globalSearchResultModalID;
+    showOpener = false; 
+    overlayClose = false; 
+    transitions = false; 
+    centerVertically = true;
+    minWidth = 500;
+    minHeight = 300;
+    onClose = onCloseResultModal;
+    closeUpdateContainerID = globalSrchContainerId;
+}
+
+hasResults : WOConditional {
+	condition = hasResults;
+}
+
+NotHasResults : WOConditional {
+	condition = hasResults;
+	negate = true;
+}
+
+//PersonneResultTableView : PersonneTableView {
+PersonneResultTableView : PersonneRechercheGlobaleResultTBV {
+	dg = displayGroup;
+	colonnesKeys = "persId,numero,nomPrenomAffichage,siret,toFournis";
+	height = "250px";
+	utilisateurPersId = utilisateurPersId;
+    selectionMultipleEnabled = false;
+}
+
+BTSelectionner : CktlButton {
+	title = "Sélectionner";
+	text = "Sélectionner";
+	action = doSelection;
+	type = "validate";
+}

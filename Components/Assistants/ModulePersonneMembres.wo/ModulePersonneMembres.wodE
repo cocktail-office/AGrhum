@@ -1,0 +1,16 @@
+PersonneForm : WOForm {
+	id = "PersonAdminForm";
+	submit = submit;
+	multipleSubmit = true;
+}
+PersonneMembres : StructureElementUI {
+	editingContext = editingContext;
+	isReadOnly = false;
+	structure = personne;
+	utilisateurPersId = utilisateurPersId;
+	isEditing = isMembresEditing;
+}
+
+LibellePersonne : WOString {
+  value = personne.nomCompletAffichage;
+}

@@ -1,0 +1,114 @@
+<webobject name = "isSelected">
+<webobject name = "editRoleContainer">
+
+<webobject name = "DetailForm">
+<webobject name = "RoleInPlace">
+<webobject name = "editRoleView">
+	<br/>
+	<table style="padding:10px;">
+		<th colspan = "2">Formulaire d'&eacute;dition d'un r&ocirc;le ou d'une fonction</th>
+		<tr>
+			<td>Fonction(s) parente(s) : </td>
+			<td><webobject name = "fonctionParente"/></td>
+		</tr>
+		<tr>
+			<td>Code du r&ocirc;le : </td>
+			<td><webobject name = "CodeRole"/></td>
+		</tr>
+		<tr>
+			<td>Libell&eacute; du r&ocirc;le : </td>
+			<td><webobject name = "LibelleRole"/></td>
+		</tr>
+		<tr>
+			<td>R&ocirc;le local : </td>
+			<td><webobject name = "RoleLocal"/></td>
+		</tr>
+		<tr>
+			<td>Date de cr&eacute;ation : </td>
+			<td><webobject name = "DateCreation"/></td>
+		</tr>
+		<tr>
+			<td>Date de modification : </td>
+			<td><webobject name = "DateModification"/></td>
+		</tr>
+		<tr>
+			<td>Date de fermeture : </td>
+			<td><webobject name = "DateFermeture"/></td>
+		</tr>
+		<tr>
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+            <td />
+            <td align = "right">
+              
+              <webobject name = "Modifier" />
+            </td>
+          </tr>
+	</table>
+	</webobject>
+	
+	<webobject name = "editRoleModification">
+	<br/>
+	<table style="padding:10px;" width="100%">
+	<webobject name = "FieldFormGeneric">
+		<th colspan = "2">Formulaire de modification d'un r&ocirc;le ou d'une fonction</th>
+		<tr>
+			<td width="35%">Fonction(s) parente(s) : </td>
+			<td><webobject name = "fonctionParente"/></td>
+		</tr>
+		<tr>
+			<td>Code du r&ocirc;le : </td>
+			<td><webobject name = "ModifCodeRole"/></td>
+		</tr>
+		<tr>
+			<td>Libell&eacute; du r&ocirc;le : </td>
+			<td><webobject name = "ModifLibelleRole"/></td>
+		</tr>
+		<tr>
+			<td>R&ocirc;le local : </td>
+			<td><webobject name = "ModifRoleLocal"/></td>
+		</tr>
+		<tr>
+			<td>Date de cr&eacute;tion : </td>
+			<webobject name = "isLocal">
+			<td><webobject name = "DateCreationContainer"> <webobject name = "CreationDatePicker" /></webobject></td></webobject>
+			<webobject name = "isNotLocal"><td><webobject name = "DateCreation"/></td></webobject>
+		</tr>
+		<tr>
+			<td>Date de modification : </td>
+			<td><webobject name = "DateModification"/></td>
+		</tr>
+		<tr>
+			<td>Date de fermeture : </td>
+			<webobject name = "isLocal"> 
+				<td>
+					<webobject name = "DateFermetureContainer"> <webobject name = "FermetureDatePicker" /><webobject name = "isClosed"><webobject name = "Rouvrir"/></webobject></webobject>
+				</td>
+			</webobject>
+			<webobject name = "isNotLocal">
+				<td>
+					<webobject name = "DateFermeture"/>
+				</td>
+			</webobject>
+		</tr>
+		<tr>
+            <!-- Bloc conditionnel fonction du mode Affichage ou Edition -->
+            <td />
+            <td align = "right">
+            
+              <webobject name = "AnnulerModification" />
+              <webobject name = "Valider" />
+            </td>
+          </tr>
+		
+	</webobject>	
+	</table>
+
+</webobject>	
+</webobject>
+</webobject>
+
+</webobject>
+</webobject>
+
+
+<webobject name = "isNotSelected" >Aucun r&ocirc;le n'est s&eacute;lectionn&eacute;</webobject>

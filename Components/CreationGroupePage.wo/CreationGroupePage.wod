@@ -1,0 +1,50 @@
+
+CreationPersonneContainer : AjaxUpdateContainer {
+    id = "CreationPersonneContainer";
+}
+
+IsCreation : WOConditional {
+    condition = creationMode;
+}
+
+CreationGroupe : EditGroupe {
+    edc = edc;
+    structure = selectedStructureForCreation;
+    onValider = terminerCreation;
+    onAnnuler = annulerCreationAndClose;
+    updateContainerID = "CreationPersonneContainer";
+    wantReset = resetCreation;
+}
+
+IsSearch : WOConditional {
+    condition = creationMode;
+    negate = true;
+}
+
+PersonneSrch : PersonneSrch {
+    updateContainerID = "CreationPersonneContainer";
+    callbackOnCreerPersonne = "onSelectStructureForCreation";
+    editingContext = edc;
+    //displayGroup = displayGroup;
+    isReadOnly = false;
+    showDetail = false;
+    showDetailInModalBox = false;
+    selectedPersonne = selectedStructureForCreation;
+    utilisateurPersId = session.applicationUser.persId;
+    //persType = ^persType;
+    showIndividus = false;
+    showStructures = true;
+    showPersonnesInternes = true;
+    showPersonnesExternes = true;
+    formID = "SearchPersonForm";
+    wantReset = resetCreation;
+}
+
+PersonneSrchForm : ERXWOForm {
+    id = "SearchPersonForm";
+    embedded = true;
+}
+
+WrapperModal : WrapperModal {
+    
+}

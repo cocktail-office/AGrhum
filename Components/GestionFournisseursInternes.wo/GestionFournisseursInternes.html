@@ -1,0 +1,34 @@
+<webobject name = "Wrapper">
+	
+    <div style = "width:370px;float:left;">
+      <webobject name = "Form">
+      </webobject>
+      <webobject name = "StructuresOBSelection" />
+      
+    </div>
+	<webobject name = "Container">
+    <div style = "margin-left:371px;background-color:#E4F1FF;">
+      <div class="blocInfo">Déclarer une structure comme étant "fournisseur interne" lui affecte le rôle "PIE fournisseur interne".<br/>
+      	<strong>Attention :</strong><br/>
+      	Seules les structures préalablement associées, <u>à l'aide de JEFYADMIN</u>, à un point (CR ou Sous-CR) de l'organigramme budgétaire peuvent être déclarées "Fournisseur Interne".<br/>
+       </div>
+      <webobject name = "DetailForm">
+        <div class="boxTitre" style="text-align:center;">
+          <webobject name = "HasStructureOB">&Eacute;dition du fournisseur interne : <webobject name = "NomStructureOB" /></webobject>&nbsp;
+        </div>
+        <webobject name = "EditFournisInt" />
+      </webobject>
+      <br style = "clear:both;" />
+    </div>
+  </webobject>
+  
+  <div class="blocInfo">
+      <webobject name = "ValidationAlertImg" />
+      Dans l'attente d'une évolution d'AGrhum, vous devez executer la procédure "GRHUM.INS_FOURNIS_INTERNE"<br/> afin de prendre en compte les nouveaux fournisseurs internes.<br/>
+      <webobject name = "LancerFouInterneProcBouton"/>
+      <br style = "clear:both;" />
+  </div>
+  
+  <br style = "clear:both;" />
+  
+</webobject>
