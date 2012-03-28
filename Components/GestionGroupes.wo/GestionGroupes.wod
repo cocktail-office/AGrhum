@@ -45,7 +45,8 @@ GroupesTree : CktlAjaxGroupeTreeView{
     userFiltersFormID = "groupeForm";
     utilisateurPersId = session.applicationUser.persId;
     userFiltersDictionary = filters;
-    containerGroupeSelectionneId = groupeContainerId;
+//    containerGroupeSelectionneId = groupeContainerId;
+    containerGroupeSelectionneId = detailContainerId;
     cssSelectedGroupe = "selected";
     onSuccessSelect = onSelectGroupe;
     reset = resetLeftTreeView;
@@ -176,8 +177,16 @@ GroupesTreeForMove : CktlAjaxGroupeTreeView{
     confirmBeforeSelection = true;
 }
 
+BoutonsContainer : AjaxUpdateContainer {
+	id = boutonsContainerId;
+}
+
 Container : AjaxUpdateContainer {
 	id = groupeContainerId;
+}
+
+DetailContainer : AjaxUpdateContainer {
+	id = detailContainerId;
 }
 
 FormNewGroupe : ERXWOForm {

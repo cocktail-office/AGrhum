@@ -1,12 +1,15 @@
 <webobject name = "Wrapper">
   <webobject name = "Container">
     <div style = "width:301px;float:left;">
+    <webobject name = "BoutonsContainer">
       <webobject name = "ToolbarTree">
         <webobject name = "AddGroupe" />
         <webobject name = "OpenDelGroupe" />
         <webobject name = "MoveGroupe"/>
-      <webobject name = "Form"> <webobject name = "GroupesTree" /> </webobject>
       </webobject>
+      </webobject>  
+      <webobject name = "Form"> <webobject name = "GroupesTree" /> </webobject>
+      
       <webobject name = "AjoutGroupeModal">
            <webobject name = "FormNewGroupe">
 	           <webobject name = "CreationGroupeForm"></webobject>
@@ -29,6 +32,7 @@
     </div>
 
     <div style = "margin-left:303px;background-color:#E4F1FF;">
+    <webobject name = "DetailContainer">
       <webobject name = "DetailForm">
         <div class="boxTitre" style="text-align:center;">
           <webobject name = "HasGroupe">&Eacute;dition du groupe : <webobject name = "NomGroupe" /></webobject>&nbsp;
@@ -36,6 +40,7 @@
         <webobject name = "EditGroupe" />
       </webobject>
       <br style = "clear:both;" />
+      </webobject>
     </div>
   </webobject>
 </webobject>

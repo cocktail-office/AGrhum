@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="var" path="NEXT_LOCAL_ROOT/Library/WebObjects/Extensions/ojdbc14.jar"/>
 	<classpathentry kind="src" path="Sources"/>
 	<classpathentry kind="con" path="WOFramework/ERExtensions"/>
 	<classpathentry kind="con" path="WOFramework/ERJars"/>
 	<classpathentry kind="con" path="WOFramework/JavaWOExtensions"/>
 	<classpathentry kind="con" path="WOFramework/Ajax"/>
+	<classpathentry kind="con" path="WOFramework/ERPrototypes"/>
+	<classpathentry kind="con" path="WOFramework/ERAttachment"/>
+	<classpathentry kind="con" path="WOFramework/WOLips"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlThemes"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlWebApp"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlDroitsUtils"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlPersonne"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlSync"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlJefyAdmin"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlGRH"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlGediBus"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlEvenement"/>
+	<classpathentry kind="con" path="WOFramework/FwkGspot"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlAjaxWebExt"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlPersonneGuiAjax"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlGRHGuiAjax"/>
+	<classpathentry kind="con" path="WOFramework/FwkGspotGUIAjax"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlDroitsUtilsGuiAjax"/>
+	<classpathentry kind="con" path="WOFramework/FwkCktlGed"/>
 	<classpathentry kind="con" path="WOFramework/JavaEOAccess"/>
 	<classpathentry kind="con" path="WOFramework/JavaEOControl"/>
 	<classpathentry kind="con" path="WOFramework/JavaFoundation"/>
 	<classpathentry kind="con" path="WOFramework/JavaJDBCAdaptor"/>
 	<classpathentry kind="con" path="WOFramework/JavaWebObjects"/>
-	<classpathentry kind="con" path="WOFramework/JavaXML"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlThemes"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="WOFramework/WOLips"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlPersonneGuiAjax"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlWebApp"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlAjaxWebExt"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlDroitsUtils"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlPersonne"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlSync"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlJefyAdmin"/>
-	<classpathentry kind="con" path="WOFramework/FwkGspotGUIAjax"/>
-	<classpathentry kind="con" path="WOFramework/FwkGspot"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlGRHGuiAjax"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlGRH"/>
 	<classpathentry kind="con" path="WOFramework/JavaEODistribution"/>
 	<classpathentry kind="con" path="WOFramework/JavaEOApplication"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlDroitsUtilsGuiAjax"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlGediBus"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlEvenement"/>
-	<classpathentry kind="con" path="WOFramework/ERPrototypes"/>
-	<classpathentry kind="con" path="WOFramework/FwkCktlGed"/>
-	<classpathentry kind="con" path="WOFramework/ERAttachment"/>
-	<classpathentry kind="var" path="NEXT_LOCAL_ROOT/Library/WebObjects/Extensions/ojdbc5_g.jar"/>
+	<classpathentry kind="con" path="WOFramework/JavaXML"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

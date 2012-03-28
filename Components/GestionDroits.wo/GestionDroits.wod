@@ -3,5 +3,5 @@ Wrapper : Wrapper {
 }
 
 ProfilAdmin : ProfilAdminUI {
-    utilisateurPersId = session.applicationUser.persId; // VALID
+    utilisateurPersId = session.applicationUser.persId;
 }

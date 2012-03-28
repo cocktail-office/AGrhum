@@ -40,6 +40,7 @@ import org.cocktail.fwkcktlwebapp.common.CktlLog;
 import org.cocktail.fwkcktlwebapp.common.util.DateCtrl;
 import org.cocktail.fwkcktlwebapp.server.CktlConfig;
 import org.cocktail.fwkcktlwebapp.server.CktlMailBus;
+import org.cocktail.fwkcktlwebapp.server.CktlParamManager;
 import org.cocktail.fwkcktlwebapp.server.util.EOModelCtrl;
 import org.cocktail.fwkcktlwebapp.server.version.A_CktlVersion;
 
@@ -77,6 +78,7 @@ public class Application extends CocktailAjaxApplication {
     public static final int DEFAULT_SEARCH_FETCHLIMIT = 20;
     public static final String CONFIG_C_STRUCTURE_LIST_AGRHUM_USERS_KEY = "C_STRUCTURE_LIST_AGRHUM_USERS";
 
+    public static AgrhumParamManager agrhumParamManager = new AgrhumParamManager();
 
     private final Logger logger = ERXApplication.log;
 
@@ -611,8 +613,12 @@ public class Application extends CocktailAjaxApplication {
 	public void finishInitialization() {
 		super.finishInitialization();
 		
-		// Il y a ici des créations de fiche de personne donc pour éviter les ennuis, nous avons désactivé les tests de cohérence sur le N° INSEE
-		FwkCktlPersonneParamManager.setParamValue(FwkCktlPersonneParamManager.INDIVIDU_CHECK_COHERENCE_INSEE_DISABLED, "OUI");
+		agrhumParamManager.checkAndInitParamsWithDefault();
+		
+		// Il y a ici des créations de fiche de personne donc pour éviter les ennuis, nous avons laissé le choix de pouvoir désactivr les tests de cohérence sur le N° INSEE
+		CktlParamManager.copyParamValue(AgrhumParamManager.AGRHUM_CHECK_COHERENCE_INSEE_DISABLED, FwkCktlPersonneParamManager.INDIVIDU_CHECK_COHERENCE_INSEE_DISABLED);
+//		// Il y a ici des créations de fiche de personne donc pour éviter les ennuis, nous avons désactivé les tests de cohérence sur le N° INSEE
+//		FwkCktlPersonneParamManager.setParamValue(FwkCktlPersonneParamManager.INDIVIDU_CHECK_COHERENCE_INSEE_DISABLED, "OUI");
 	}
 	
 }

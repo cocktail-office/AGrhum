@@ -42,7 +42,7 @@ public final class VersionMe extends Object {
     public static final int VERSIONNUMPATCH =   5;
     public static final int VERSIONNUMBUILD =   6;
     
-    public static final String VERSIONDATE="06/03/2012";
+    public static final String VERSIONDATE="16/03/2012";
     public static final String COMMENT = null;
     
     

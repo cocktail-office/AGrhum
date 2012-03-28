@@ -39,6 +39,7 @@ import com.webobjects.foundation.NSDictionary;
 import com.webobjects.foundation.NSMutableDictionary;
 import com.webobjects.foundation.NSValidation;
 
+import er.ajax.AjaxUpdateContainer;
 import er.extensions.eof.ERXEC;
 
 /**
@@ -59,6 +60,8 @@ public class GestionGroupes extends MyWOComponent {
 	private boolean resetMoveTreeView;
 	private boolean resetDelTreeView;
 	private static final String GROUPE_CONTAINER_ID = "groupeContainer";
+	private static final String BOUTONS_CONTAINER_ID = "boutonsContainer";
+	private static final String DETAIL_CONTAINER_ID = "detailContainer";
 	private EORepartPersonneAdresse selectedRepartPersonneAdresse;
 	private EOEditingContext gestionGroupeEc = ERXEC.newEditingContext();
 	
@@ -178,6 +181,7 @@ public class GestionGroupes extends MyWOComponent {
 	
 	public WOActionResults onSelectGroupe() {
 		setResetTabs(true);
+		AjaxUpdateContainer.updateContainerWithID(BOUTONS_CONTAINER_ID, context());
 		edc().revert();
 		return null;
 	}
@@ -220,8 +224,16 @@ public class GestionGroupes extends MyWOComponent {
 		return filters;
 	}
 
+	public String boutonsContainerId() {
+		return BOUTONS_CONTAINER_ID;
+	}
+	
 	public String groupeContainerId() {
 		return GROUPE_CONTAINER_ID;
+	}
+	
+	public String detailContainerId() {
+		return DETAIL_CONTAINER_ID;
 	}
 
 	public EORepartPersonneAdresse getSelectedRepartPersonneAdresse() {
