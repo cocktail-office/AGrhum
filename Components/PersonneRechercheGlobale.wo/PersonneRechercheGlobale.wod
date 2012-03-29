@@ -32,6 +32,10 @@ RechercherSubmitFunction : AjaxSubmitButton {
   functionName = "performRechercherGlobal";
 }
 
+RechercheAvancee : WOHyperlink {
+	pageName = "PersonneRechercheAvancee";
+}
+
 GlobalSrchResultModal : CktlAjaxWindow {
 	id = globalSearchResultModalID;
     showOpener = false; 

@@ -1,0 +1,150 @@
+<webobject name = "Wrapper">
+    <webobject name = "FormTypeRecherche">
+        <webobject name = "TypeRechercheObserveField">
+		    <webobject name = "RechercheStructures"/> Structures
+		    <webobject name = "RechercheIndividus"/> Individus
+	    </webobject>
+    </webobject>
+    <hr/>
+    <webobject name = "FormulaireContainer">
+	    
+	    
+	    
+        <div style = "padding: 10px;">
+        
+           <webobject name = "IsRechercheStructuresSelected">
+               <webobject name = "FormStructures">
+                    <webobject name = "TousLesCriteres"/> Tous les critères
+                    <webobject name = "AuMoinsUnCritere"/> Au moins un critère
+                    <br/>
+                    <hr/>
+					Libellé long: <webobject name = "ChampStructureLibelleLong"/> 
+					Libellé court: <webobject name = "ChampStructureLibelleCourt"/>
+					Siret: <webobject name = "ChampStructureSiret"/><br/>
+					<webobject name = "ShowInfosFournisseurs">
+						Code fournisseur: <webobject name = "ChampStructureCodeFournisseur"/>
+						État fournisseur: <webobject name = "ChampStructureEtatFournisseur"/><br/>
+					</webobject>
+					Alias: <webobject name = "ChampStructureAlias"/>
+					Login: <webobject name = "ChampStructureLogin"/><br/>
+					PersId: <webobject name = "ChampStructurePersId"/>
+					Code Structure: <webobject name = "ChampStructureCStructure"/>
+					<webobject name = "IsGrhumCreateur">
+					   <webobject name = "ChampStructureValide"/> Valide ?
+					</webobject>
+					<br/>
+					Responsable: <webobject name = "ChampStructureResponsable"/><br/>
+					Secrétaire: <webobject name = "ChampStructureSecretaire"/><br/>
+					<br/>
+					<webobject name = "RechercheDeStructures"/><webobject name = "ResetChampsStructure"/><webobject name = "RechercheDeStructuresFunction"/>
+				</webobject>
+			</webobject>
+			<webobject name = "IsRechercheIndividusSelected">
+               <webobject name = "FormIndividus">
+                    <webobject name = "TousLesCriteres"/> Tous les critères
+                    <webobject name = "AuMoinsUnCritere"/> Au moins un critère
+                    <br/>
+                    <hr/>
+			
+					Nom usuel: <webobject name = "ChampIndividuNomUsuel"/> 
+					Nom patronymique: <webobject name = "ChampIndividuNomPatronymique"/>
+					Nom affichage:  <webobject name = "ChampIndividuNomAffichage"/><br/>
+					Prénom: <webobject name = "ChampIndividuPrenom"/>
+					Prénom affichage: <webobject name = "ChampIndividuPrenomAffichage"/><br/>
+					<webobject name = "ShowInfosFournisseurs">
+					    Code fournisseur: <webobject name = "ChampIndividuCodeFournisseur"/>
+					    État fournisseur: <webobject name = "ChampIndividuEtatFournisseur"/><br/>
+					</webobject>
+					Alias: <webobject name = "ChampIndividuAlias"/>
+					Login: <webobject name = "ChampIndividuLogin"/><br/>
+					PersId: <webobject name = "ChampIndividuPersId"/>
+					Numéro: <webobject name = "ChampIndividuNumero"/>
+					<webobject name = "IsGrhumCreateur">
+					   <webobject name = "ChampIndividuValide"/> Valide ?
+					</webobject>
+					<br/>
+                    Qualité: <webobject name = "ChampIndividuQualite"/><br/>
+                    Email: <webobject name = "ChampIndividuEmail"/>
+                    Domaine: <webobject name = "ChampIndividuDomaine"/>
+                    Vlan: <webobject name = "ChampIndividuVlans"/><br/>
+					<br/>
+					<webobject name = "RechercheDeIndividus"/><webobject name = "ResetChampsIndividu"/><webobject name = "RechercheDeIndividusFunction"/>
+			    </webobject>
+			</webobject>
+	        
+	        
+        </div>
+    </webobject>
+    <webobject name = "TableViewResultatsContainer">
+        <webobject name = "TableViewResultats">
+            <webobject name = "TableViewResultatsHeader">
+                <webobject name = "IsRechercheStructuresSelected">
+                    <webobject name = "IsGrhumCreateur">
+                        <webobject name = "ShowColonneStructureValide">
+                            <webobject name = "TableViewResultatsColonneValideStructure"/>
+                        </webobject>
+                    </webobject>
+	                <webobject name = "TableViewResultatsColonnePersIdStructure"/> 
+	                <webobject name = "TableViewResultatsColonneCodeStructure"/>
+	                <webobject name = "TableViewResultatsColonneLibelleLongStructure"/>
+	                <webobject name = "TableViewResultatsColonneSiretStructure"/>
+	                <webobject name = "ShowInfosFournisseurs">
+	                    <webobject name = "TableViewResultatsColonneFouValideStructure"/>
+	                    <webobject name = "TableViewResultatsColonneFouCodeStructure"/>
+	                </webobject>
+	            </webobject>
+	            <webobject name = "IsRechercheIndividusSelected">
+	                <webobject name = "IsGrhumCreateur">
+	                   <webobject name = "ShowColonneIndividuValide">
+	                       <webobject name = "TableViewResultatsColonneValideIndividu"/>  
+	                   </webobject>
+	                </webobject>
+                    <webobject name = "TableViewResultatsColonnePersIdIndividu"/> 
+                    <webobject name = "TableViewResultatsColonneNoIndividu"/>
+                    <webobject name = "TableViewResultatsColonneNomUsuelIndividu"/>
+                    <webobject name = "TableViewResultatsColonneNomPatronymiqueIndividu"/>
+                    <webobject name = "TableViewResultatsColonnePrenomIndividu"></webobject>
+                    <webobject name = "ShowInfosFournisseurs">
+                        <webobject name = "TableViewResultatsColonneFouValideIndividu"/>
+                        <webobject name = "TableViewResultatsColonneFouCodeIndividu"/>
+                    </webobject>
+	            </webobject>
+            </webobject>
+            <webobject name = "TableViewResultatsBody">
+                <webobject name = "IsRechercheStructuresSelected">
+                    <webobject name = "IsGrhumCreateur">
+                        <webobject name = "ShowColonneStructureValide">
+                            <webobject name = "AffichageStructureValide"/>
+                        </webobject>
+                    </webobject>
+	                <td><webobject name = "AffichageStructurePersId"/></td>
+	                <td><webobject name = "AffichageStructureCode"/></td>
+	                <td><webobject name = "AffichageStructureLibelleLong"/></td>
+	                <td><webobject name = "AffichageStructureSiret"/></td>
+	                <webobject name = "ShowInfosFournisseurs">
+	                    <webobject name = "AffichageStructureFouValide">&nbsp;</webobject>
+	                    <td><webobject name = "AffichageStructureFouCode"/></td>
+	                </webobject>
+                </webobject>
+                <webobject name = "IsRechercheIndividusSelected">
+                    <webobject name = "IsGrhumCreateur">
+                        <webobject name = "ShowColonneIndividuValide">
+                            <webobject name = "AffichageIndividuValide"/>
+                        </webobject>
+                    </webobject>
+                    <td><webobject name = "AffichageIndividuPersId"/></td>
+                    <td><webobject name = "AffichageIndividuNumero"/></td>
+                    <td><webobject name = "AffichageIndividuNomUsuel"/></td>
+                    <td><webobject name = "AffichageIndividuNomPatronymique"/></td>
+                    <td><webobject name = "AffichageIndividuPrenom"/></td>
+                    <webobject name = "ShowInfosFournisseurs">
+                        <webobject name = "AffichageIndividuFouValide">&nbsp;</webobject>
+                        <td><webobject name = "AffichageIndividuFouCode"/></td>
+                    </webobject>
+                </webobject>
+            </webobject>
+        </webobject>
+        <br/>
+        <webobject name = "Selectionner"/>
+    </webobject>
+</webobject>

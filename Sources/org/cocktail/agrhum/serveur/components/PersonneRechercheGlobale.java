@@ -9,10 +9,12 @@ import com.webobjects.appserver.WOActionResults;
 import com.webobjects.appserver.WOContext;
 import com.webobjects.appserver.WODisplayGroup;
 import com.webobjects.foundation.NSArray;
+import com.webobjects.foundation.NSMutableArray;
 import com.webobjects.foundation.NSMutableSet;
 
 import er.extensions.eof.ERXS;
 import er.extensions.eof.ERXSortOrdering;
+import er.extensions.foundation.ERXArrayUtilities;
 
 public class PersonneRechercheGlobale extends MyWOComponent {
 	private static final long serialVersionUID = -8648012745496408688L;
@@ -110,8 +112,10 @@ public class PersonneRechercheGlobale extends MyWOComponent {
 	}
 
 	public NSArray getResultats() {
-		NSMutableSet resultats = new NSMutableSet();
-		NSArray res = new NSArray();
+		
+		NSArray<IPersonne> resultats = new NSMutableArray<IPersonne>();
+		NSArray<EOStructure> structures = new NSMutableArray<EOStructure>();
+		NSArray<EOIndividu> individus = new NSMutableArray<EOIndividu>();
 		
 		String srchPatern = getSrchPatern();
 		
@@ -119,44 +123,29 @@ public class PersonneRechercheGlobale extends MyWOComponent {
 			srchPatern = MyStringCtrl.replace(srchPatern, " ", "*");
 		}
 		
-//		System.out.println("##### PersonneRechercheGlobale.getResultats() srchPatern : " + srchPatern);
-		
+
 		// struture externe by name
-		res = EOStructure.structuresExternesByNameAndSigleAndSiretAndFouCode(edc(), srchPatern, null, null, null,
-				null, application().getSearchFetchLimit());
-		resultats.addObjectsFromArray(EOStructure.filtrerLesStructuresNonAffichables(res, edc(), applicationUser().getPersId()));
-		// structure interne by name
-		res = (EOStructure.structuresInternesByNameAndSigleAndSiretAndFouCode(edc(), srchPatern, null, null, null,
+		structures.addAll(EOStructure.structuresExternesByNameAndSigleAndSiretAndFouCode(edc(), srchPatern, null, null, null,
 				null, application().getSearchFetchLimit()));
-		resultats.addObjectsFromArray(EOStructure.filtrerLesStructuresNonAffichables(res, edc(), applicationUser().getPersId()));
-		// individu interne by name
-//		res = (EOIndividu.individusInternesByNameFirstnameAndEmail(edc(), srchPatern, null, null, null,
-//				20));
-//		resultats.addObjectsFromArray(res);
-		// individu interne by firstname
-//		res = (EOIndividu.individusInternesByNameFirstnameAndEmail(edc(), null, srchPatern, null, null,
-//				20));
-//		resultats.addObjectsFromArray(res);
-		// individu externe by name
-//		res = (EOIndividu.individusExternesByNameFirstnameAndEmail(edc(), srchPatern, null, null, null,
-//				20));
-//		resultats.addObjectsFromArray(res);
-		// individu externe by firstname
-//		res = (EOIndividu.individusExternesByNameFirstnameAndEmail(edc(), null, srchPatern, null, null,
-//				20));
-//		resultats.addObjectsFromArray(res);
+		// structure interne by name
+		structures.addAll(EOStructure.structuresInternesByNameAndSigleAndSiretAndFouCode(edc(), srchPatern, null, null, null,
+				null, application().getSearchFetchLimit()));
 		
 		
-		res = EOIndividu.individusWithNameLikeAndFirstNameEquals(edc(), srchPatern, null, application().getSearchFetchLimit());
-		resultats.addObjectsFromArray(res);
+		structures = ERXArrayUtilities.arrayWithoutDuplicates(structures);
 		
-		res = EOIndividu.individusWithFirstNameLike(edc(), srchPatern, null, application().getSearchFetchLimit());
-		resultats.addObjectsFromArray(res);
+		structures = EOStructure.filtrerLesStructuresNonAffichables(structures, edc(), applicationUser().getPersId());
+		
+		individus.addAll(EOIndividu.individusWithNameLikeAndFirstNameEquals(edc(), srchPatern, null, application().getSearchFetchLimit()));
+		individus.addAll(EOIndividu.individusWithFirstNameLike(edc(), srchPatern, null, application().getSearchFetchLimit()));
 		
 		
+		individus = ERXArrayUtilities.arrayWithoutDuplicates(individus);
 		
-		return ERXSortOrdering.sortedArrayUsingKeyOrderArray(resultats.allObjects(), ERXS.ascInsensitives(IPersonne.NOM_PRENOM_RECHERCHE_KEY));
-//		return ERXSortOrdering.sortedArrayUsingKeyOrderArray(resultats.allObjects(), ERXS.ascInsensitives(IPersonne.NOM_PRENOM_AFFICHAGE_KEY));
+		resultats.addAll(structures);
+		resultats.addAll(individus);
+		
+		return ERXSortOrdering.sortedArrayUsingKeyOrderArray(resultats, ERXS.ascInsensitives(IPersonne.NOM_PRENOM_RECHERCHE_KEY));
 	}
 
 	public WOActionResults doSelection() {

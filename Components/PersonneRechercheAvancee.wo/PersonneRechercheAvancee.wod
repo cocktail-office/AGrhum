@@ -1,0 +1,457 @@
+Wrapper : Wrapper {}
+
+FormTypeRecherche : WOForm {}
+
+TypeRechercheObserveField : AjaxObserveField {
+	updateContainerID = "formulaireContainer";
+	action = changerTypeRecherche;
+	fullSubmit = true;
+}
+
+RechercheStructures : WORadioButton {
+	name = "rechercheIndividusOuStructures";
+	checked = isRechercheStructuresSelected;
+}
+
+RechercheIndividus : WORadioButton {
+    name = "rechercheIndividusOuStructures";
+    checked = isRechercheIndividusSelected;
+}
+
+
+FormulaireContainer : AjaxUpdateContainer {
+	id = "formulaireContainer";
+}
+
+FormStructures : WOForm {
+    onKeyPress="if (event.keyCode == 13) {rechercheDeStructures();return false;}";
+}
+FormIndividus : WOForm {
+    onKeyPress="if (event.keyCode == 13) {rechercheDeIndividus();return false;}";
+}
+
+TousLesCriteres : WORadioButton {
+	name = "combinaisonConditions";
+	checked = personneRechercheAvanceeCtrl.toutesLesConditionsSelected;
+}
+
+AuMoinsUnCritere : WORadioButton {
+    name = "combinaisonConditions";
+    checked = personneRechercheAvanceeCtrl.auMoinsUneConditionSelected;
+}
+
+IsRechercheStructuresSelected : WOConditional {
+	condition = isRechercheStructuresSelected;
+}
+
+IsRechercheIndividusSelected : WOConditional {
+	condition = isRechercheIndividusSelected;
+}
+
+
+ChampStructureLibelleLong : WOTextField {
+	value = personneRechercheAvanceeCtrl.champStructureLibelleLong;
+}
+
+ChampStructureLibelleCourt : WOTextField {
+	value = personneRechercheAvanceeCtrl.champStructureLibelleCourt;
+}
+
+ChampStructureSiret : WOTextField {
+    value = personneRechercheAvanceeCtrl.champStructureSiret;
+}
+
+ChampStructureCodeFournisseur : WOTextField {
+    value = personneRechercheAvanceeCtrl.champStructureCodeFournisseur;
+}
+
+ChampStructureEtatFournisseur : WOPopUpButton {
+    noSelectionString = "-"; 
+	selection = personneRechercheAvanceeCtrl.champStructureEtatFournisseur;
+	list = etatsFournisseursCles;
+	item = currentEtatFournisseurCle;
+	displayString = currentEtatFournisseurLibelle;
+}
+
+ChampStructureAlias : WOTextField {
+    value = personneRechercheAvanceeCtrl.champStructureAlias;
+}
+
+ChampStructureLogin : WOTextField {
+    value = personneRechercheAvanceeCtrl.champStructureLogin;
+}
+
+ChampStructurePersId : WOTextField {
+    value = personneRechercheAvanceeCtrl.champStructurePersId;
+    numberformat = "0";
+}
+
+ChampStructureCStructure : WOTextField {
+    value = personneRechercheAvanceeCtrl.champStructureCStructure;
+    numberformat = "0";
+}
+
+ChampStructureValide : WOCheckBox {
+	checked = personneRechercheAvanceeCtrl.champStructureValide;
+}
+
+ChampStructureResponsable : CktlAjaxPersonneSelect {
+	editingContext = personneRechercheAvanceeCtrl.editingContext;
+	showIndividus = true;
+	showStructures = false;
+	showPersonnesInternes = true;
+	showPersonnesExternes = false;
+	selection = personneRechercheAvanceeCtrl.champStructureResponsable;
+	showResetButton = true;
+    listViewWidth = 400;
+    listViewHeight = 400;	
+}
+
+ChampStructureSecretaire : CktlAjaxPersonneSelect {
+    editingContext = personneRechercheAvanceeCtrl.editingContext;
+    showIndividus = true;
+    showStructures = false;
+    showPersonnesInternes = true;
+    showPersonnesExternes = false;
+    selection = personneRechercheAvanceeCtrl.champStructureSecretaire;
+    showResetButton = true;
+    listViewWidth = 400;
+    listViewHeight = 400;
+}
+
+
+RechercheDeStructures : CktlAjaxSubmitButton {
+	action = rechercheDeStructures;
+	updateContainerID = "tableViewResultatsContainer";
+	text = "Rechercher";
+	type = "find";
+}
+
+RechercheDeStructuresFunction : AjaxSubmitButton {
+    action = rechercheDeStructures;
+    updateContainerID = "tableViewResultatsContainer";
+    functionName = "rechercheDeStructures";
+}
+
+
+ResetChampsStructure : CktlAjaxButton {
+	action = resetChampsStructure;
+	updateContainerID = "formulaireContainer";
+	type = "reset";
+	text = "Effacer";
+}
+
+Selectionner : CktlButton {
+	action  = selectionner;
+	disabled = isSelectionnerDisabled;
+	type = "validate";
+	text = "Sélectionner";
+}
+
+
+
+
+
+
+
+ChampIndividuNomUsuel : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuNomUsuel;
+}
+
+ChampIndividuNomPatronymique : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuNomPatronymique;
+}
+
+ChampIndividuNomAffichage : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuNomAffichage;
+}
+
+ChampIndividuPrenom : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuPrenom;
+}
+
+ChampIndividuPrenomAffichage : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuPrenomAffichage;
+}
+
+ChampIndividuCodeFournisseur : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuCodeFournisseur;
+}
+
+ChampIndividuEtatFournisseur : WOPopUpButton {
+    noSelectionString = "-"; 
+    selection = personneRechercheAvanceeCtrl.champIndividuEtatFournisseur;
+    list = etatsFournisseursCles;
+    item = currentEtatFournisseurCle;
+    displayString = currentEtatFournisseurLibelle;
+}
+
+ChampIndividuAlias : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuAlias;
+}
+
+ChampIndividuLogin : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuLogin;
+}
+
+ChampIndividuPersId : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuPersId;
+    numberformat = "0";
+}
+
+ChampIndividuNumero : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuNumero;
+    numberformat = "0";
+}
+
+ChampIndividuValide : WOCheckBox {
+    checked = personneRechercheAvanceeCtrl.champIndividuValide;
+}
+
+ChampIndividuQualite : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuQualite;
+}
+
+ChampIndividuEmail : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuEmail;
+}
+
+ChampIndividuDomaine : WOTextField {
+    value = personneRechercheAvanceeCtrl.champIndividuDomaine;
+}
+
+ChampIndividuVlans : WOPopUpButton {
+	list = vlansDisponibles;
+	item = currentVlans;
+	selection = personneRechercheAvanceeCtrl.champIndividuVlan;
+	displayString = currentVlans.llVlan;
+	noSelectionString = "-";
+}
+
+RechercheDeIndividus : CktlAjaxSubmitButton {
+    action = rechercheDeIndividus;
+    updateContainerID = "tableViewResultatsContainer";
+    text = "Rechercher";
+    type = "find";
+}
+
+RechercheDeIndividusFunction : AjaxSubmitButton {
+    action = rechercheDeIndividus;
+    updateContainerID = "tableViewResultatsContainer";
+    functionName = "rechercheDeIndividus";
+}
+
+ResetChampsIndividu : CktlAjaxButton {
+    action = resetChampsIndividu;
+    updateContainerID = "formulaireContainer";
+    type = "reset";
+    text = "Effacer";
+}
+
+
+TableViewResultats : CktlAjaxSimpleTableView {
+	id = "tableViewResultats";
+	displayGroup = displayGroup;
+	item = currentPersonne;
+	height = "350px";
+}
+
+TableViewResultatsHeader : CktlAjaxSimpleTableViewHeader {}
+
+TableViewResultatsColonnePersIdStructure : CktlAjaxSimpleTableViewColumn {
+	label = "PersId";
+	sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_PERS_ID;
+	class = "nowrap";
+}
+
+TableViewResultatsColonneCodeStructure : CktlAjaxSimpleTableViewColumn {
+    label = "Code";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_C_STRUCTURE;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneLibelleLongStructure : CktlAjaxSimpleTableViewColumn {
+    label = "Libellé long";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_LIBELLE_LONG;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneSiretStructure : CktlAjaxSimpleTableViewColumn {
+    label = "Siret";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_SIRET;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneFouValideStructure : CktlAjaxSimpleTableViewColumn {
+    label = "État fourn.";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_FOU_VALIDE;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneFouCodeStructure : CktlAjaxSimpleTableViewColumn {
+    label = "Code fourn.";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_FOU_CODE;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneValideStructure : CktlAjaxSimpleTableViewColumn {
+    label = "Valide ?";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_STRUCTURE_DATE_FERMETURE;
+    class = "nowrap";
+}
+
+
+
+TableViewResultatsColonneValideIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "Valide ?";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_VALIDE;
+    class = "nowrap";
+}
+
+TableViewResultatsColonnePersIdIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "PersId";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_PERS_ID;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneNoIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "Numéro";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_NO_INDIVIDU;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneNomUsuelIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "Nom Usuel";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_NOM_USUEL;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneNomPatronymiqueIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "Nom patronymique";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_NOM_PATRONYMIQUE;
+    class = "nowrap";
+}
+
+TableViewResultatsColonnePrenomIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "Prénom";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_PRENOM;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneFouValideIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "État fourn.";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_FOU_VALIDE;
+    class = "nowrap";
+}
+
+TableViewResultatsColonneFouCodeIndividu : CktlAjaxSimpleTableViewColumn {
+    label = "Code fourn.";
+    sortKeypath = personneRechercheAvanceeCtrl.KEY_INDIVIDU_FOU_CODE;
+    class = "nowrap";
+}
+
+
+
+
+TableViewResultatsBody : CktlAjaxSimpleTableViewBody {}
+
+AffichageStructureValide  : WOGenericElement {
+    elementName = "td";
+    style = currentStructureValideStyle;
+}
+
+AffichageStructurePersId  : WOString {
+	value = currentStructurePersId;
+	valueWhenEmpty = "-";
+}
+
+AffichageStructureCode  : WOString {
+    value = currentStructureCStructure;
+    valueWhenEmpty = "-";
+}
+
+AffichageStructureLibelleLong  : WOString {
+    value = currentStructureLibelleLong;
+    valueWhenEmpty = "-";
+}
+
+AffichageStructureSiret  : WOString {
+    value = currentStructureSiret;
+    valueWhenEmpty = "-";
+}
+
+AffichageStructureFouValide  : WOGenericElement {
+    elementName = "td";
+    style = currentStructureFouValideStyle;
+}
+
+AffichageStructureFouCode  : WOString {
+    value = currentStructureFouCode;
+    valueWhenEmpty = "-";
+}
+
+
+AffichageIndividuValide  : WOGenericElement {
+    elementName = "td";
+    style = currentIndividuValideStyle;
+}
+
+AffichageIndividuPersId  : WOString {
+    value = currentIndividuPersId;
+    valueWhenEmpty = "-";
+}
+
+AffichageIndividuNumero  : WOString {
+    value = currentIndividuNumero;
+    valueWhenEmpty = "-";
+}
+
+AffichageIndividuNomUsuel  : WOString {
+    value = currentIndividuNomUsuel;
+    valueWhenEmpty = "-";
+}
+
+AffichageIndividuNomPatronymique  : WOString {
+    value = currentIndividuNomPatronymique;
+    valueWhenEmpty = "-";
+}
+
+AffichageIndividuPrenom  : WOString {
+    value = currentIndividuPrenom;
+    valueWhenEmpty = "-";
+}
+
+AffichageIndividuFouValide  : WOGenericElement {
+    elementName = "td";
+    style = currentIndividuFouValideStyle;
+}
+
+AffichageIndividuFouCode  : WOString {
+    value = currentIndividuFouCode;
+    valueWhenEmpty = "-";
+}
+
+
+
+TableViewResultatsContainer : AjaxUpdateContainer {
+	id = "tableViewResultatsContainer";
+	style = "padding: 10px";
+}
+
+ShowInfosFournisseurs : WOConditional {
+	condition = showInfosFournisseurs;
+}
+
+IsGrhumCreateur : WOConditional {
+	condition = session.applicationUser.hasDroitGrhumCreateur;
+}
+
+ShowColonneStructureValide : WOConditional {
+	condition = personneRechercheAvanceeCtrl.champStructureValide;
+	negate = true;
+}
+
+ShowColonneIndividuValide : WOConditional {
+    condition = personneRechercheAvanceeCtrl.champIndividuValide;
+    negate = true;
+}
