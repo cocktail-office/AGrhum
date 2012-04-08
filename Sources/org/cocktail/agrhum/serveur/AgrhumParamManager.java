@@ -16,6 +16,10 @@ import er.extensions.foundation.ERXThreadStorage;
 public class AgrhumParamManager extends CktlParamManager {
 	
 	public static final String AGRHUM_CHECK_COHERENCE_INSEE_DISABLED = "org.cocktail.agrhum.individu.checkcoherenceinsee.disabled";
+	public static final String AGRHUM_CHECK_MANGUE_INSTALLED = "org.cocktail.agrhum.grhumparametres.checkmangue.installed";
+	public static final String AGRHUM_CHECK_SCOLARIX_INSTALLED = "org.cocktail.agrhum.grhumparametres.checkscolarix.installed";
+	public static final String AGRHUM_ADRESSE_PERSO_DESACTIVE = "org.cocktail.agrhum.adresse.personaladressmodification.disabled";
+	public static final String AGRHUM_PERSONNE_NOM_READONLY_ACTIVE = "org.cocktail.agrhum.personne.nom.readonly.enabled";
 	
 	private EOEditingContext ec = ERXEC.newEditingContext();
 
@@ -24,6 +28,26 @@ public class AgrhumParamManager extends CktlParamManager {
 		getParamComments().put(AGRHUM_CHECK_COHERENCE_INSEE_DISABLED, "Autoriser ou non un individu à modifier son adresse personnelle");
 		getParamDefault().put(AGRHUM_CHECK_COHERENCE_INSEE_DISABLED, "NON");
 		getParamTypes().put(AGRHUM_CHECK_COHERENCE_INSEE_DISABLED, EOGrhumParametresType.codeActivation);
+		
+		getParamList().add(AGRHUM_CHECK_MANGUE_INSTALLED);
+		getParamComments().put(AGRHUM_CHECK_MANGUE_INSTALLED, "Précise si ManGUE est installée");
+		getParamDefault().put(AGRHUM_CHECK_MANGUE_INSTALLED, "N");
+		getParamTypes().put(AGRHUM_CHECK_MANGUE_INSTALLED, EOGrhumParametresType.codeActivation);
+		
+		getParamList().add(AGRHUM_CHECK_SCOLARIX_INSTALLED);
+		getParamComments().put(AGRHUM_CHECK_SCOLARIX_INSTALLED, "Précise");
+		getParamDefault().put(AGRHUM_CHECK_SCOLARIX_INSTALLED, "N");
+		getParamTypes().put(AGRHUM_CHECK_SCOLARIX_INSTALLED, EOGrhumParametresType.codeActivation);
+		
+		getParamList().add(AGRHUM_ADRESSE_PERSO_DESACTIVE);
+		getParamComments().put(AGRHUM_ADRESSE_PERSO_DESACTIVE, "Autoriser ou non un individu à modifier son adresse personnelle dans Agrhum");
+		getParamDefault().put(AGRHUM_ADRESSE_PERSO_DESACTIVE, "N");
+		getParamTypes().put(AGRHUM_ADRESSE_PERSO_DESACTIVE, EOGrhumParametresType.codeActivation);
+
+		getParamList().add(AGRHUM_PERSONNE_NOM_READONLY_ACTIVE);
+		getParamComments().put(AGRHUM_PERSONNE_NOM_READONLY_ACTIVE, "Mettre le nom des personnes en lecture seulement si utilisateur pas GrhumCreateur");
+		getParamDefault().put(AGRHUM_PERSONNE_NOM_READONLY_ACTIVE, "N");
+		getParamTypes().put(AGRHUM_PERSONNE_NOM_READONLY_ACTIVE, EOGrhumParametresType.codeActivation);
 	}
 	
 	@Override

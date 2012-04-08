@@ -36,6 +36,7 @@ import org.cocktail.fwkcktlpersonne.common.FwkCktlPersonne;
 import org.cocktail.fwkcktlpersonne.common.FwkCktlPersonneParamManager;
 import org.cocktail.fwkcktlpersonne.common.eospecificites.EOStructureForGroupeSpec;
 import org.cocktail.fwkcktlpersonne.common.metier.EOGrhumParametres;
+import org.cocktail.fwkcktlpersonneguiajax.serveur.FwkCktlPersonneGuiAjaxParamManager;
 import org.cocktail.fwkcktlwebapp.common.CktlLog;
 import org.cocktail.fwkcktlwebapp.common.util.DateCtrl;
 import org.cocktail.fwkcktlwebapp.server.CktlConfig;
@@ -619,6 +620,9 @@ public class Application extends CocktailAjaxApplication {
 		CktlParamManager.copyParamValue(AgrhumParamManager.AGRHUM_CHECK_COHERENCE_INSEE_DISABLED, FwkCktlPersonneParamManager.INDIVIDU_CHECK_COHERENCE_INSEE_DISABLED);
 //		// Il y a ici des créations de fiche de personne donc pour éviter les ennuis, nous avons désactivé les tests de cohérence sur le N° INSEE
 //		FwkCktlPersonneParamManager.setParamValue(FwkCktlPersonneParamManager.INDIVIDU_CHECK_COHERENCE_INSEE_DISABLED, "OUI");
+		CktlParamManager.copyParamValue(AgrhumParamManager.AGRHUM_CHECK_MANGUE_INSTALLED, FwkCktlPersonneParamManager.APPLICATION_MANGUE_INSTALLED);
+		CktlParamManager.copyParamValue(AgrhumParamManager.AGRHUM_CHECK_SCOLARIX_INSTALLED, FwkCktlPersonneParamManager.APPLICATION_SCOLARIX_INSTALLED);
+		CktlParamManager.copyParamValue(AgrhumParamManager.AGRHUM_ADRESSE_PERSO_DESACTIVE, FwkCktlPersonneGuiAjaxParamManager.PERSONNE_ADRESSE_PERSO_DESACTIVE);
 	}
 	
 }

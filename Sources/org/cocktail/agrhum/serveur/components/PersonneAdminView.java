@@ -23,6 +23,7 @@
  */
 package org.cocktail.agrhum.serveur.components;
 
+import org.cocktail.agrhum.serveur.AgrhumParamManager;
 import org.cocktail.fwkcktlpersonne.common.eospecificites.EOIndividuForFournisseurSpec;
 import org.cocktail.fwkcktlpersonne.common.eospecificites.EOStructureForFournisseurSpec;
 import org.cocktail.fwkcktlpersonne.common.metier.AfwkPersRecord;
@@ -440,5 +441,24 @@ public class PersonneAdminView extends MyWOComponent {
 
 	public Boolean showNoInsee() {
 		return myApp().config().booleanForKey(FwkCktlPersonneGuiAjaxParamManager.PARAM_FOURNIS_FORM_SHOWINSEE);
+	}
+	
+	public boolean isEditing(){
+		return applicationUser().hasDroitModificationIPersonne(getIndividu());
+	}
+	
+	public boolean isReadOnly(){
+		return !isEditing();
+	}
+	
+	/**
+	 * AJout d'un paramètre dans la table Grhum.paramètre pour que les noms et prénoms des individus ou
+	 * les noms des structures soient seulement en mode affichage si l'utilisateur n'est pas GrhumCreateur.
+	 */
+	public boolean isNomReadOnlyEnabled(){
+		if (myApp().config().booleanForKey(AgrhumParamManager.AGRHUM_PERSONNE_NOM_READONLY_ACTIVE) && applicationUser().hasDroitGrhumCreateur() ){
+			return true;
+		}
+		return false;
 	}
 }

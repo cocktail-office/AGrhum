@@ -1,6 +1,7 @@
 SNom : PersonneNomUI {
     personne = personne;
-    isReadOnly = false;
+//    isReadOnly = false;
+	isReadOnly = isNomReadOnlyEnabled;
     isEditing = nomEditing;
     showCivilite = true;
     utilisateurPersId = ^utilisateurPersId;
@@ -86,8 +87,10 @@ FournisseurInfoView : FournisseurInfoView {
 
 PersonneAdminUI1 : PersonneAdminUI {
     editingContext = editingContext;
-    isEditing = personneAdminEditing;
-    isReadOnly = false;
+//    isEditing = personneAdminEditing;
+	isEditing = isEditing;
+//    isReadOnly = false;
+  	isReadOnly = isReadOnly;  
     personne = personne;
     utilisateurPersId = ^utilisateurPersId;
     showNoInsee = peutVoirInfoPerso;
@@ -158,10 +161,12 @@ GroupeAdminTitle : WOString {
 
 GroupeAdminUI1 : GroupeAdminUI {
     editingContext = editingContext;
-    isReadOnly = false;
+//    isReadOnly = false;
+  	isReadOnly = isReadOnly;  
     groupe = personne;
     utilisateurPersId = ^utilisateurPersId;
-    isEditing = groupeAdminEditing;
+//    isEditing = groupeAdminEditing;
+	isEditing = isEditing;
     shouldShowTypesGroupes = true;
     shouldShowAliasGroupes = true;
     shouldShowAccesGroupes = true;
